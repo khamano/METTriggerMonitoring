@@ -1,0 +1,43 @@
+#!/bin/bash
+
+#
+# Tae Min Hong, Univ. of Pennsylvania (2012)
+#
+# Instructions on how to set-up the xmon account
+#
+
+# Create directory
+pushd $HOME/public
+mkdir cmthome
+pushd cmthome
+
+# Put these two lines in asetup.sh & source it
+export AtlasSetup=/afs/cern.ch/atlas/software/dist/AtlasSetup
+source $AtlasSetup/scripts/asetup.sh AtlasProduction,17.0.4.2,runtime,opt,32 --testarea=`pwd`
+
+# Check out this package using cmt (not svn)
+cmt co Trigger/TrigMonitoring/TrigXMonitor      &> cmtco_TrigXMonitor.log    &
+cmt co Trigger/TrigMonitoring/TrigCostMonitor   &> cmtco_TrigCostMonitor.log &
+cmt co Trigger/TrigCost/TrigCostPython          &> cmtco_TrigCostPython.log  &
+
+# Compile
+pushd Trigger/TrigMonitoring/TrigXMonitor/cmt
+make &> make.log &
+popd
+pushd Trigger/TrigMonitoring/TrigCostMonitor/cmt
+make &> make.log &
+popd
+pushd Trigger/TrigCost/TrigCostPython/cmt
+make &> make.log &
+popd
+
+# Change to $HOME
+popd
+
+# Set-up links to web
+mkdir www
+pushd www
+ln -sv `echo $USER | cut -c1`/$USER/work/public/root root
+popd
+
+#eof

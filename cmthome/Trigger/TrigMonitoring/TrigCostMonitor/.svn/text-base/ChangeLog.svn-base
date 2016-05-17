@@ -1,0 +1,478 @@
+2015-07-14 Tim Martin <Tim.Martin@cern.ch>
+    * Remove enhanced bias XMLs, these are now supplied from TrigCostRootAnalysis which is now also in AtlasTrigger
+    * Tag TrigCostMonitor-01-20-07
+
+2015-07-14 Tim Martin <Tim.Martin@cern.ch>
+    * Enable export of stream tag info
+    * Tag TrigCostMonitor-01-20-06
+
+2015-07-14 Tim Martin <Tim.Martin@cern.ch>
+    * Alter some EB warnings
+    * Tag TrigCostMonitor-01-20-05
+
+2015-06-16 Tim Martin <Tim.Martin@cern.ch>
+    * Better EB BG
+    * Tag TrigCostMonitor-01-20-04
+
+2015-06-16 Tim Martin <Tim.Martin@cern.ch>
+    * Add EB xmls
+    * Tag TrigCostMonitor-01-20-03
+
+2015-06-16 Tim Martin <Tim.Martin@cern.ch>
+    * Nearing limit of TrigMonSeq index storage (max 4098 L1 + HLT Seq)
+    * Making best use of current ID space - not long term solution
+    * Change default behavior to NOT monitor events if cost monitor chain is prescaled out online
+    * Tag TrigCostMonitor-01-20-02
+
+2015-05-15 Tim Martin <Tim.Martin@cern.ch>
+    * Update EB extraction for run2
+     Tag TrigCostMonitor-01-20-01
+
+2015-04-17 Tim Martin <Tim.Martin@cern.ch>
+	* Fix that non-save events may be cost events
+	* Tag TrigCostMonitor-01-20-00
+
+2015-04-15 Tim Martin <Tim.Martin@cern.ch>
+	* Use stream manipulation tools from TrigSteering-03-07-29
+	* Tag TrigCostMonitor-01-19-00
+
+2015-03-30 Tim Martin <Tim.Martin@cern.ch>
+	* Coverity fixes. 16130, 14985, 15952, 17464, 15026, 15060, 15785
+	* Tag TrigCostMonitor-01-18-00
+
+2015-03-13 Tim Martin <Tim.Martin@cern.ch>
+	* Add extra meta info on CPU usage, feature req.
+	* Tag TrigCostMonitor-01-17-00
+
+2015-03-13 Tim Martin <Tim.Martin@cern.ch>
+	* By default don't write out non-cost-events
+	* Decided to duplicate xAOD::StreamTags to EventInfo::TriggerInfo for legacy support
+	* (these two are combined later, and we need to make sure the cost stream is _removed_)
+	* Tag TrigCostMonitor-01-15-00
+
+2015-03-09 Tim Martin <Tim.Martin@cern.ch>
+	* Reduce output of TrigCostRun yet more
+	* Change to only fill xAOD::StreamTag
+	* Tag TrigCostMonitor-01-14-00
+
+2015-02-10 Tim Martin <Tim.Martin@cern.ch>
+	* Support more L1 items. Leave space for 0-600 as index of TrigConfSeq reserved to L1
+	* Only export HLT configs when needed. Reduce to single line of INFO
+	* ATR-10104
+	* Tag TrigCostMonitor-01-13-00
+ 
+2014-12-17 Tim Martin <Tim.martin@cern.ch>
+	* Migrate from Gaudi to Ath* inheritance
+	* Use Ath* macros wherever approp.
+	* Tag TrigCostMonitor-01-12-00
+
+2014-12-17 Tim Martin <Tim.martin@cern.ch>
+	* Re-enable export of trigger keys as part of metadata
+	* Add bunchgroup info from CTP also (for online)
+	* Add CTPVersion and L1Version to metadata
+	* Change to get L1 PSK from CTP rather than TrigConfSvc (always returned 0)
+	* More verbosity options in Trig::Print utility
+	* Remove app name code from TrigCostTool, cannot access HLTResult here
+	* Improved messages
+	* Export the OPI monitoring level, the EcecPrescale and if the event was a monitoring event
+	* Improved TrigCostRun for offline extraction
+	* Move doValidation check from TriggerRelease to here
+	* ## ---> CHANGE DEFAULT CONFIG TO ONLY MONITOR 1 IN 10 EVENTS <-- ##
+	* Tag TrigCostMonitor-01-11-00
+
+2014-12-15 Tim Martin <Tim.martin@cern.ch>
+	* Add bunchgroup info for offline running
+	* Tag TrigCostMonitor-01-10-00
+
+2014-11-28 Tim Martin <Tim.martin@cern.ch>
+	* Update DB instance
+        * Start M7 code
+        * This tag NOT for any release!
+	* Tag TrigCostMonitor-01-09-00
+
+2014-11-20 Tim Martin <Tim.Martin@cern.ch>
+	* Demote a WARNING to DEBUG
+	* Tag TrigCostMonitor-01-08-00
+
+2014-11-10 Tim Martin <Tim.Martin@cern.ch>
+	* Add new JO fragment for getting ROS monitoring offline from run 1 data.
+	* Temporary sol.n until the ROS mapping for 2015 is finalised.
+	* Tag TrigCostMonitor-01-07-00
+
+2014-10-28 Tim Martin <Tim.Martin@cern.ch>
+        * Bug fix in enhanced bias weighting
+	* Add non-physics EB items.
+        * Tag TrigCostMonitor-01-06-00
+
+2014-10-14 Tim Martin <Tim.Martin@cern.ch>
+	* Add "export" to global var in python.
+	* Fix setting TrigSteer_HLT.doOperationalInfo at P1? Managed to work on athenaHLT.py without this line.
+	* Tag TrigCostMonitor-01-04-00
+
+2014-09-24 Tim Martin <Tim.Martin@cern.ch>
+  * Prepare for M6.
+  * Add EB weighting code.
+  * Lots of tidy-ups
+  * Improve python configuration options
+  * Move HLT results back into their own tool
+  * Run 1 or Run 2 DB access for LB lengths
+  * Disable TrigCostAthena - soon to be removed. 
+  * Tag TrigCostMonitor-01-03-00
+
+2014-08-06 Tim Martin <Tim.Martin@cern.ch>
+        * Improve BS->D3PD for old cost mon objects, L2 and EF levels
+        * Tag TrigCostMonitor-00-02-07
+
+2014-08-05 Tim Martin <Tim.Martin@cern.ch>
+	* Disable default DB access for old key configs (not currently used), rm some output
+	* Tag TrigCostMonitor-00-02-06
+
+2014-08-02 Tim Martin <Tim.Martin@cern.ch>
+	* Reduce verbosity of BS -> D3PD JOs
+        * Tag TrigCostMonitor-00-02-05
+
+2014-08-01 sutt < sutt @ cern.ch > 
+	* replace obsolete TrigRoiDescriptor calls
+	M    /src/TrigNtElemTool.cxx
+	* Tag TrigCostMonitor-00-02-04
+
+2014-07-23 Tim Martin <Tim.Martin@cern.ch>
+        * Make two-pass work. Add lumi block time
+        * Tag TrigCostMonitor-00-02-02
+
+2014-06-30 Tim Martin <Tim.Martin@cern.ch>
+	* Small change to how appId is stored
+	* Tag TrigCostMonitor-00-02-01
+
+2014-06-25 Tim Martin <Tim.Martin@cern.ch>
+	* Change some defaults of python setup, add additional debug by setting developmentMode = True
+	* Turn off (non-D3PD) output by default, restore with useSaveTools = False
+	* Cleanup requirements - depricated TrigConfigSvc removed
+	* Copy app name code from CostRun (postprocessor) to CostTools (online)
+	* App name ID now stored in key #42 (as well as word #3, backwards comp.)
+	* Changed all internal OPI keys to match new naming scheme in devval
+	* Tabs -> spaces
+	* More debug messages
+	* Bug fix - do not clear internal CostTool conf object now that we call the fill block every LB
+	* In debug mode - do a SG dump on 1st event
+	* Tag TrigCostMonitor-00-02-00
+
+2014-05-27 Tim Martin <Tim.Martin@cern.ch>
+	* Use trigger DB and trigger configuration service by default
+	* Save configuration used for reprocessing
+	* Also save configuration used to take the data online
+	* Tag TrigCostMonitor-00-01-10
+
+2014-03-05 Tim Martin <Tim.Martin@cern.ch>
+	* Save all (inc. failed) chains by default
+	* Use for prepareCostTool the TrigCostTool accessor of Chains rather than TrigNtHltRTool
+	* Tag TrigCostMonitor-00-01-09
+
+2013-12-16 Tim Martin <Tim.Martin@cern.ch>
+	* Remove some left in debug logs
+	* Tag TrigCostMonitor-00-01-08
+
+2013-12-12 Tim Martin <Tim.Martin@cern.ch>
+	* Many small updates to enable use with HLT::HTL level trigger.
+	* Replaced some tabs with spaces
+	* Tag TrigCostMonitor-00-01-07
+
+2013-09-04 Francesca Pastore
+	* changes needed to break deps from TrigSteering: Chain class moved to
+	TrigSteerEvent
+	* TrigCostMonitor-00-01-06
+
+2013-06-09
+	* adapt to change in configuration
+	* TrigCostMonitor-00-01-05
+
+2012-11-04 Rolf Seuster
+        * fix compilation problem in gcc47
+	* TrigCostMonitor-00-01-04
+
+2012-08-27 Doug Schaefer
+        * Update to new templating for TrigNavigation
+	
+2012-07-10 Doug Schaefer
+	* Fix requirements file to remove checkreq.py warnings
+
+2012-05-30 Monica Dunford
+	* Reading L2_hypo info from DB for EB runs
+	* TrigCostMonitor-00-01-01
+	
+2012-04-13 Doug Schaefer <schae@cern.ch>
+        * Add detector geometry
+	* Remove stringstream sent to Message service
+	
+2012-04-10 Doug Schaefer <schae@cern.ch>
+	* Add L1 Threshold TEs
+
+2012-03-09 Doug Schaefer <schae@cern.ch>
+        * Update FileIncident.h to Gaudi
+	
+2012-01-30 Doug Schaefer <schae@cern.ch>
+        * Turn on the filling of Trigger elements
+	
+2012-01-30 Monica Dunford
+	* Fixed warning in FillConf
+	* TrigCostMonitor-00-00-77
+	
+2012-01-18 Monica Dunford
+	* Add FillStreams() to correctly fill the stream PS and names
+	* TrigCostMonitor-00-00-76
+	
+2011-08-28 Doug Schaefer <schae@cern.ch>
+        * Add RoI Size TrigMonRoI
+	
+2011-08-25 Rustem Ospanov <rustem@cern.ch>
+        * Add two checks for accessing ROBDataMonitorStruct from SG:
+	  - first try with empty key (current method)
+	  - then try using "ROBDataMonitorCollection" key
+        * TrigCostMonitor-00-00-74
+	
+2011-03-01 Rustem Ospanov <rustem@cern.ch>
+	* Add MergeEvent option to ignore L2 duplicates
+	
+2011-02-26 Rustem Ospanov <rustem@cern.ch>
+	* Trig::MergeEvent()
+	   - simplify signature
+	   - add dictionary to allow to call the function from python
+	* TrigCostMonitor-00-00-73
+	
+2011-02-22 Rustem Ospanov <rustem@cern.ch>
+	* TrigNtRobsTool
+	  - hash algorithm names for algorithms not in a menu
+	
+2011-01-29 Frank Winklmeier <fwinkl@cern>
+	* Add ToolHandle property for scaler tool
+	* Make use of RandomScaler configurable (needs TrigSteering-03-05-73)
+	* TrigCostMonitor-00-00-71
+	
+2010-12-08 Rustem Ospanov <rustem@cern.ch>
+	* Add new tools aray to TrigCostTool:
+	   - execute when writeAlways=True
+	   - contains tools executed for trigger running offline
+	   - used to record cost ntuples when running on CAF
+	* Add python configuration for running athenaMT/PT from job options
+	* TrigCostMonitor-00-00-70 - task #18036
+	
+2010-11-21 Rustem Ospanov <rustem@cern.ch>	
+	* Update python config for new package name: TrigCostAthena
+	
+2010-10-01 Rustem Ospanov <rustem@cern.ch>	
+	* Save LV1 and HLT decisions separately when reading ESD/AOD
+	* Remove version.cmt file
+	* Use correct TrigDecisionTool function to read (offline) decision bits
+	
+2010-09-09 Rustem Ospanov <rustem@cern.ch>	
+	* Add FillNtAlg algorithm for loopinga and filling events
+	* Add IFillNtAlg - base class for ntuple filling tool
+	
+2010-09-06 Rustem Ospanov <rustem@cern.ch>	
+	* Remove obsolete variable - fixes problem with RTT tests
+	* TrigCostMonitor-00-00-69
+	
+2010-09-03 Rustem Ospanov <rustem@cern.ch>	
+	* For BS files: extract rate and cost data into two trees
+	  - adds ~10% to .root cost ntuple files
+	* TrigCostTool: execute all tools on all events when writeAlways=true
+	* Add second set of tools to TrigCostRun for saving data to TTrees
+	
+2010-08-31 Rustem Ospanov <rustem@cern.ch>	
+	* Rename TrigNtLv2Tool to TrigNtHltRTool
+	  - now can read either L2 or EF result
+	  - cleanup code and remove redundant variables
+	* TrigNtConfTool changes
+	  - check for new run and lumi block in both Fill(...) functions
+	  - change very verbose MSG::DEBUG printouts to MSG::VERBOSE
+	* Cleanup logic in TrigNtLvl1Tool and remove redundant variables
+	* Add new job options: raedDataRate.py
+	  - unpack RoIBResult and L2 and EF HLTResults
+	  - read online L1 and HLT decisions from BS files
+	* TrigCostMonitor-00-00-66
+	
+2010-08-30 Rustem Ospanov <rustem@cern.ch>	
+	* TrigNtSaveTool: new option to save only rates data
+	* Change python config to use two instances of TrigNtSaveTool
+	  - one instance for full cost data
+	  - one instance for rate only data
+	  - used by TrigCostAlg to save full and rate tree(s)
+	* Cleanup TrigCostRun: add class to handle data for one HLT level
+	
+2010-08-24 Rustem Ospanov <rustem@cern.ch>	
+        * Fix bug for processing of cost data from T0 debug stream reprocessing
+	  - do not save TrigMonConfig at L2 to prevent HLT result truncation
+	  - move MergeEvent function to UtilTrig and add event matching checks
+	  - in TrigCostRun merge L2 and EF events if they match
+	
+2010-08-22 Rustem Ospanov <rustem@cern.ch>	
+	* Fix bug for T0 processing of cost streams:
+	   - do not override full configuration when using cached TrigMonConfig
+	* TrigCostMonitor-00-00-65
+	
+2010-08-15 Rustem Ospanov <rustem@cern.ch>	
+	* Fix bug #71459: memory leak when reading trigger configuration too often
+	* TrigCostMonitor-00-00-64
+	
+2010-07-15 Rustem Ospanov <rustem@cern.ch>	
+	* Fix bug #69214: crash when reading cost data from debug stream reprocessing
+	* TrigCostMonitor-00-00-63
+	
+2010-07-13 Rustem Ospanov <rustem@cern.ch>	
+	* Use correct IOV range when reading trigger keys from COOL
+	* TrigCostMonitor-00-00-62
+	
+2010-06-20 Rustem Ospanov <rustem@cern.ch>	
+	* Remove obsolete algorithm TrigCostEmon - superseded by TrigCostRun
+	* Remove obsolete macros from share: 
+	    readTrigCostBS.py and readTrigCostAOD.py
+	* Move input file incident from TrigCostRun to TrigNtSaveTool
+	* Simplify TrigCostRun execution flow 
+	   - file and configuration changes now handled by sub-tools
+	   - set event print flag at INFO level
+	* In TrigNtConfTool load configuration at 1st TrigMonEvent from new run
+	* Remove lumi block variable from ConfigKeys class
+	* Sort ConfigKeys using 4 keys: BGK, SMK, LV1 PS and HLT PS
+	* Simplify readTrigCost.py
+	* Ignore ERROR messages in checkCostLog.py
+	* Add option to supress cost data in debug streams
+	* Add emon option to TrigCostRun python config:
+	   - attempt to load TrigNtCost2IS tool from TrigCost2IS
+	* Get emonTrigCost.py wworking with ATLAS partition
+	* Reduce cost buffer to 800 events
+	* TrigCostMonitor-00-00-61
+	
+2010-06-15  Frank Winklmeier  <fwinkl@cern>
+	* cmt/requirements: Add dictionary
+	* TrigCostMonitor-00-00-60
+	
+2010-06-14 Rustem Ospanov <rustem@cern.ch>	
+	* Move setup for out of framework tools to prepareCostAlg
+	* Add check to TrigNtSaveTool for already registered trees
+	* TrigCostMonitor-00-00-59
+	
+2010-06-14 Rustem Ospanov <rustem@cern.ch>	
+	* Remove obsolete python function enableCostAlways
+	* TrigCostMonitor-00-00-58
+
+2010-06-08 Rustem Ospanov <rustem@cern.ch>	
+	* Fix python configuration bug for offline rate jobs
+	* TrigCostMonitor-00-00-57
+	
+2010-06-02 Rustem Ospanov <rustem@cern.ch>	
+	* Add extended debug printouts
+	
+2010-06-01 Rustem Ospanov <rustem@cern.ch>	
+	* Move DB configuration code to separate classes
+	* ReadConf reads configuration keys from COOL
+	* FillConf fills TrigMonConfig from LV1 and HLT trigger configuration classes	
+	* Used by out of framework analysis code
+	
+2010-05-28 Rustem Ospanov <rustem@cern.ch>	
+	* More robust counting for events processed by HLT application
+	* Simplify python configuration for RTT jobs and rate jobs
+	* TrigCostMonitor-00-00-55
+	
+2010-05-25 Rustem Ospanov <rustem@cern.ch>	
+	* Add configuration for L1 internal triggers
+	  - to be used for predicting rates for non-scaling triggers
+	* Use additional L2 converter flag to ignore L1 prescales
+	* TrigCostMonitor-00-00-54
+	
+2010-05-18 Rustem Ospanov <rustem@cern.ch>	
+	* Clear internal state during start->stop->start online transitions
+	* Record event count for current lumi block and 20 previous lumi blocks
+	* Increase buffer size to 1000 events
+	* TrigCostMonitor-00-00-53
+	
+2010-05-04 Rustem Ospanov <rustem@cern.ch>	
+	* Fix correct filename in exception
+	* Reduce info messages from event loop manager
+	
+2010-04-21 Rustem Ospanov <rustem@cern.ch>	
+	* Turn off saving individual ROBs - needs TP fix before using
+	* Use ROB data summary structure instead
+	* TrigCostMonitor-00-00-52
+	
+2010-04-14 Rustem Ospanov <rustem@cern.ch>	
+        * Fix bug counting HLT hosts and applications
+	* TrigCostMonitor-00-00-51
+	
+2010-03-27 Rustem Ospanov <rustem@cern.ch>	
+        * Fix crash when accessing null pointer in DEBUG statement
+	* TrigCostMonitor-00-00-50
+	
+2010-03-27 Rustem Ospanov <rustem@cern.ch>	
+	* Turn on recording of ROB ids for online configuration
+	* Clean up jobs options for offline rates
+	* Add function for configuring TrigSteer algorithms for online setup
+	* TrigCostMonitor-00-00-49
+	
+2010-03-24 Rustem Ospanov <rustem@cern.ch>	
+	* Fix problem extracting ntuples from debug reprocessing
+	* Merge EF and L2 algorithms and clean up logic for file creation
+	* TrigCostMonitor-00-00-48
+	
+2010-03-22 Rustem Ospanov <rustem@cern.ch>	
+	* Do not require that event contains cost stream when extracting ntuples
+	* TrigCostMonitor-00-00-47
+	
+2010-03-11 Rustem Ospanov <rustem@cern.ch>	
+	* Fix bug with job options for trigger rate jobs: [bug #64192]
+	* Clean job options
+	* Turn off saving of sequence timers
+	* TrigCostMonitor-00-00-46
+	
+2010-03-05 Rustem Ospanov <rustem@cern.ch>	
+	* Add "APP_ID:" key for saving application id configuration
+	* Fix decoding of ROB ids and subdetectors
+	* Clean up jobs options for post processing of BS files to make ntuples
+	
+2010-03-04 Rustem Ospanov <rustem@cern.ch>	
+	* Move timer::stop() outside debug if statement
+	
+2010-02-23 Rustem Ospanov <rustem@cern.ch>	
+	* Turn off production of PerfMon ntuples
+
+2010-02-18 Rustem Ospanov <rustem@cern.ch>	
+	* Remove full directory path from BS file
+	  - because BS service now sets full path in 15.6.0
+	* Improve checkCostLog.py for T0 processing
+	  - do not depend on file name format
+	  - count TrigMonEvent and TrigMonConfig entries
+	  - Do not depend on trigger level
+	* TrigCostMonitor-00-00-45
+	
+2010-02-12 Rustem Ospanov <rustem@cern.ch>
+	* Fix checkreq requirements
+	* Add information for subdetector/rob id names
+	* TrigCostMonitor-00-00-44
+
+2010-02-10 Rustem Ospanov <rustem@cern.ch>
+	* Split setup for offline job into setupCostAlg and setupCostJob
+	* Set ignore prescales for offline jobs
+	* Set event number as number of processed events by TrigCostTool
+	* Add an option for saving event timers from TrigSteer and TrigCostTool
+	* Save event count for previous N lumi blocks
+	* Various minor improvements	
+	* TrigCostMonitor-00-00-43
+	
+2010-02-06 Rustem Ospanov <rustem@cern.ch>
+        * Set outputLevel to 3 for athena jobs
+	* Add options to sum ROB data by subdetector
+	* Fix bug for L1 threshold index
+	
+2010-01-14 Rustem Ospanov <rustem@cern.ch>
+	* Bug fixes for collecting decision bits using TrigDecisionTool
+	* Add files for reading trigger decision from AOD
+	
+2010-01-06 Rustem Ospanov <rustem@cern.ch>
+	* Add new variables extracted from pileup MC
+	* TrigCostMonitor-00-00-42
+	
+2009-12-14 Rustem Ospanov <rustem@cern.ch>
+	* Fix bug #59218
+	* Add options to read trigger configuration from trigger DB and COOL
+	* Prepare code and job options for automatic processing at T0
+	* TrigCostMonitor-00-00-41
+	

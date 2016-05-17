@@ -1,0 +1,14 @@
+package TrigXMonitor
+
+author Tae Min Hong <Tae.Min.Hong@cern.ch>
+manager Tae Min Hong <Tae.Min.Hong@cern.ch>
+
+use AtlasPolicy *
+
+apply_pattern declare_python_modules files="*.py ../macros/*.py"
+apply_pattern declare_scripts        files="*.py ../macros/*.py"
+
+
+
+
+

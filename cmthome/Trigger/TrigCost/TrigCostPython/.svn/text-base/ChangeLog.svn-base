@@ -1,0 +1,178 @@
+2016-04-25 Tim Martin <Tim.Martin@cern.ch>
+	* Update TDAQ software setup method
+	* Tag TrigCostPython-00-03-04
+
+2015-09-08 Tim Martin <Tim.Martin@cern.ch>
+	* Update TDAQ software setup method
+	* Tag TrigCostPython-00-03-03
+
+2015-09-08 Tim Martin <Tim.Martin@cern.ch>
+	* Name mangling in XML reading too
+        * Fix rate error, err=sqrt(rate/time)
+          * =sqrt{ (cumulativeRate/samples)/(samples*timePerSample) }
+          * =sqrt{ (cumulativeRate*timePerSample)/samples^2 }
+	* Tag TrigCostPython-00-03-02
+
+2015-09-04 Tim Martin <Tim.Martin@cern.ch>
+	* Redo how rates and rate err are extracted from the TRP archives - more accurate
+        * Change XML output to also save an unprescaled XML with name _nops.xml
+           * Will use this file based on TBP rather than post-unprescaling based on PS rate * PS
+        * Fixed conversion of L1 cuts to L1 PS from COOL
+        * Fixed fetching of HLT PS from COOL (now IDs 20000+)
+        * Using TRP convention to change all items names to replace '-', '.' and ':' with '_'
+	* Tag TrigCostPython-00-03-01
+
+2015-03-30 Tim Martin <Tim.Martin@cern.ch>
+	* Rework compRatesPS1.py
+	* Tag TrigCostPython-00-02-04
+
+2015-03-30 Tim Martin <Tim.Martin@cern.ch>
+	* Fix python indenting
+	* Tag TrigCostPython-00-02-03
+
+2015-03-30 Tim Martin <Tim.Martin@cern.ch>
+	* Add compRatesP1.py (Olya)
+	* Tag TrigCostPython-00-02-02
+
+2015-03-26 Tim Martin <Tim.Martin@cern.ch>
+        * Update compRates.py to HLT (Olya)
+        * Tag TrigCostPython-00-02-01
+
+2015-03-26 Tim Martin <Tim.Martin@cern.ch>
+        * Updates for run 2 from Olya, remove L2/EF - only HLT
+        * Re-enable TRP mode, COOL may still need some work
+        * Not backwards compatable with R1
+        * Tag TrigCostPython-00-02-00
+
+2012-12-17 Tim Martin <Tim.Martin@cern.ch>
+        * Disable TrigCostIS - currently broken in 19.2 
+        * Tag TrigCostPython-00-01-23
+
+2012-12-17 Tim Martin <Tim.Martin@cern.ch>
+	* Sweep up changes in trunk
+	* Tag TrigCostPython-00-01-22
+
+2013-09-04 Yu Nakahama <yu.nakahama@cern.ch>
+  * Added a set of fast rate estimators for Run2 Trigger Menu development in macros/MenuFast  	
+	
+2012-04-10 Aidan Randle-Conde <aidan@cern.ch>
+  * Updated TrigCostPython to read rates files using https protocol instead of http protocol
+
+2012-04-05 Doug Schaefer <schae@cern.ch>
+  * Update TRT online histogram path to tdaq-04-00-01
+	
+2011-10-06 Tae Min Hong <tmhong@hep.upenn.edu>
+  * Added README
+  * Fixed bug in TrigCostRoot.py writing to xmon/log/lastlb.txt
+
+2011-09-21 Aidan Randle-Conde <aidan@cern.ch>
+  * Fixed bug on compRates (Added protection against non-existant lower chains)
+
+2011-09-20 Monica Dunford
+  * changing to use recording_physics in runEB
+
+2011-09-19 Tae Min Hong <tmhong@hep.upenn.edu>
+  * Added plotRoot.py
+
+2011-09-06 Aidan Randle-Conde <aidan@cern.ch>
+  * Added compRates_head.py
+
+2011-08-26 Aidan Randle-Conde <aidan@cern.ch>
+  * Added options to webpage to hide triggers matching the strings below
+  * For compRates:
+    * Added option --hide-unpaired to hide trigger chains matched "_unpaired" and "_UNPAIRED"
+    * Added option --hide-empty_cosmic to hide trigger chains matched "_empty", "_EMPTY", "_cosmic", and "_COSMIC"
+    * Added option --hide-firstempty to hide trigger chains matched "_firstempty" and "_FIRSTEMPTY"
+    * Added option --hide-chains, which takes a comma separated list of substrings.  Any chain that matches the substring will be hidden.
+
+2011-08-07 Brian Petersen <Brian.Petersen@cern.ch>
+  * Add module for reading rates from IS and option to use this in exampleCost.py
+
+2011-07-07 Aidan Randle-Conde <aidan@cern.ch>
+  * Fixed indexing problem in compRates
+
+2011-06-18 Monica Dunford
+  * Fixing compRates to search correct data paths
+	
+2011-06-09 Aidan Randle-Conde <aidan@cern.ch>
+  * Add option --html-snippet option to compRates to allow inclusion of additional information about comparison jobs
+
+2011-05-08 Doug Schaefer <schae@cern.ch>
+  * Add plot maker to generate alg time vs mu from cost data 
+	
+2011-05-13 Aidan Randle-Conde <aidan@cern.ch>
+  * Updated sorttable.js to reconcile between TrigCostRate and TrigCostPython
+
+2011-05-08 Doug Schaefer <schae@cern.ch>
+   * Changed the COOL database access to have oracle=True
+	
+2011-05-04 Aidan Randle-Conde <aidan@cern.ch>
+   * Updated compRates pages.  More information is passed to the pages, with more settings to suppress unwanted information.
+
+2011-03-16 Aidan Randle-Conde <aidan@cern.ch>
+   * Updated compRates pages to allow suppression of zero rates
+   * data/hightlight.js, python/compRates.py
+
+2011-03-25 Tae Min Hong <tmhong@cern.ch>
+   * Added bunch group info into TrigCostCool.py accessible by exampleCost.py & printed via --writexml
+
+2011-03-167Aidan Randle-Conde <aidan@cern.ch>
+   * Updated layout of compRates pages to address comments from Olya
+   * data/hightlight.js, python/compRates.py
+
+2011-03-16 Aidan Randle-Conde <aidan@cern.ch>
+   * Added url arguments to compRates pages to allow users to share sort options
+   * Fixed a bug related to two sorting functions
+   * data/sorttable.js, data/hightlight.js, python/compRates.py
+
+2011-03-15 Aidan Randle-Conde <aidan@cern.ch>
+   * Added CostResult.source attribute (including SetSource and GetSource methods):
+	* default value is "not_set"
+	* value is set to "XML_prediction" if the "Luminosity" node exists in the XML
+   * compRates.py does not double scale ps/pt for XML from predictions
+   * python/TrigCostAnalysis.py, python/TrigCostXML.py, macros.compRates.py
+   * Temporary fix- this bug needs a more robust and well defined solution
+
+2011-03-14 Aidan Randle-Conde <aidan@cern.ch>
+   * Fixed pspt bug (Savannah bug #79400)
+   * macros/compRates.py
+
+2011-01-25 Tae Min Hong <tmhong@cern.ch>
+   * Add COOL HLT to TrigCostCool.py
+   * ROOT output via TrigCostRoot.py & xmonCost.py
+   * TrigCostPython-00-01-01
+
+2010-09-09 Rustem Ospanov <rustem@cern.ch>
+   * Copy an updated sorttable script from TrigCostRate
+   * TrigCostPython-00-00-01
+	
+2010-09-06 Rustem Ospanov <rustem@cern.ch>
+   * Initial import to atlasoff svn
+	
+2010-09-01 Josh Kunkle <jkunkle@cern.ch> 
+   * Overhaul of makePieCharts and integration with CalcRateMan
+   * Added a module in TrigCostXML to read dataset xml
+
+2010-08-23 Josh Kunkle <jkunkle@cern.ch> 
+   * Overhaul of calcRateMan
+
+2010-07-01 Josh Kunkle <jkunkle@cern.ch> 
+   * Using TrigCostXML in compRates
+   * compRates uses product of PS and PT for L2 and EF chains
+   * small changes to TrigCostXML 
+
+2010-07-01 Josh Kunkle <jkunkle@cern.ch> 
+   * Fix paths in some scripts 
+
+2010-06-29 Josh Kunkle <jkunkle@cern.ch> 
+   * Fix bug with pspt in compRates
+
+2010-06-26 Monica Dunford <Monica.Dunford@cern.ch>
+   * Fix bug when running compRates without plot option
+
+2010-06-25 Rustem Ospanov <rustem@cern.ch>
+   * Initial import of TrigCostPython package
+   * Python only package to read trigger rates from many sources:
+	- TriggerRatePresenter ROOT archives
+	- COOL rates
+	- XML files produced by cost monitoring

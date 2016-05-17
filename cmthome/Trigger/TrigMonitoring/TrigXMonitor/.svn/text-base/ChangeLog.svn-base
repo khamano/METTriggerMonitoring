@@ -1,0 +1,10 @@
+2010-03-17 Tae Min Hong <tmhong@cern.ch>
+   * Package stable. Improved trigger lists
+
+2010-02-14 Tae Min Hong <tmhong@cern.ch>
+   * Package functional due to re-organization
+
+2010-12-20 Tae Min Hong <tmhong@cern.ch>
+   * Initial import of TrigXMonitor package
+   * Python-only package to produce http://cern.ch/x
+   * Files are not yet in the correct directories.

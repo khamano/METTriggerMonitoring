@@ -1,0 +1,77 @@
+10
+
+dir
+747227
+svn+ssh://svn.cern.ch/reps/atlasoff/Trigger/TrigMonitoring/TrigCostMonitor/tags/TrigCostMonitor-01-20-09
+svn+ssh://svn.cern.ch/reps/atlasoff
+
+
+
+2015-12-08T17:07:25.340413Z
+713400
+tamartin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4525493e-7705-40b1-a816-d608a930855b
+
+python
+dir
+
+share
+dir
+
+cmt
+dir
+
+TrigCostMonitor
+dir
+
+src
+dir
+
+ChangeLog
+file
+
+
+
+
+2016-05-14T14:41:54.000000Z
+a0034a43b10fd4431cbb08db754b6aba
+2015-11-19T08:56:27.949186Z
+708910
+tamartin
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+17756
+

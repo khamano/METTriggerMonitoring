@@ -1,0 +1,35 @@
+# Tae Min Hong, Univ. of Pennsylvania (2012)
+#
+# See README.xmon
+
+#
+# Where
+#
+
+https://cern.ch/x -> xmon -> atlas-project-trigger-xmonitor
+svn+ssh://svn.cern.ch/trac/atlasoff/Trigger/TrigMonitoring/TrigXMonitor/trunk
+
+For 2011
+    Hosted at:      /afs/cern.ch/user/t/trigcomm/www/rates_webpage/xmon/
+    Data storage:   /afs/cern.ch/user/t/trigcomm/www/rates_webpage/xmon/root/
+
+For 2012
+    Hosted at:      /afs/cern.ch/user/x/xmon/www/
+    Data storage:   /afs/cern.ch/work/x/xmon/public/root/
+
+#
+# How - TrigXMonitor is a package to produce html pages.
+#
+
+Command-line:   macros/xmon.cgi
+Web interface:  https://cern.ch/cgi-bin/xmon.cgi
+
+#
+# Details
+#
+
+TrigCostPython package makes the input ROOT files using -tag=15.6.8.6,AtlasProduction
+Repository:     $SVN/Trigger/TrigCost/TrigCostPython/trunk
+
+
+
