@@ -1,1 +1,0 @@
-/afs/cern.ch/user/r/rewang/public/cmthome/Trigger/TrigMonitoring/TrigXMonitor/python/__init__.py

@@ -1,1 +1,0 @@
-/afs/cern.ch/user/r/rewang/public/cmthome/Trigger/TrigMonitoring/TrigCostMonitor/share/readTrigCost.py
