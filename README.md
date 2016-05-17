@@ -1,6 +1,7 @@
 # METTriggerMonitoring
 
 setup:
+	git clone git@github.com:rjwang/METTriggerMonitoring.git Trigger
 
 	lsetup 'asetup AtlasProduction,20.3.5.3,here'
 
