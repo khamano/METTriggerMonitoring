@@ -42,7 +42,7 @@ author2 = 'Elliot Lipeles'
 updatefreq  = 20
 
 link = dict()
-link['site']            = 'https://cern.ch/x'
+link['site']            = 'https://rewang.web.cern.ch/rewang/xmon'
 link['author']          = 'http://consult.cern.ch/xwho/people/538626'
 link['author2']         = 'http://consult.cern.ch/xwho/people/662221'
 link['outreach']        = "http://www.slac.stanford.edu/~thong/outreach/"
@@ -90,7 +90,7 @@ def getQUERY_STRING(omitlist=[]):
 
 #==========================================================================
 def linkDataSummary(run):
-    year = 2011
+    year = 2016
     if   run <= 142402: year = 2009
     elif run <= 168726: year = 2010
     return '%s/%d/run.py?run=%d' % (link['DataSummary'], year, run)
@@ -98,7 +98,7 @@ def linkDataSummary(run):
 
 #==========================================================================
 def linkRunQuery(run):
-    return 'http://atlas-runquery.cern.ch/query.py?q=find+run+%d+%%2F+show+all' % run
+    return 'http://atlas-runquery.cern.ch/query.py?q=find+run+%d+and+ready+%%2F+show+all' % run
 
 
 #==========================================================================
@@ -200,7 +200,8 @@ def printHeader(tab='', site=link['site'], virtual='', xmonParams=None):
 #	    tab = xhu.Print(tab, '<a href="%s/cgi-bin/xmon.cgi" style="border-bottom:0px;">' % site)
 #	    tab = xhu.Print(tab, '<a href="%s/html/default.html" style="border-bottom:0px;">' % site)
     tab = xhu.Print(tab, '<a class="menuanchorclass" rel="title" style="border-bottom:0px;">')
-    tab = xhu.Print(tab, '<img src="%s/images/title.gif" style="width:375px;"/>' % site)
+    #tab = xhu.Print(tab, '<img src="%s/images/title.gif" style="width:375px;"/>' % site)
+#    tab = xhu.Print(tab, '<img src="%s/images/ATLAS-Logo.png" style="width:115px;"/>' % site)
     tab = xhu.Print(tab, '</a>')
     tab = xhu.Print(tab, '</td>')
 
@@ -548,7 +549,6 @@ def printCuts(tab = '', xmonParams=None):
     tab = xhu.Print(tab, '<b>Data selection criteria</b><br/>')
 
     cutlist = ['lblength', 'lumi', 'bunchlumi', 'mu', 'bunches'] # Basic cuts
-    #cutlist += ['L1_EM18VH'] # Add trigger-based cuts
     cutlist += ['L1_XE50'] # Add trigger-based cuts
 
 
@@ -1473,13 +1473,13 @@ def printFooter(tab='', site=link['site'], virtual='', xmonParams=None):
     # New row
     tab = xhu.Print(tab, '</tr>')
     tab = xhu.Print(tab, '<tr>')
-
-    # Item
+#
+#    # Item
     tab = xhu.Print(tab, '<td style="text-align:left">')
-    tab = xhu.Print(tab, '<font face="%s">CONTACT &amp; SUPPORT:</font>' % fontface)
-    tab = xhu.Print(tab, '<a class="whitelink" title="%s, this is me!" href="%s">%s</a>' % (link['author'], link['author'], author) )
-    tab = xhu.Print(tab, '</td>')
-
+#    tab = xhu.Print(tab, '<font face="%s">CONTACT &amp; SUPPORT:</font>' % fontface)
+#    tab = xhu.Print(tab, '<a class="whitelink" title="%s, this is me!" href="%s">%s</a>' % (link['author'], link['author'], author) )
+#    tab = xhu.Print(tab, '</td>')
+#
     # Item
     tab = xhu.Print(tab, '<td style="text-align:right">')
     tab = xhu.Print(tab, '<font style="color:yellow;">&bull;</font>')

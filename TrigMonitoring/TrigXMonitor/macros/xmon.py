@@ -16,6 +16,7 @@ from TrigXMonitor.xmonDataObject import xmonData
 import TrigXMonitor.xmonHtmlUtility as xhu
 import TrigXMonitor.xmonHtmlMaker as xhm
 
+
 #==========================================================================
 def chartonly(tab = ''):
     """

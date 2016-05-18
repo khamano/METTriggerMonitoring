@@ -74,8 +74,8 @@ case $SLC_version in
   ;;
   6)
   case $PLATFORM_version in
-    "i386")     source /afs/cern.ch/sw/lcg/contrib/gcc/4.7/i686-slc6-gcc47-opt/setup.sh ;;
-    "x86_64")   source /afs/cern.ch/sw/lcg/contrib/gcc/4.7/x86_64-slc6-gcc47-opt/setup.sh ;;
+    "i386")     source /afs/cern.ch/sw/lcg/contrib/gcc/4.8/i686-slc6/setup.sh ;;
+    "x86_64")   source /afs/cern.ch/sw/lcg/contrib/gcc/4.8/x86_64-slc6-gcc48-opt/setup.sh ;;
     *)          echo "Unrecognized platform=$PLATFORM_version" ; exit 1 ;;
   esac
   ;;
@@ -101,8 +101,8 @@ case $SLC_version in
   ;;
   6)
   case $PLATFORM_version in
-    "i386")     export PYTHONDIR=/afs/cern.ch/sw/lcg/external/Python/2.7.6/i686-slc6-gcc47-opt ;;
-    "x86_64")   export PYTHONDIR=/afs/cern.ch/sw/lcg/external/Python/2.7.6/x86_64-slc6-gcc47-opt ;;
+    #"i386")     export PYTHONDIR=/afs/cern.ch/sw/lcg/external/Python/2.7.6/i686-slc6-gcc47-opt ;;
+    "x86_64")   export PYTHONDIR=/afs/cern.ch/sw/lcg/external/Python/2.7.4/x86_64-slc6-gcc47-opt ;;
     *)          echo "Unrecognized platform=$PLATFORM_version" ; exit 1 ;;
   esac
   ;;
@@ -131,8 +131,8 @@ case $SLC_version in
   ;;
   6)
   case $PLATFORM_version in
-    "i386")     export ROOTSYS=/afs/cern.ch/sw/lcg/app/releases/ROOT/5.34.20/i686-slc6-gcc47-opt/root ;;
-    "x86_64")   export ROOTSYS=/afs/cern.ch/sw/lcg/app/releases/ROOT/5.34.20/x86_64-slc6-gcc47-opt/root ;;
+    "i386")     export ROOTSYS=/afs/cern.ch/sw/lcg/app/releases/ROOT/5.34.20/i686-slc6-gcc48-opt/root ;;
+    "x86_64")   export ROOTSYS=/afs/cern.ch/sw/lcg/app/releases/ROOT/5.34.20/x86_64-slc6-gcc48-opt/root ;;
     *)          echo "Unrecognized platform=$PLATFORM_version" ; exit 1 ;;
   esac
   ;;
@@ -180,6 +180,7 @@ scriptbase="Trigger/TrigMonitoring/TrigXMonitor"
 #    fi
 #done
 script=$INSTALLBASE/$scriptbase/macros/$pyth
+
 
 # Display setup
 if [ `/bin/basename $0` == "setup.cgi" ] ; then
@@ -267,6 +268,7 @@ if [ `/bin/basename $0` == "setup.cgi" ] ; then
     exit
 fi
 
+
 #	# Send me email
 #	if [ `/bin/basename $0` == "xmon.cgi" ] ; then
 #	    addy=tae.min.hong@cern.ch
@@ -277,6 +279,7 @@ fi
 
 # Execute
 python $script
+
 
 # Revert
 PATH=$SAVE_PATH

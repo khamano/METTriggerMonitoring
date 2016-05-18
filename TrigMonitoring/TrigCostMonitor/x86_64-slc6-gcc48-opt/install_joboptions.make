@@ -3,7 +3,7 @@
 #====================================
 #  Document install_joboptions
 #
-#   Generated Sun May 15 17:50:12 2016  by rewang
+#   Generated Wed May 18 00:41:27 2016  by rewang
 #
 #====================================
 
@@ -119,12 +119,12 @@ uninstall :: install_joboptionsuninstall
 install_joboptionsinstall :: ;
 
 RunAOD_py_dependencies = ../share/RunAOD.py
-checkCostLog_py_dependencies = ../share/checkCostLog.py
-readTrigCost_py_dependencies = ../share/readTrigCost.py
-emonTrigCost_py_dependencies = ../share/emonTrigCost.py
-readDataRate_py_dependencies = ../share/readDataRate.py
 RunTrigCost_py_dependencies = ../share/RunTrigCost.py
+checkCostLog_py_dependencies = ../share/checkCostLog.py
+emonTrigCost_py_dependencies = ../share/emonTrigCost.py
 offlineROSCost2012_py_dependencies = ../share/offlineROSCost2012.py
+readDataRate_py_dependencies = ../share/readDataRate.py
+readTrigCost_py_dependencies = ../share/readTrigCost.py
 
 
 install_joboptionsinstall :: ${install_dir}/RunAOD.py
@@ -148,102 +148,6 @@ install_joboptionsuninstall ::
 	  d=`(cd $${d}; pwd)`; \
 	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
 	  $(cmt_uninstall_action) "$${d}" "RunAOD.py" "$(install_dir)" "$($(package)_cmtpath)"; \
-	fi
-
-
-install_joboptionsinstall :: ${install_dir}/checkCostLog.py
-	@if test ! "${installarea}" = ""; then\
-	  echo "installation done"; \
-	fi
-
-${install_dir}/checkCostLog.py :: ../share/checkCostLog.py
-	@if test ! "${installarea}" = ""; then \
-	  d=`dirname ../share/checkCostLog.py`; \
-	  d=`(cd $${d}; pwd)`; \
-	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
-	  $(cmt_install_action) "$${d}" "checkCostLog.py" "$(install_dir)" "ln -sf" "$($(package)_cmtpath)"; \
-	fi
-
-../share/checkCostLog.py : ;
-
-install_joboptionsuninstall ::
-	@if test ! "${installarea}" = ""; then \
-	  d=`dirname ../share/checkCostLog.py`; \
-	  d=`(cd $${d}; pwd)`; \
-	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
-	  $(cmt_uninstall_action) "$${d}" "checkCostLog.py" "$(install_dir)" "$($(package)_cmtpath)"; \
-	fi
-
-
-install_joboptionsinstall :: ${install_dir}/readTrigCost.py
-	@if test ! "${installarea}" = ""; then\
-	  echo "installation done"; \
-	fi
-
-${install_dir}/readTrigCost.py :: ../share/readTrigCost.py
-	@if test ! "${installarea}" = ""; then \
-	  d=`dirname ../share/readTrigCost.py`; \
-	  d=`(cd $${d}; pwd)`; \
-	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
-	  $(cmt_install_action) "$${d}" "readTrigCost.py" "$(install_dir)" "ln -sf" "$($(package)_cmtpath)"; \
-	fi
-
-../share/readTrigCost.py : ;
-
-install_joboptionsuninstall ::
-	@if test ! "${installarea}" = ""; then \
-	  d=`dirname ../share/readTrigCost.py`; \
-	  d=`(cd $${d}; pwd)`; \
-	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
-	  $(cmt_uninstall_action) "$${d}" "readTrigCost.py" "$(install_dir)" "$($(package)_cmtpath)"; \
-	fi
-
-
-install_joboptionsinstall :: ${install_dir}/emonTrigCost.py
-	@if test ! "${installarea}" = ""; then\
-	  echo "installation done"; \
-	fi
-
-${install_dir}/emonTrigCost.py :: ../share/emonTrigCost.py
-	@if test ! "${installarea}" = ""; then \
-	  d=`dirname ../share/emonTrigCost.py`; \
-	  d=`(cd $${d}; pwd)`; \
-	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
-	  $(cmt_install_action) "$${d}" "emonTrigCost.py" "$(install_dir)" "ln -sf" "$($(package)_cmtpath)"; \
-	fi
-
-../share/emonTrigCost.py : ;
-
-install_joboptionsuninstall ::
-	@if test ! "${installarea}" = ""; then \
-	  d=`dirname ../share/emonTrigCost.py`; \
-	  d=`(cd $${d}; pwd)`; \
-	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
-	  $(cmt_uninstall_action) "$${d}" "emonTrigCost.py" "$(install_dir)" "$($(package)_cmtpath)"; \
-	fi
-
-
-install_joboptionsinstall :: ${install_dir}/readDataRate.py
-	@if test ! "${installarea}" = ""; then\
-	  echo "installation done"; \
-	fi
-
-${install_dir}/readDataRate.py :: ../share/readDataRate.py
-	@if test ! "${installarea}" = ""; then \
-	  d=`dirname ../share/readDataRate.py`; \
-	  d=`(cd $${d}; pwd)`; \
-	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
-	  $(cmt_install_action) "$${d}" "readDataRate.py" "$(install_dir)" "ln -sf" "$($(package)_cmtpath)"; \
-	fi
-
-../share/readDataRate.py : ;
-
-install_joboptionsuninstall ::
-	@if test ! "${installarea}" = ""; then \
-	  d=`dirname ../share/readDataRate.py`; \
-	  d=`(cd $${d}; pwd)`; \
-	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
-	  $(cmt_uninstall_action) "$${d}" "readDataRate.py" "$(install_dir)" "$($(package)_cmtpath)"; \
 	fi
 
 
@@ -271,6 +175,54 @@ install_joboptionsuninstall ::
 	fi
 
 
+install_joboptionsinstall :: ${install_dir}/checkCostLog.py
+	@if test ! "${installarea}" = ""; then\
+	  echo "installation done"; \
+	fi
+
+${install_dir}/checkCostLog.py :: ../share/checkCostLog.py
+	@if test ! "${installarea}" = ""; then \
+	  d=`dirname ../share/checkCostLog.py`; \
+	  d=`(cd $${d}; pwd)`; \
+	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
+	  $(cmt_install_action) "$${d}" "checkCostLog.py" "$(install_dir)" "ln -sf" "$($(package)_cmtpath)"; \
+	fi
+
+../share/checkCostLog.py : ;
+
+install_joboptionsuninstall ::
+	@if test ! "${installarea}" = ""; then \
+	  d=`dirname ../share/checkCostLog.py`; \
+	  d=`(cd $${d}; pwd)`; \
+	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
+	  $(cmt_uninstall_action) "$${d}" "checkCostLog.py" "$(install_dir)" "$($(package)_cmtpath)"; \
+	fi
+
+
+install_joboptionsinstall :: ${install_dir}/emonTrigCost.py
+	@if test ! "${installarea}" = ""; then\
+	  echo "installation done"; \
+	fi
+
+${install_dir}/emonTrigCost.py :: ../share/emonTrigCost.py
+	@if test ! "${installarea}" = ""; then \
+	  d=`dirname ../share/emonTrigCost.py`; \
+	  d=`(cd $${d}; pwd)`; \
+	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
+	  $(cmt_install_action) "$${d}" "emonTrigCost.py" "$(install_dir)" "ln -sf" "$($(package)_cmtpath)"; \
+	fi
+
+../share/emonTrigCost.py : ;
+
+install_joboptionsuninstall ::
+	@if test ! "${installarea}" = ""; then \
+	  d=`dirname ../share/emonTrigCost.py`; \
+	  d=`(cd $${d}; pwd)`; \
+	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
+	  $(cmt_uninstall_action) "$${d}" "emonTrigCost.py" "$(install_dir)" "$($(package)_cmtpath)"; \
+	fi
+
+
 install_joboptionsinstall :: ${install_dir}/offlineROSCost2012.py
 	@if test ! "${installarea}" = ""; then\
 	  echo "installation done"; \
@@ -292,6 +244,54 @@ install_joboptionsuninstall ::
 	  d=`(cd $${d}; pwd)`; \
 	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
 	  $(cmt_uninstall_action) "$${d}" "offlineROSCost2012.py" "$(install_dir)" "$($(package)_cmtpath)"; \
+	fi
+
+
+install_joboptionsinstall :: ${install_dir}/readDataRate.py
+	@if test ! "${installarea}" = ""; then\
+	  echo "installation done"; \
+	fi
+
+${install_dir}/readDataRate.py :: ../share/readDataRate.py
+	@if test ! "${installarea}" = ""; then \
+	  d=`dirname ../share/readDataRate.py`; \
+	  d=`(cd $${d}; pwd)`; \
+	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
+	  $(cmt_install_action) "$${d}" "readDataRate.py" "$(install_dir)" "ln -sf" "$($(package)_cmtpath)"; \
+	fi
+
+../share/readDataRate.py : ;
+
+install_joboptionsuninstall ::
+	@if test ! "${installarea}" = ""; then \
+	  d=`dirname ../share/readDataRate.py`; \
+	  d=`(cd $${d}; pwd)`; \
+	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
+	  $(cmt_uninstall_action) "$${d}" "readDataRate.py" "$(install_dir)" "$($(package)_cmtpath)"; \
+	fi
+
+
+install_joboptionsinstall :: ${install_dir}/readTrigCost.py
+	@if test ! "${installarea}" = ""; then\
+	  echo "installation done"; \
+	fi
+
+${install_dir}/readTrigCost.py :: ../share/readTrigCost.py
+	@if test ! "${installarea}" = ""; then \
+	  d=`dirname ../share/readTrigCost.py`; \
+	  d=`(cd $${d}; pwd)`; \
+	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
+	  $(cmt_install_action) "$${d}" "readTrigCost.py" "$(install_dir)" "ln -sf" "$($(package)_cmtpath)"; \
+	fi
+
+../share/readTrigCost.py : ;
+
+install_joboptionsuninstall ::
+	@if test ! "${installarea}" = ""; then \
+	  d=`dirname ../share/readTrigCost.py`; \
+	  d=`(cd $${d}; pwd)`; \
+	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
+	  $(cmt_uninstall_action) "$${d}" "readTrigCost.py" "$(install_dir)" "$($(package)_cmtpath)"; \
 	fi
 #-- start of cleanup_header --------------
 

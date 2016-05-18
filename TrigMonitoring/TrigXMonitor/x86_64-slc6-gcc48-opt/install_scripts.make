@@ -3,7 +3,7 @@
 #====================================
 #  Document install_scripts
 #
-#   Generated Sun May 15 17:50:04 2016  by rewang
+#   Generated Wed May 18 00:41:19 2016  by rewang
 #
 #====================================
 
@@ -118,29 +118,8 @@ uninstall :: install_scriptsuninstall
 # and this line should be dropped then
 install_scriptsinstall :: ;
 
-xmon_py_dependencies = ../macros/xmon.py
 fit_py_dependencies = ../macros/fit.py
-
-
-install_scriptsinstall :: ${install_dir}/xmon.py ;
-
-${install_dir}/xmon.py :: ../macros/xmon.py
-	@if test ! "${installarea}" = ""; then \
-	  d=`dirname ../macros/xmon.py`; \
-	  d=`(cd $${d}; pwd)`; \
-	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
-	  $(cmt_install_action) "$${d}" "xmon.py" "$(install_dir)" "/cvmfs/atlas.cern.ch/repo/sw/software/x86_64-slc6-gcc48-opt/20.3.5/AtlasCore/20.3.5/External/ExternalPolicy/src/symlink.sh" "$($(package)_cmtpath)"; \
-	fi
-
-../macros/xmon.py : ;
-
-install_scriptsuninstall ::
-	@if test ! "${installarea}" = ""; then \
-	  d=`dirname ../macros/xmon.py`; \
-	  d=`(cd $${d}; pwd)`; \
-	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
-	  $(cmt_uninstall_action) "$${d}" "xmon.py" "$(install_dir)" "$($(package)_cmtpath)"; \
-	fi
+xmon_py_dependencies = ../macros/xmon.py
 
 
 install_scriptsinstall :: ${install_dir}/fit.py ;
@@ -161,6 +140,27 @@ install_scriptsuninstall ::
 	  d=`(cd $${d}; pwd)`; \
 	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
 	  $(cmt_uninstall_action) "$${d}" "fit.py" "$(install_dir)" "$($(package)_cmtpath)"; \
+	fi
+
+
+install_scriptsinstall :: ${install_dir}/xmon.py ;
+
+${install_dir}/xmon.py :: ../macros/xmon.py
+	@if test ! "${installarea}" = ""; then \
+	  d=`dirname ../macros/xmon.py`; \
+	  d=`(cd $${d}; pwd)`; \
+	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
+	  $(cmt_install_action) "$${d}" "xmon.py" "$(install_dir)" "/cvmfs/atlas.cern.ch/repo/sw/software/x86_64-slc6-gcc48-opt/20.3.5/AtlasCore/20.3.5/External/ExternalPolicy/src/symlink.sh" "$($(package)_cmtpath)"; \
+	fi
+
+../macros/xmon.py : ;
+
+install_scriptsuninstall ::
+	@if test ! "${installarea}" = ""; then \
+	  d=`dirname ../macros/xmon.py`; \
+	  d=`(cd $${d}; pwd)`; \
+	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
+	  $(cmt_uninstall_action) "$${d}" "xmon.py" "$(install_dir)" "$($(package)_cmtpath)"; \
 	fi
 #-- start of cleanup_header --------------
 

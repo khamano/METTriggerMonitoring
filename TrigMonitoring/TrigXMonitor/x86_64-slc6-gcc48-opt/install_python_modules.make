@@ -3,7 +3,7 @@
 #====================================
 #  Document install_python_modules
 #
-#   Generated Sun May 15 17:50:04 2016  by rewang
+#   Generated Wed May 18 00:41:19 2016  by rewang
 #
 #====================================
 
@@ -118,35 +118,14 @@ uninstall :: install_python_modulesuninstall
 # and this line should be dropped then
 install_python_modulesinstall :: ;
 
-xmonHtmlUtility_py_dependencies = ../python/xmonHtmlUtility.py
 __init___py_dependencies = ../python/__init__.py
-xmonInputHandler_py_dependencies = ../python/xmonInputHandler.py
-xmonListUtility_py_dependencies = ../python/xmonListUtility.py
 xmonDataObject_py_dependencies = ../python/xmonDataObject.py
 xmonHtmlMaker_py_dependencies = ../python/xmonHtmlMaker.py
-xmon_py_dependencies = ../macros/xmon.py
+xmonHtmlUtility_py_dependencies = ../python/xmonHtmlUtility.py
+xmonInputHandler_py_dependencies = ../python/xmonInputHandler.py
+xmonListUtility_py_dependencies = ../python/xmonListUtility.py
 fit_py_dependencies = ../macros/fit.py
-
-
-install_python_modulesinstall :: ${install_dir}/xmonHtmlUtility.py ;
-
-${install_dir}/xmonHtmlUtility.py :: ../python/xmonHtmlUtility.py
-	@if test ! "${installarea}" = ""; then \
-	  d=`dirname ../python/xmonHtmlUtility.py`; \
-	  d=`(cd $${d}; pwd)`; \
-	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
-	  $(cmt_install_action) "$${d}" "xmonHtmlUtility.py" "$(install_dir)" "/cvmfs/atlas.cern.ch/repo/sw/software/x86_64-slc6-gcc48-opt/20.3.5/AtlasCore/20.3.5/External/ExternalPolicy/src/symlink.sh" "$($(package)_cmtpath)"; \
-	fi
-
-../python/xmonHtmlUtility.py : ;
-
-install_python_modulesuninstall ::
-	@if test ! "${installarea}" = ""; then \
-	  d=`dirname ../python/xmonHtmlUtility.py`; \
-	  d=`(cd $${d}; pwd)`; \
-	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
-	  $(cmt_uninstall_action) "$${d}" "xmonHtmlUtility.py" "$(install_dir)" "$($(package)_cmtpath)"; \
-	fi
+xmon_py_dependencies = ../macros/xmon.py
 
 
 install_python_modulesinstall :: ${install_dir}/__init__.py ;
@@ -167,48 +146,6 @@ install_python_modulesuninstall ::
 	  d=`(cd $${d}; pwd)`; \
 	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
 	  $(cmt_uninstall_action) "$${d}" "__init__.py" "$(install_dir)" "$($(package)_cmtpath)"; \
-	fi
-
-
-install_python_modulesinstall :: ${install_dir}/xmonInputHandler.py ;
-
-${install_dir}/xmonInputHandler.py :: ../python/xmonInputHandler.py
-	@if test ! "${installarea}" = ""; then \
-	  d=`dirname ../python/xmonInputHandler.py`; \
-	  d=`(cd $${d}; pwd)`; \
-	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
-	  $(cmt_install_action) "$${d}" "xmonInputHandler.py" "$(install_dir)" "/cvmfs/atlas.cern.ch/repo/sw/software/x86_64-slc6-gcc48-opt/20.3.5/AtlasCore/20.3.5/External/ExternalPolicy/src/symlink.sh" "$($(package)_cmtpath)"; \
-	fi
-
-../python/xmonInputHandler.py : ;
-
-install_python_modulesuninstall ::
-	@if test ! "${installarea}" = ""; then \
-	  d=`dirname ../python/xmonInputHandler.py`; \
-	  d=`(cd $${d}; pwd)`; \
-	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
-	  $(cmt_uninstall_action) "$${d}" "xmonInputHandler.py" "$(install_dir)" "$($(package)_cmtpath)"; \
-	fi
-
-
-install_python_modulesinstall :: ${install_dir}/xmonListUtility.py ;
-
-${install_dir}/xmonListUtility.py :: ../python/xmonListUtility.py
-	@if test ! "${installarea}" = ""; then \
-	  d=`dirname ../python/xmonListUtility.py`; \
-	  d=`(cd $${d}; pwd)`; \
-	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
-	  $(cmt_install_action) "$${d}" "xmonListUtility.py" "$(install_dir)" "/cvmfs/atlas.cern.ch/repo/sw/software/x86_64-slc6-gcc48-opt/20.3.5/AtlasCore/20.3.5/External/ExternalPolicy/src/symlink.sh" "$($(package)_cmtpath)"; \
-	fi
-
-../python/xmonListUtility.py : ;
-
-install_python_modulesuninstall ::
-	@if test ! "${installarea}" = ""; then \
-	  d=`dirname ../python/xmonListUtility.py`; \
-	  d=`(cd $${d}; pwd)`; \
-	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
-	  $(cmt_uninstall_action) "$${d}" "xmonListUtility.py" "$(install_dir)" "$($(package)_cmtpath)"; \
 	fi
 
 
@@ -254,24 +191,66 @@ install_python_modulesuninstall ::
 	fi
 
 
-install_python_modulesinstall :: ${install_dir}/xmon.py ;
+install_python_modulesinstall :: ${install_dir}/xmonHtmlUtility.py ;
 
-${install_dir}/xmon.py :: ../macros/xmon.py
+${install_dir}/xmonHtmlUtility.py :: ../python/xmonHtmlUtility.py
 	@if test ! "${installarea}" = ""; then \
-	  d=`dirname ../macros/xmon.py`; \
+	  d=`dirname ../python/xmonHtmlUtility.py`; \
 	  d=`(cd $${d}; pwd)`; \
 	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
-	  $(cmt_install_action) "$${d}" "xmon.py" "$(install_dir)" "/cvmfs/atlas.cern.ch/repo/sw/software/x86_64-slc6-gcc48-opt/20.3.5/AtlasCore/20.3.5/External/ExternalPolicy/src/symlink.sh" "$($(package)_cmtpath)"; \
+	  $(cmt_install_action) "$${d}" "xmonHtmlUtility.py" "$(install_dir)" "/cvmfs/atlas.cern.ch/repo/sw/software/x86_64-slc6-gcc48-opt/20.3.5/AtlasCore/20.3.5/External/ExternalPolicy/src/symlink.sh" "$($(package)_cmtpath)"; \
 	fi
 
-../macros/xmon.py : ;
+../python/xmonHtmlUtility.py : ;
 
 install_python_modulesuninstall ::
 	@if test ! "${installarea}" = ""; then \
-	  d=`dirname ../macros/xmon.py`; \
+	  d=`dirname ../python/xmonHtmlUtility.py`; \
 	  d=`(cd $${d}; pwd)`; \
 	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
-	  $(cmt_uninstall_action) "$${d}" "xmon.py" "$(install_dir)" "$($(package)_cmtpath)"; \
+	  $(cmt_uninstall_action) "$${d}" "xmonHtmlUtility.py" "$(install_dir)" "$($(package)_cmtpath)"; \
+	fi
+
+
+install_python_modulesinstall :: ${install_dir}/xmonInputHandler.py ;
+
+${install_dir}/xmonInputHandler.py :: ../python/xmonInputHandler.py
+	@if test ! "${installarea}" = ""; then \
+	  d=`dirname ../python/xmonInputHandler.py`; \
+	  d=`(cd $${d}; pwd)`; \
+	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
+	  $(cmt_install_action) "$${d}" "xmonInputHandler.py" "$(install_dir)" "/cvmfs/atlas.cern.ch/repo/sw/software/x86_64-slc6-gcc48-opt/20.3.5/AtlasCore/20.3.5/External/ExternalPolicy/src/symlink.sh" "$($(package)_cmtpath)"; \
+	fi
+
+../python/xmonInputHandler.py : ;
+
+install_python_modulesuninstall ::
+	@if test ! "${installarea}" = ""; then \
+	  d=`dirname ../python/xmonInputHandler.py`; \
+	  d=`(cd $${d}; pwd)`; \
+	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
+	  $(cmt_uninstall_action) "$${d}" "xmonInputHandler.py" "$(install_dir)" "$($(package)_cmtpath)"; \
+	fi
+
+
+install_python_modulesinstall :: ${install_dir}/xmonListUtility.py ;
+
+${install_dir}/xmonListUtility.py :: ../python/xmonListUtility.py
+	@if test ! "${installarea}" = ""; then \
+	  d=`dirname ../python/xmonListUtility.py`; \
+	  d=`(cd $${d}; pwd)`; \
+	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
+	  $(cmt_install_action) "$${d}" "xmonListUtility.py" "$(install_dir)" "/cvmfs/atlas.cern.ch/repo/sw/software/x86_64-slc6-gcc48-opt/20.3.5/AtlasCore/20.3.5/External/ExternalPolicy/src/symlink.sh" "$($(package)_cmtpath)"; \
+	fi
+
+../python/xmonListUtility.py : ;
+
+install_python_modulesuninstall ::
+	@if test ! "${installarea}" = ""; then \
+	  d=`dirname ../python/xmonListUtility.py`; \
+	  d=`(cd $${d}; pwd)`; \
+	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
+	  $(cmt_uninstall_action) "$${d}" "xmonListUtility.py" "$(install_dir)" "$($(package)_cmtpath)"; \
 	fi
 
 
@@ -293,6 +272,27 @@ install_python_modulesuninstall ::
 	  d=`(cd $${d}; pwd)`; \
 	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
 	  $(cmt_uninstall_action) "$${d}" "fit.py" "$(install_dir)" "$($(package)_cmtpath)"; \
+	fi
+
+
+install_python_modulesinstall :: ${install_dir}/xmon.py ;
+
+${install_dir}/xmon.py :: ../macros/xmon.py
+	@if test ! "${installarea}" = ""; then \
+	  d=`dirname ../macros/xmon.py`; \
+	  d=`(cd $${d}; pwd)`; \
+	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
+	  $(cmt_install_action) "$${d}" "xmon.py" "$(install_dir)" "/cvmfs/atlas.cern.ch/repo/sw/software/x86_64-slc6-gcc48-opt/20.3.5/AtlasCore/20.3.5/External/ExternalPolicy/src/symlink.sh" "$($(package)_cmtpath)"; \
+	fi
+
+../macros/xmon.py : ;
+
+install_python_modulesuninstall ::
+	@if test ! "${installarea}" = ""; then \
+	  d=`dirname ../macros/xmon.py`; \
+	  d=`(cd $${d}; pwd)`; \
+	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
+	  $(cmt_uninstall_action) "$${d}" "xmon.py" "$(install_dir)" "$($(package)_cmtpath)"; \
 	fi
 #-- start of cleanup_header --------------
 

@@ -555,6 +555,11 @@ class xmonData:
             else:
                 return tab
 
+
+
+
+
+
         # Flatten data
         flatup = {}
         flatup['x'] = int(valx) if 'time' in varx else float(valx)

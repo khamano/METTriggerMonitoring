@@ -3,7 +3,7 @@
 #====================================
 #  Document install_python_modules
 #
-#   Generated Sun May 15 17:50:07 2016  by rewang
+#   Generated Wed May 18 00:41:23 2016  by rewang
 #
 #====================================
 
@@ -118,35 +118,35 @@ uninstall :: install_python_modulesuninstall
 # and this line should be dropped then
 install_python_modulesinstall :: ;
 
-TrigCostIS_py_dependencies = ../python/TrigCostIS.py
+TrigCostAnalysis_py_dependencies = ../python/TrigCostAnalysis.py
 TrigCostCool_py_dependencies = ../python/TrigCostCool.py
-compRates_head_py_dependencies = ../python/compRates_head.py
+TrigCostIS_py_dependencies = ../python/TrigCostIS.py
+TrigCostRoot_py_dependencies = ../python/TrigCostRoot.py
+TrigCostTRP_py_dependencies = ../python/TrigCostTRP.py
 TrigCostTRP_save20121007_py_dependencies = ../python/TrigCostTRP_save20121007.py
 TrigCostXML_py_dependencies = ../python/TrigCostXML.py
 __init___py_dependencies = ../python/__init__.py
-TrigCostAnalysis_py_dependencies = ../python/TrigCostAnalysis.py
-TrigCostRoot_py_dependencies = ../python/TrigCostRoot.py
-TrigCostTRP_py_dependencies = ../python/TrigCostTRP.py
+compRates_head_py_dependencies = ../python/compRates_head.py
 
 
-install_python_modulesinstall :: ${install_dir}/TrigCostIS.py ;
+install_python_modulesinstall :: ${install_dir}/TrigCostAnalysis.py ;
 
-${install_dir}/TrigCostIS.py :: ../python/TrigCostIS.py
+${install_dir}/TrigCostAnalysis.py :: ../python/TrigCostAnalysis.py
 	@if test ! "${installarea}" = ""; then \
-	  d=`dirname ../python/TrigCostIS.py`; \
+	  d=`dirname ../python/TrigCostAnalysis.py`; \
 	  d=`(cd $${d}; pwd)`; \
 	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
-	  $(cmt_install_action) "$${d}" "TrigCostIS.py" "$(install_dir)" "/cvmfs/atlas.cern.ch/repo/sw/software/x86_64-slc6-gcc48-opt/20.3.5/AtlasCore/20.3.5/External/ExternalPolicy/src/symlink.sh" "$($(package)_cmtpath)"; \
+	  $(cmt_install_action) "$${d}" "TrigCostAnalysis.py" "$(install_dir)" "/cvmfs/atlas.cern.ch/repo/sw/software/x86_64-slc6-gcc48-opt/20.3.5/AtlasCore/20.3.5/External/ExternalPolicy/src/symlink.sh" "$($(package)_cmtpath)"; \
 	fi
 
-../python/TrigCostIS.py : ;
+../python/TrigCostAnalysis.py : ;
 
 install_python_modulesuninstall ::
 	@if test ! "${installarea}" = ""; then \
-	  d=`dirname ../python/TrigCostIS.py`; \
+	  d=`dirname ../python/TrigCostAnalysis.py`; \
 	  d=`(cd $${d}; pwd)`; \
 	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
-	  $(cmt_uninstall_action) "$${d}" "TrigCostIS.py" "$(install_dir)" "$($(package)_cmtpath)"; \
+	  $(cmt_uninstall_action) "$${d}" "TrigCostAnalysis.py" "$(install_dir)" "$($(package)_cmtpath)"; \
 	fi
 
 
@@ -171,24 +171,66 @@ install_python_modulesuninstall ::
 	fi
 
 
-install_python_modulesinstall :: ${install_dir}/compRates_head.py ;
+install_python_modulesinstall :: ${install_dir}/TrigCostIS.py ;
 
-${install_dir}/compRates_head.py :: ../python/compRates_head.py
+${install_dir}/TrigCostIS.py :: ../python/TrigCostIS.py
 	@if test ! "${installarea}" = ""; then \
-	  d=`dirname ../python/compRates_head.py`; \
+	  d=`dirname ../python/TrigCostIS.py`; \
 	  d=`(cd $${d}; pwd)`; \
 	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
-	  $(cmt_install_action) "$${d}" "compRates_head.py" "$(install_dir)" "/cvmfs/atlas.cern.ch/repo/sw/software/x86_64-slc6-gcc48-opt/20.3.5/AtlasCore/20.3.5/External/ExternalPolicy/src/symlink.sh" "$($(package)_cmtpath)"; \
+	  $(cmt_install_action) "$${d}" "TrigCostIS.py" "$(install_dir)" "/cvmfs/atlas.cern.ch/repo/sw/software/x86_64-slc6-gcc48-opt/20.3.5/AtlasCore/20.3.5/External/ExternalPolicy/src/symlink.sh" "$($(package)_cmtpath)"; \
 	fi
 
-../python/compRates_head.py : ;
+../python/TrigCostIS.py : ;
 
 install_python_modulesuninstall ::
 	@if test ! "${installarea}" = ""; then \
-	  d=`dirname ../python/compRates_head.py`; \
+	  d=`dirname ../python/TrigCostIS.py`; \
 	  d=`(cd $${d}; pwd)`; \
 	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
-	  $(cmt_uninstall_action) "$${d}" "compRates_head.py" "$(install_dir)" "$($(package)_cmtpath)"; \
+	  $(cmt_uninstall_action) "$${d}" "TrigCostIS.py" "$(install_dir)" "$($(package)_cmtpath)"; \
+	fi
+
+
+install_python_modulesinstall :: ${install_dir}/TrigCostRoot.py ;
+
+${install_dir}/TrigCostRoot.py :: ../python/TrigCostRoot.py
+	@if test ! "${installarea}" = ""; then \
+	  d=`dirname ../python/TrigCostRoot.py`; \
+	  d=`(cd $${d}; pwd)`; \
+	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
+	  $(cmt_install_action) "$${d}" "TrigCostRoot.py" "$(install_dir)" "/cvmfs/atlas.cern.ch/repo/sw/software/x86_64-slc6-gcc48-opt/20.3.5/AtlasCore/20.3.5/External/ExternalPolicy/src/symlink.sh" "$($(package)_cmtpath)"; \
+	fi
+
+../python/TrigCostRoot.py : ;
+
+install_python_modulesuninstall ::
+	@if test ! "${installarea}" = ""; then \
+	  d=`dirname ../python/TrigCostRoot.py`; \
+	  d=`(cd $${d}; pwd)`; \
+	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
+	  $(cmt_uninstall_action) "$${d}" "TrigCostRoot.py" "$(install_dir)" "$($(package)_cmtpath)"; \
+	fi
+
+
+install_python_modulesinstall :: ${install_dir}/TrigCostTRP.py ;
+
+${install_dir}/TrigCostTRP.py :: ../python/TrigCostTRP.py
+	@if test ! "${installarea}" = ""; then \
+	  d=`dirname ../python/TrigCostTRP.py`; \
+	  d=`(cd $${d}; pwd)`; \
+	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
+	  $(cmt_install_action) "$${d}" "TrigCostTRP.py" "$(install_dir)" "/cvmfs/atlas.cern.ch/repo/sw/software/x86_64-slc6-gcc48-opt/20.3.5/AtlasCore/20.3.5/External/ExternalPolicy/src/symlink.sh" "$($(package)_cmtpath)"; \
+	fi
+
+../python/TrigCostTRP.py : ;
+
+install_python_modulesuninstall ::
+	@if test ! "${installarea}" = ""; then \
+	  d=`dirname ../python/TrigCostTRP.py`; \
+	  d=`(cd $${d}; pwd)`; \
+	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
+	  $(cmt_uninstall_action) "$${d}" "TrigCostTRP.py" "$(install_dir)" "$($(package)_cmtpath)"; \
 	fi
 
 
@@ -255,66 +297,24 @@ install_python_modulesuninstall ::
 	fi
 
 
-install_python_modulesinstall :: ${install_dir}/TrigCostAnalysis.py ;
+install_python_modulesinstall :: ${install_dir}/compRates_head.py ;
 
-${install_dir}/TrigCostAnalysis.py :: ../python/TrigCostAnalysis.py
+${install_dir}/compRates_head.py :: ../python/compRates_head.py
 	@if test ! "${installarea}" = ""; then \
-	  d=`dirname ../python/TrigCostAnalysis.py`; \
+	  d=`dirname ../python/compRates_head.py`; \
 	  d=`(cd $${d}; pwd)`; \
 	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
-	  $(cmt_install_action) "$${d}" "TrigCostAnalysis.py" "$(install_dir)" "/cvmfs/atlas.cern.ch/repo/sw/software/x86_64-slc6-gcc48-opt/20.3.5/AtlasCore/20.3.5/External/ExternalPolicy/src/symlink.sh" "$($(package)_cmtpath)"; \
+	  $(cmt_install_action) "$${d}" "compRates_head.py" "$(install_dir)" "/cvmfs/atlas.cern.ch/repo/sw/software/x86_64-slc6-gcc48-opt/20.3.5/AtlasCore/20.3.5/External/ExternalPolicy/src/symlink.sh" "$($(package)_cmtpath)"; \
 	fi
 
-../python/TrigCostAnalysis.py : ;
+../python/compRates_head.py : ;
 
 install_python_modulesuninstall ::
 	@if test ! "${installarea}" = ""; then \
-	  d=`dirname ../python/TrigCostAnalysis.py`; \
+	  d=`dirname ../python/compRates_head.py`; \
 	  d=`(cd $${d}; pwd)`; \
 	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
-	  $(cmt_uninstall_action) "$${d}" "TrigCostAnalysis.py" "$(install_dir)" "$($(package)_cmtpath)"; \
-	fi
-
-
-install_python_modulesinstall :: ${install_dir}/TrigCostRoot.py ;
-
-${install_dir}/TrigCostRoot.py :: ../python/TrigCostRoot.py
-	@if test ! "${installarea}" = ""; then \
-	  d=`dirname ../python/TrigCostRoot.py`; \
-	  d=`(cd $${d}; pwd)`; \
-	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
-	  $(cmt_install_action) "$${d}" "TrigCostRoot.py" "$(install_dir)" "/cvmfs/atlas.cern.ch/repo/sw/software/x86_64-slc6-gcc48-opt/20.3.5/AtlasCore/20.3.5/External/ExternalPolicy/src/symlink.sh" "$($(package)_cmtpath)"; \
-	fi
-
-../python/TrigCostRoot.py : ;
-
-install_python_modulesuninstall ::
-	@if test ! "${installarea}" = ""; then \
-	  d=`dirname ../python/TrigCostRoot.py`; \
-	  d=`(cd $${d}; pwd)`; \
-	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
-	  $(cmt_uninstall_action) "$${d}" "TrigCostRoot.py" "$(install_dir)" "$($(package)_cmtpath)"; \
-	fi
-
-
-install_python_modulesinstall :: ${install_dir}/TrigCostTRP.py ;
-
-${install_dir}/TrigCostTRP.py :: ../python/TrigCostTRP.py
-	@if test ! "${installarea}" = ""; then \
-	  d=`dirname ../python/TrigCostTRP.py`; \
-	  d=`(cd $${d}; pwd)`; \
-	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
-	  $(cmt_install_action) "$${d}" "TrigCostTRP.py" "$(install_dir)" "/cvmfs/atlas.cern.ch/repo/sw/software/x86_64-slc6-gcc48-opt/20.3.5/AtlasCore/20.3.5/External/ExternalPolicy/src/symlink.sh" "$($(package)_cmtpath)"; \
-	fi
-
-../python/TrigCostTRP.py : ;
-
-install_python_modulesuninstall ::
-	@if test ! "${installarea}" = ""; then \
-	  d=`dirname ../python/TrigCostTRP.py`; \
-	  d=`(cd $${d}; pwd)`; \
-	  CMTINSTALLAREA=${CMTINSTALLAREA}; export CMTINSTALLAREA; \
-	  $(cmt_uninstall_action) "$${d}" "TrigCostTRP.py" "$(install_dir)" "$($(package)_cmtpath)"; \
+	  $(cmt_uninstall_action) "$${d}" "compRates_head.py" "$(install_dir)" "$($(package)_cmtpath)"; \
 	fi
 #-- start of cleanup_header --------------
 

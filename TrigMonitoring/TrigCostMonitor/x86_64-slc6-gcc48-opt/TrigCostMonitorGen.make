@@ -3,7 +3,7 @@
 #====================================
 #  Document TrigCostMonitorGen
 #
-#   Generated Sun May 15 17:50:11 2016  by rewang
+#   Generated Wed May 18 00:41:27 2016  by rewang
 #
 #====================================
 

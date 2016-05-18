@@ -66,7 +66,6 @@ def defaultLists():
 
     # "trig" default list
     varname['trig'].append('L1_XE50/f')
-#    varname['trig'].append('L1_EM18VH/f')
 #	    varname['trig'].append('L1_4J10/f')
 #	    varname['trig'].append('L1_5J10/f')
 #	    varname['trig'].append('L1_EM3/f')
@@ -196,10 +195,8 @@ def readInput():
     inputs['mumax']         = float(QUERY_STRING.getfirst('mumax',          '-1'))
     inputs['bunchesmin']    = float(QUERY_STRING.getfirst('bunchesmin',     '0'))
     inputs['bunchesmax']    = float(QUERY_STRING.getfirst('bunchesmax',     '-1'))
-#    inputs['L1_EM18VHmin']  = float(QUERY_STRING.getfirst('L1_EM18VHmin',   '10000'))
-#    inputs['L1_EM18VHmax']  = float(QUERY_STRING.getfirst('L1_EM18VHmax',   '-1'))
-    inputs['L1_XE50min']  = float(QUERY_STRING.getfirst('L1_XE50min',   '10000'))
-    inputs['L1_XE50max']  = float(QUERY_STRING.getfirst('L1_XE50max',   '-1'))
+    inputs['L1_XE50min']    = float(QUERY_STRING.getfirst('L1_XE50min',   '10000'))
+    inputs['L1_XE50max']    = float(QUERY_STRING.getfirst('L1_XE50max',   '-1'))
 
 
     # Default plotted variables
@@ -392,8 +389,8 @@ class xmonParams:
         self.niceLabel['tab_av']       = 'after vetoing'
 
         # Nice units
-        self.niceLabelUnit['bunchlumi']= 'e30'
-        self.niceLabelUnit['lumi']     = 'e30'
+        self.niceLabelUnit['bunchlumi']= 'E30 cm^-2s^-1'
+        self.niceLabelUnit['lumi']     = 'E30 cm^-2s^-1'
         self.niceLabelUnit['lblumi']   = '&mu;b-1 '
         self.niceLabelUnit['mu']       = ''
         self.niceLabelUnit['bunches']  = ''

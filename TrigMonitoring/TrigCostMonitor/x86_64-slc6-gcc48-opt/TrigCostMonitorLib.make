@@ -3,7 +3,7 @@
 #====================================
 #  Library TrigCostMonitorLib
 #
-#   Generated Sun May 15 17:50:11 2016  by rewang
+#   Generated Wed May 18 00:41:26 2016  by rewang
 #
 #====================================
 
@@ -107,7 +107,7 @@ TrigCostMonitorLib :: dirs  TrigCostMonitorLibLIB
 TrigCostMonitorLibLIB :: $(TrigCostMonitorLibshstamp)
 	$(echo) "TrigCostMonitorLib : library ok"
 
-$(TrigCostMonitorLiblib) :: $(bin)ReadConf.o $(bin)TrigCostAlg.o $(bin)TrigCostRun.o $(bin)TrigNtEBWeightTool.o $(bin)TrigNtSaveTool.o $(bin)TrigNtRobsTool.o $(bin)FillConf.o $(bin)TrigCostTool.o $(bin)TrigNtHltRTool.o $(bin)TrigNtVarsTool.o $(bin)TrigNtLvl1Tool.o $(bin)UtilCost.o $(bin)TrigNtElemTool.o $(bin)TrigNtExecTool.o $(bin)TrigNtPostTool.o $(bin)TrigNtConfTool.o $(bin)ReadLumiBlock.o
+$(TrigCostMonitorLiblib) :: $(bin)FillConf.o $(bin)ReadConf.o $(bin)ReadLumiBlock.o $(bin)TrigCostAlg.o $(bin)TrigCostRun.o $(bin)TrigCostTool.o $(bin)TrigNtConfTool.o $(bin)TrigNtEBWeightTool.o $(bin)TrigNtElemTool.o $(bin)TrigNtExecTool.o $(bin)TrigNtHltRTool.o $(bin)TrigNtLvl1Tool.o $(bin)TrigNtPostTool.o $(bin)TrigNtRobsTool.o $(bin)TrigNtSaveTool.o $(bin)TrigNtVarsTool.o $(bin)UtilCost.o
 	$(lib_echo) "static library $@"
 	$(lib_silent) cd $(bin); \
 	  $(ar) $(TrigCostMonitorLiblib) $?
@@ -130,9 +130,9 @@ $(TrigCostMonitorLiblib) :: $(bin)ReadConf.o $(bin)TrigCostAlg.o $(bin)TrigCostR
 # while the stamp was created (error??) 
 #
 
-$(TrigCostMonitorLiblibname).$(shlibsuffix) :: $(bin)ReadConf.o $(bin)TrigCostAlg.o $(bin)TrigCostRun.o $(bin)TrigNtEBWeightTool.o $(bin)TrigNtSaveTool.o $(bin)TrigNtRobsTool.o $(bin)FillConf.o $(bin)TrigCostTool.o $(bin)TrigNtHltRTool.o $(bin)TrigNtVarsTool.o $(bin)TrigNtLvl1Tool.o $(bin)UtilCost.o $(bin)TrigNtElemTool.o $(bin)TrigNtExecTool.o $(bin)TrigNtPostTool.o $(bin)TrigNtConfTool.o $(bin)ReadLumiBlock.o $(use_requirements) $(TrigCostMonitorLibstamps)
+$(TrigCostMonitorLiblibname).$(shlibsuffix) :: $(bin)FillConf.o $(bin)ReadConf.o $(bin)ReadLumiBlock.o $(bin)TrigCostAlg.o $(bin)TrigCostRun.o $(bin)TrigCostTool.o $(bin)TrigNtConfTool.o $(bin)TrigNtEBWeightTool.o $(bin)TrigNtElemTool.o $(bin)TrigNtExecTool.o $(bin)TrigNtHltRTool.o $(bin)TrigNtLvl1Tool.o $(bin)TrigNtPostTool.o $(bin)TrigNtRobsTool.o $(bin)TrigNtSaveTool.o $(bin)TrigNtVarsTool.o $(bin)UtilCost.o $(use_requirements) $(TrigCostMonitorLibstamps)
 	$(lib_echo) "shared library $@"
-	$(lib_silent) $(shlibbuilder) $(shlibflags) -o $@ $(bin)ReadConf.o $(bin)TrigCostAlg.o $(bin)TrigCostRun.o $(bin)TrigNtEBWeightTool.o $(bin)TrigNtSaveTool.o $(bin)TrigNtRobsTool.o $(bin)FillConf.o $(bin)TrigCostTool.o $(bin)TrigNtHltRTool.o $(bin)TrigNtVarsTool.o $(bin)TrigNtLvl1Tool.o $(bin)UtilCost.o $(bin)TrigNtElemTool.o $(bin)TrigNtExecTool.o $(bin)TrigNtPostTool.o $(bin)TrigNtConfTool.o $(bin)ReadLumiBlock.o $(TrigCostMonitorLib_shlibflags)
+	$(lib_silent) $(shlibbuilder) $(shlibflags) -o $@ $(bin)FillConf.o $(bin)ReadConf.o $(bin)ReadLumiBlock.o $(bin)TrigCostAlg.o $(bin)TrigCostRun.o $(bin)TrigCostTool.o $(bin)TrigNtConfTool.o $(bin)TrigNtEBWeightTool.o $(bin)TrigNtElemTool.o $(bin)TrigNtExecTool.o $(bin)TrigNtHltRTool.o $(bin)TrigNtLvl1Tool.o $(bin)TrigNtPostTool.o $(bin)TrigNtRobsTool.o $(bin)TrigNtSaveTool.o $(bin)TrigNtVarsTool.o $(bin)UtilCost.o $(TrigCostMonitorLib_shlibflags)
 	$(lib_silent) cat /dev/null >$(TrigCostMonitorLibstamp) && \
 	  cat /dev/null >$(TrigCostMonitorLibshstamp)
 
@@ -143,8 +143,8 @@ $(TrigCostMonitorLibshstamp) :: $(TrigCostMonitorLiblibname).$(shlibsuffix)
 
 TrigCostMonitorLibclean ::
 	$(cleanup_echo) objects TrigCostMonitorLib
-	$(cleanup_silent) /bin/rm -f $(bin)ReadConf.o $(bin)TrigCostAlg.o $(bin)TrigCostRun.o $(bin)TrigNtEBWeightTool.o $(bin)TrigNtSaveTool.o $(bin)TrigNtRobsTool.o $(bin)FillConf.o $(bin)TrigCostTool.o $(bin)TrigNtHltRTool.o $(bin)TrigNtVarsTool.o $(bin)TrigNtLvl1Tool.o $(bin)UtilCost.o $(bin)TrigNtElemTool.o $(bin)TrigNtExecTool.o $(bin)TrigNtPostTool.o $(bin)TrigNtConfTool.o $(bin)ReadLumiBlock.o
-	$(cleanup_silent) /bin/rm -f $(patsubst %.o,%.d,$(bin)ReadConf.o $(bin)TrigCostAlg.o $(bin)TrigCostRun.o $(bin)TrigNtEBWeightTool.o $(bin)TrigNtSaveTool.o $(bin)TrigNtRobsTool.o $(bin)FillConf.o $(bin)TrigCostTool.o $(bin)TrigNtHltRTool.o $(bin)TrigNtVarsTool.o $(bin)TrigNtLvl1Tool.o $(bin)UtilCost.o $(bin)TrigNtElemTool.o $(bin)TrigNtExecTool.o $(bin)TrigNtPostTool.o $(bin)TrigNtConfTool.o $(bin)ReadLumiBlock.o) $(patsubst %.o,%.dep,$(bin)ReadConf.o $(bin)TrigCostAlg.o $(bin)TrigCostRun.o $(bin)TrigNtEBWeightTool.o $(bin)TrigNtSaveTool.o $(bin)TrigNtRobsTool.o $(bin)FillConf.o $(bin)TrigCostTool.o $(bin)TrigNtHltRTool.o $(bin)TrigNtVarsTool.o $(bin)TrigNtLvl1Tool.o $(bin)UtilCost.o $(bin)TrigNtElemTool.o $(bin)TrigNtExecTool.o $(bin)TrigNtPostTool.o $(bin)TrigNtConfTool.o $(bin)ReadLumiBlock.o) $(patsubst %.o,%.d.stamp,$(bin)ReadConf.o $(bin)TrigCostAlg.o $(bin)TrigCostRun.o $(bin)TrigNtEBWeightTool.o $(bin)TrigNtSaveTool.o $(bin)TrigNtRobsTool.o $(bin)FillConf.o $(bin)TrigCostTool.o $(bin)TrigNtHltRTool.o $(bin)TrigNtVarsTool.o $(bin)TrigNtLvl1Tool.o $(bin)UtilCost.o $(bin)TrigNtElemTool.o $(bin)TrigNtExecTool.o $(bin)TrigNtPostTool.o $(bin)TrigNtConfTool.o $(bin)ReadLumiBlock.o)
+	$(cleanup_silent) /bin/rm -f $(bin)FillConf.o $(bin)ReadConf.o $(bin)ReadLumiBlock.o $(bin)TrigCostAlg.o $(bin)TrigCostRun.o $(bin)TrigCostTool.o $(bin)TrigNtConfTool.o $(bin)TrigNtEBWeightTool.o $(bin)TrigNtElemTool.o $(bin)TrigNtExecTool.o $(bin)TrigNtHltRTool.o $(bin)TrigNtLvl1Tool.o $(bin)TrigNtPostTool.o $(bin)TrigNtRobsTool.o $(bin)TrigNtSaveTool.o $(bin)TrigNtVarsTool.o $(bin)UtilCost.o
+	$(cleanup_silent) /bin/rm -f $(patsubst %.o,%.d,$(bin)FillConf.o $(bin)ReadConf.o $(bin)ReadLumiBlock.o $(bin)TrigCostAlg.o $(bin)TrigCostRun.o $(bin)TrigCostTool.o $(bin)TrigNtConfTool.o $(bin)TrigNtEBWeightTool.o $(bin)TrigNtElemTool.o $(bin)TrigNtExecTool.o $(bin)TrigNtHltRTool.o $(bin)TrigNtLvl1Tool.o $(bin)TrigNtPostTool.o $(bin)TrigNtRobsTool.o $(bin)TrigNtSaveTool.o $(bin)TrigNtVarsTool.o $(bin)UtilCost.o) $(patsubst %.o,%.dep,$(bin)FillConf.o $(bin)ReadConf.o $(bin)ReadLumiBlock.o $(bin)TrigCostAlg.o $(bin)TrigCostRun.o $(bin)TrigCostTool.o $(bin)TrigNtConfTool.o $(bin)TrigNtEBWeightTool.o $(bin)TrigNtElemTool.o $(bin)TrigNtExecTool.o $(bin)TrigNtHltRTool.o $(bin)TrigNtLvl1Tool.o $(bin)TrigNtPostTool.o $(bin)TrigNtRobsTool.o $(bin)TrigNtSaveTool.o $(bin)TrigNtVarsTool.o $(bin)UtilCost.o) $(patsubst %.o,%.d.stamp,$(bin)FillConf.o $(bin)ReadConf.o $(bin)ReadLumiBlock.o $(bin)TrigCostAlg.o $(bin)TrigCostRun.o $(bin)TrigCostTool.o $(bin)TrigNtConfTool.o $(bin)TrigNtEBWeightTool.o $(bin)TrigNtElemTool.o $(bin)TrigNtExecTool.o $(bin)TrigNtHltRTool.o $(bin)TrigNtLvl1Tool.o $(bin)TrigNtPostTool.o $(bin)TrigNtRobsTool.o $(bin)TrigNtSaveTool.o $(bin)TrigNtVarsTool.o $(bin)UtilCost.o)
 	$(cleanup_silent) cd $(bin); /bin/rm -rf TrigCostMonitorLib_deps TrigCostMonitorLib_dependencies.make
 
 #-----------------------------------------------------------------
@@ -195,6 +195,36 @@ ifneq (-MMD -MP -MF $*.d -MQ $@,)
 
 ifneq ($(MAKECMDGOALS),TrigCostMonitorLibclean)
 ifneq ($(MAKECMDGOALS),uninstall)
+-include $(bin)$(binobj)FillConf.d
+
+$(bin)$(binobj)FillConf.d :
+
+$(bin)$(binobj)FillConf.o : $(cmt_final_setup_TrigCostMonitorLib)
+
+$(bin)$(binobj)FillConf.o : $(src)FillConf.cxx
+	$(cpp_echo) $(src)FillConf.cxx
+	$(cpp_silent) $(cppcomp) -MMD -MP -MF $*.d -MQ $@ -o $@ $(use_pp_cppflags) $(TrigCostMonitorLib_pp_cppflags) $(lib_TrigCostMonitorLib_pp_cppflags) $(FillConf_pp_cppflags) $(use_cppflags) $(TrigCostMonitorLib_cppflags) $(lib_TrigCostMonitorLib_cppflags) $(FillConf_cppflags) $(FillConf_cxx_cppflags)  $(src)FillConf.cxx
+endif
+endif
+
+else
+$(bin)TrigCostMonitorLib_dependencies.make : $(FillConf_cxx_dependencies)
+
+$(bin)TrigCostMonitorLib_dependencies.make : $(src)FillConf.cxx
+
+$(bin)$(binobj)FillConf.o : $(FillConf_cxx_dependencies)
+	$(cpp_echo) $(src)FillConf.cxx
+	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(TrigCostMonitorLib_pp_cppflags) $(lib_TrigCostMonitorLib_pp_cppflags) $(FillConf_pp_cppflags) $(use_cppflags) $(TrigCostMonitorLib_cppflags) $(lib_TrigCostMonitorLib_cppflags) $(FillConf_cppflags) $(FillConf_cxx_cppflags)  $(src)FillConf.cxx
+
+endif
+
+#-- end of cpp_library ------------------
+#-- start of cpp_library -----------------
+
+ifneq (-MMD -MP -MF $*.d -MQ $@,)
+
+ifneq ($(MAKECMDGOALS),TrigCostMonitorLibclean)
+ifneq ($(MAKECMDGOALS),uninstall)
 -include $(bin)$(binobj)ReadConf.d
 
 $(bin)$(binobj)ReadConf.d :
@@ -215,6 +245,36 @@ $(bin)TrigCostMonitorLib_dependencies.make : $(src)ReadConf.cxx
 $(bin)$(binobj)ReadConf.o : $(ReadConf_cxx_dependencies)
 	$(cpp_echo) $(src)ReadConf.cxx
 	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(TrigCostMonitorLib_pp_cppflags) $(lib_TrigCostMonitorLib_pp_cppflags) $(ReadConf_pp_cppflags) $(use_cppflags) $(TrigCostMonitorLib_cppflags) $(lib_TrigCostMonitorLib_cppflags) $(ReadConf_cppflags) $(ReadConf_cxx_cppflags)  $(src)ReadConf.cxx
+
+endif
+
+#-- end of cpp_library ------------------
+#-- start of cpp_library -----------------
+
+ifneq (-MMD -MP -MF $*.d -MQ $@,)
+
+ifneq ($(MAKECMDGOALS),TrigCostMonitorLibclean)
+ifneq ($(MAKECMDGOALS),uninstall)
+-include $(bin)$(binobj)ReadLumiBlock.d
+
+$(bin)$(binobj)ReadLumiBlock.d :
+
+$(bin)$(binobj)ReadLumiBlock.o : $(cmt_final_setup_TrigCostMonitorLib)
+
+$(bin)$(binobj)ReadLumiBlock.o : $(src)ReadLumiBlock.cxx
+	$(cpp_echo) $(src)ReadLumiBlock.cxx
+	$(cpp_silent) $(cppcomp) -MMD -MP -MF $*.d -MQ $@ -o $@ $(use_pp_cppflags) $(TrigCostMonitorLib_pp_cppflags) $(lib_TrigCostMonitorLib_pp_cppflags) $(ReadLumiBlock_pp_cppflags) $(use_cppflags) $(TrigCostMonitorLib_cppflags) $(lib_TrigCostMonitorLib_cppflags) $(ReadLumiBlock_cppflags) $(ReadLumiBlock_cxx_cppflags)  $(src)ReadLumiBlock.cxx
+endif
+endif
+
+else
+$(bin)TrigCostMonitorLib_dependencies.make : $(ReadLumiBlock_cxx_dependencies)
+
+$(bin)TrigCostMonitorLib_dependencies.make : $(src)ReadLumiBlock.cxx
+
+$(bin)$(binobj)ReadLumiBlock.o : $(ReadLumiBlock_cxx_dependencies)
+	$(cpp_echo) $(src)ReadLumiBlock.cxx
+	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(TrigCostMonitorLib_pp_cppflags) $(lib_TrigCostMonitorLib_pp_cppflags) $(ReadLumiBlock_pp_cppflags) $(use_cppflags) $(TrigCostMonitorLib_cppflags) $(lib_TrigCostMonitorLib_cppflags) $(ReadLumiBlock_cppflags) $(ReadLumiBlock_cxx_cppflags)  $(src)ReadLumiBlock.cxx
 
 endif
 
@@ -285,126 +345,6 @@ ifneq (-MMD -MP -MF $*.d -MQ $@,)
 
 ifneq ($(MAKECMDGOALS),TrigCostMonitorLibclean)
 ifneq ($(MAKECMDGOALS),uninstall)
--include $(bin)$(binobj)TrigNtEBWeightTool.d
-
-$(bin)$(binobj)TrigNtEBWeightTool.d :
-
-$(bin)$(binobj)TrigNtEBWeightTool.o : $(cmt_final_setup_TrigCostMonitorLib)
-
-$(bin)$(binobj)TrigNtEBWeightTool.o : $(src)TrigNtEBWeightTool.cxx
-	$(cpp_echo) $(src)TrigNtEBWeightTool.cxx
-	$(cpp_silent) $(cppcomp) -MMD -MP -MF $*.d -MQ $@ -o $@ $(use_pp_cppflags) $(TrigCostMonitorLib_pp_cppflags) $(lib_TrigCostMonitorLib_pp_cppflags) $(TrigNtEBWeightTool_pp_cppflags) $(use_cppflags) $(TrigCostMonitorLib_cppflags) $(lib_TrigCostMonitorLib_cppflags) $(TrigNtEBWeightTool_cppflags) $(TrigNtEBWeightTool_cxx_cppflags)  $(src)TrigNtEBWeightTool.cxx
-endif
-endif
-
-else
-$(bin)TrigCostMonitorLib_dependencies.make : $(TrigNtEBWeightTool_cxx_dependencies)
-
-$(bin)TrigCostMonitorLib_dependencies.make : $(src)TrigNtEBWeightTool.cxx
-
-$(bin)$(binobj)TrigNtEBWeightTool.o : $(TrigNtEBWeightTool_cxx_dependencies)
-	$(cpp_echo) $(src)TrigNtEBWeightTool.cxx
-	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(TrigCostMonitorLib_pp_cppflags) $(lib_TrigCostMonitorLib_pp_cppflags) $(TrigNtEBWeightTool_pp_cppflags) $(use_cppflags) $(TrigCostMonitorLib_cppflags) $(lib_TrigCostMonitorLib_cppflags) $(TrigNtEBWeightTool_cppflags) $(TrigNtEBWeightTool_cxx_cppflags)  $(src)TrigNtEBWeightTool.cxx
-
-endif
-
-#-- end of cpp_library ------------------
-#-- start of cpp_library -----------------
-
-ifneq (-MMD -MP -MF $*.d -MQ $@,)
-
-ifneq ($(MAKECMDGOALS),TrigCostMonitorLibclean)
-ifneq ($(MAKECMDGOALS),uninstall)
--include $(bin)$(binobj)TrigNtSaveTool.d
-
-$(bin)$(binobj)TrigNtSaveTool.d :
-
-$(bin)$(binobj)TrigNtSaveTool.o : $(cmt_final_setup_TrigCostMonitorLib)
-
-$(bin)$(binobj)TrigNtSaveTool.o : $(src)TrigNtSaveTool.cxx
-	$(cpp_echo) $(src)TrigNtSaveTool.cxx
-	$(cpp_silent) $(cppcomp) -MMD -MP -MF $*.d -MQ $@ -o $@ $(use_pp_cppflags) $(TrigCostMonitorLib_pp_cppflags) $(lib_TrigCostMonitorLib_pp_cppflags) $(TrigNtSaveTool_pp_cppflags) $(use_cppflags) $(TrigCostMonitorLib_cppflags) $(lib_TrigCostMonitorLib_cppflags) $(TrigNtSaveTool_cppflags) $(TrigNtSaveTool_cxx_cppflags)  $(src)TrigNtSaveTool.cxx
-endif
-endif
-
-else
-$(bin)TrigCostMonitorLib_dependencies.make : $(TrigNtSaveTool_cxx_dependencies)
-
-$(bin)TrigCostMonitorLib_dependencies.make : $(src)TrigNtSaveTool.cxx
-
-$(bin)$(binobj)TrigNtSaveTool.o : $(TrigNtSaveTool_cxx_dependencies)
-	$(cpp_echo) $(src)TrigNtSaveTool.cxx
-	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(TrigCostMonitorLib_pp_cppflags) $(lib_TrigCostMonitorLib_pp_cppflags) $(TrigNtSaveTool_pp_cppflags) $(use_cppflags) $(TrigCostMonitorLib_cppflags) $(lib_TrigCostMonitorLib_cppflags) $(TrigNtSaveTool_cppflags) $(TrigNtSaveTool_cxx_cppflags)  $(src)TrigNtSaveTool.cxx
-
-endif
-
-#-- end of cpp_library ------------------
-#-- start of cpp_library -----------------
-
-ifneq (-MMD -MP -MF $*.d -MQ $@,)
-
-ifneq ($(MAKECMDGOALS),TrigCostMonitorLibclean)
-ifneq ($(MAKECMDGOALS),uninstall)
--include $(bin)$(binobj)TrigNtRobsTool.d
-
-$(bin)$(binobj)TrigNtRobsTool.d :
-
-$(bin)$(binobj)TrigNtRobsTool.o : $(cmt_final_setup_TrigCostMonitorLib)
-
-$(bin)$(binobj)TrigNtRobsTool.o : $(src)TrigNtRobsTool.cxx
-	$(cpp_echo) $(src)TrigNtRobsTool.cxx
-	$(cpp_silent) $(cppcomp) -MMD -MP -MF $*.d -MQ $@ -o $@ $(use_pp_cppflags) $(TrigCostMonitorLib_pp_cppflags) $(lib_TrigCostMonitorLib_pp_cppflags) $(TrigNtRobsTool_pp_cppflags) $(use_cppflags) $(TrigCostMonitorLib_cppflags) $(lib_TrigCostMonitorLib_cppflags) $(TrigNtRobsTool_cppflags) $(TrigNtRobsTool_cxx_cppflags)  $(src)TrigNtRobsTool.cxx
-endif
-endif
-
-else
-$(bin)TrigCostMonitorLib_dependencies.make : $(TrigNtRobsTool_cxx_dependencies)
-
-$(bin)TrigCostMonitorLib_dependencies.make : $(src)TrigNtRobsTool.cxx
-
-$(bin)$(binobj)TrigNtRobsTool.o : $(TrigNtRobsTool_cxx_dependencies)
-	$(cpp_echo) $(src)TrigNtRobsTool.cxx
-	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(TrigCostMonitorLib_pp_cppflags) $(lib_TrigCostMonitorLib_pp_cppflags) $(TrigNtRobsTool_pp_cppflags) $(use_cppflags) $(TrigCostMonitorLib_cppflags) $(lib_TrigCostMonitorLib_cppflags) $(TrigNtRobsTool_cppflags) $(TrigNtRobsTool_cxx_cppflags)  $(src)TrigNtRobsTool.cxx
-
-endif
-
-#-- end of cpp_library ------------------
-#-- start of cpp_library -----------------
-
-ifneq (-MMD -MP -MF $*.d -MQ $@,)
-
-ifneq ($(MAKECMDGOALS),TrigCostMonitorLibclean)
-ifneq ($(MAKECMDGOALS),uninstall)
--include $(bin)$(binobj)FillConf.d
-
-$(bin)$(binobj)FillConf.d :
-
-$(bin)$(binobj)FillConf.o : $(cmt_final_setup_TrigCostMonitorLib)
-
-$(bin)$(binobj)FillConf.o : $(src)FillConf.cxx
-	$(cpp_echo) $(src)FillConf.cxx
-	$(cpp_silent) $(cppcomp) -MMD -MP -MF $*.d -MQ $@ -o $@ $(use_pp_cppflags) $(TrigCostMonitorLib_pp_cppflags) $(lib_TrigCostMonitorLib_pp_cppflags) $(FillConf_pp_cppflags) $(use_cppflags) $(TrigCostMonitorLib_cppflags) $(lib_TrigCostMonitorLib_cppflags) $(FillConf_cppflags) $(FillConf_cxx_cppflags)  $(src)FillConf.cxx
-endif
-endif
-
-else
-$(bin)TrigCostMonitorLib_dependencies.make : $(FillConf_cxx_dependencies)
-
-$(bin)TrigCostMonitorLib_dependencies.make : $(src)FillConf.cxx
-
-$(bin)$(binobj)FillConf.o : $(FillConf_cxx_dependencies)
-	$(cpp_echo) $(src)FillConf.cxx
-	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(TrigCostMonitorLib_pp_cppflags) $(lib_TrigCostMonitorLib_pp_cppflags) $(FillConf_pp_cppflags) $(use_cppflags) $(TrigCostMonitorLib_cppflags) $(lib_TrigCostMonitorLib_cppflags) $(FillConf_cppflags) $(FillConf_cxx_cppflags)  $(src)FillConf.cxx
-
-endif
-
-#-- end of cpp_library ------------------
-#-- start of cpp_library -----------------
-
-ifneq (-MMD -MP -MF $*.d -MQ $@,)
-
-ifneq ($(MAKECMDGOALS),TrigCostMonitorLibclean)
-ifneq ($(MAKECMDGOALS),uninstall)
 -include $(bin)$(binobj)TrigCostTool.d
 
 $(bin)$(binobj)TrigCostTool.d :
@@ -435,26 +375,26 @@ ifneq (-MMD -MP -MF $*.d -MQ $@,)
 
 ifneq ($(MAKECMDGOALS),TrigCostMonitorLibclean)
 ifneq ($(MAKECMDGOALS),uninstall)
--include $(bin)$(binobj)TrigNtHltRTool.d
+-include $(bin)$(binobj)TrigNtConfTool.d
 
-$(bin)$(binobj)TrigNtHltRTool.d :
+$(bin)$(binobj)TrigNtConfTool.d :
 
-$(bin)$(binobj)TrigNtHltRTool.o : $(cmt_final_setup_TrigCostMonitorLib)
+$(bin)$(binobj)TrigNtConfTool.o : $(cmt_final_setup_TrigCostMonitorLib)
 
-$(bin)$(binobj)TrigNtHltRTool.o : $(src)TrigNtHltRTool.cxx
-	$(cpp_echo) $(src)TrigNtHltRTool.cxx
-	$(cpp_silent) $(cppcomp) -MMD -MP -MF $*.d -MQ $@ -o $@ $(use_pp_cppflags) $(TrigCostMonitorLib_pp_cppflags) $(lib_TrigCostMonitorLib_pp_cppflags) $(TrigNtHltRTool_pp_cppflags) $(use_cppflags) $(TrigCostMonitorLib_cppflags) $(lib_TrigCostMonitorLib_cppflags) $(TrigNtHltRTool_cppflags) $(TrigNtHltRTool_cxx_cppflags)  $(src)TrigNtHltRTool.cxx
+$(bin)$(binobj)TrigNtConfTool.o : $(src)TrigNtConfTool.cxx
+	$(cpp_echo) $(src)TrigNtConfTool.cxx
+	$(cpp_silent) $(cppcomp) -MMD -MP -MF $*.d -MQ $@ -o $@ $(use_pp_cppflags) $(TrigCostMonitorLib_pp_cppflags) $(lib_TrigCostMonitorLib_pp_cppflags) $(TrigNtConfTool_pp_cppflags) $(use_cppflags) $(TrigCostMonitorLib_cppflags) $(lib_TrigCostMonitorLib_cppflags) $(TrigNtConfTool_cppflags) $(TrigNtConfTool_cxx_cppflags)  $(src)TrigNtConfTool.cxx
 endif
 endif
 
 else
-$(bin)TrigCostMonitorLib_dependencies.make : $(TrigNtHltRTool_cxx_dependencies)
+$(bin)TrigCostMonitorLib_dependencies.make : $(TrigNtConfTool_cxx_dependencies)
 
-$(bin)TrigCostMonitorLib_dependencies.make : $(src)TrigNtHltRTool.cxx
+$(bin)TrigCostMonitorLib_dependencies.make : $(src)TrigNtConfTool.cxx
 
-$(bin)$(binobj)TrigNtHltRTool.o : $(TrigNtHltRTool_cxx_dependencies)
-	$(cpp_echo) $(src)TrigNtHltRTool.cxx
-	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(TrigCostMonitorLib_pp_cppflags) $(lib_TrigCostMonitorLib_pp_cppflags) $(TrigNtHltRTool_pp_cppflags) $(use_cppflags) $(TrigCostMonitorLib_cppflags) $(lib_TrigCostMonitorLib_cppflags) $(TrigNtHltRTool_cppflags) $(TrigNtHltRTool_cxx_cppflags)  $(src)TrigNtHltRTool.cxx
+$(bin)$(binobj)TrigNtConfTool.o : $(TrigNtConfTool_cxx_dependencies)
+	$(cpp_echo) $(src)TrigNtConfTool.cxx
+	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(TrigCostMonitorLib_pp_cppflags) $(lib_TrigCostMonitorLib_pp_cppflags) $(TrigNtConfTool_pp_cppflags) $(use_cppflags) $(TrigCostMonitorLib_cppflags) $(lib_TrigCostMonitorLib_cppflags) $(TrigNtConfTool_cppflags) $(TrigNtConfTool_cxx_cppflags)  $(src)TrigNtConfTool.cxx
 
 endif
 
@@ -465,86 +405,26 @@ ifneq (-MMD -MP -MF $*.d -MQ $@,)
 
 ifneq ($(MAKECMDGOALS),TrigCostMonitorLibclean)
 ifneq ($(MAKECMDGOALS),uninstall)
--include $(bin)$(binobj)TrigNtVarsTool.d
+-include $(bin)$(binobj)TrigNtEBWeightTool.d
 
-$(bin)$(binobj)TrigNtVarsTool.d :
+$(bin)$(binobj)TrigNtEBWeightTool.d :
 
-$(bin)$(binobj)TrigNtVarsTool.o : $(cmt_final_setup_TrigCostMonitorLib)
+$(bin)$(binobj)TrigNtEBWeightTool.o : $(cmt_final_setup_TrigCostMonitorLib)
 
-$(bin)$(binobj)TrigNtVarsTool.o : $(src)TrigNtVarsTool.cxx
-	$(cpp_echo) $(src)TrigNtVarsTool.cxx
-	$(cpp_silent) $(cppcomp) -MMD -MP -MF $*.d -MQ $@ -o $@ $(use_pp_cppflags) $(TrigCostMonitorLib_pp_cppflags) $(lib_TrigCostMonitorLib_pp_cppflags) $(TrigNtVarsTool_pp_cppflags) $(use_cppflags) $(TrigCostMonitorLib_cppflags) $(lib_TrigCostMonitorLib_cppflags) $(TrigNtVarsTool_cppflags) $(TrigNtVarsTool_cxx_cppflags)  $(src)TrigNtVarsTool.cxx
+$(bin)$(binobj)TrigNtEBWeightTool.o : $(src)TrigNtEBWeightTool.cxx
+	$(cpp_echo) $(src)TrigNtEBWeightTool.cxx
+	$(cpp_silent) $(cppcomp) -MMD -MP -MF $*.d -MQ $@ -o $@ $(use_pp_cppflags) $(TrigCostMonitorLib_pp_cppflags) $(lib_TrigCostMonitorLib_pp_cppflags) $(TrigNtEBWeightTool_pp_cppflags) $(use_cppflags) $(TrigCostMonitorLib_cppflags) $(lib_TrigCostMonitorLib_cppflags) $(TrigNtEBWeightTool_cppflags) $(TrigNtEBWeightTool_cxx_cppflags)  $(src)TrigNtEBWeightTool.cxx
 endif
 endif
 
 else
-$(bin)TrigCostMonitorLib_dependencies.make : $(TrigNtVarsTool_cxx_dependencies)
+$(bin)TrigCostMonitorLib_dependencies.make : $(TrigNtEBWeightTool_cxx_dependencies)
 
-$(bin)TrigCostMonitorLib_dependencies.make : $(src)TrigNtVarsTool.cxx
+$(bin)TrigCostMonitorLib_dependencies.make : $(src)TrigNtEBWeightTool.cxx
 
-$(bin)$(binobj)TrigNtVarsTool.o : $(TrigNtVarsTool_cxx_dependencies)
-	$(cpp_echo) $(src)TrigNtVarsTool.cxx
-	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(TrigCostMonitorLib_pp_cppflags) $(lib_TrigCostMonitorLib_pp_cppflags) $(TrigNtVarsTool_pp_cppflags) $(use_cppflags) $(TrigCostMonitorLib_cppflags) $(lib_TrigCostMonitorLib_cppflags) $(TrigNtVarsTool_cppflags) $(TrigNtVarsTool_cxx_cppflags)  $(src)TrigNtVarsTool.cxx
-
-endif
-
-#-- end of cpp_library ------------------
-#-- start of cpp_library -----------------
-
-ifneq (-MMD -MP -MF $*.d -MQ $@,)
-
-ifneq ($(MAKECMDGOALS),TrigCostMonitorLibclean)
-ifneq ($(MAKECMDGOALS),uninstall)
--include $(bin)$(binobj)TrigNtLvl1Tool.d
-
-$(bin)$(binobj)TrigNtLvl1Tool.d :
-
-$(bin)$(binobj)TrigNtLvl1Tool.o : $(cmt_final_setup_TrigCostMonitorLib)
-
-$(bin)$(binobj)TrigNtLvl1Tool.o : $(src)TrigNtLvl1Tool.cxx
-	$(cpp_echo) $(src)TrigNtLvl1Tool.cxx
-	$(cpp_silent) $(cppcomp) -MMD -MP -MF $*.d -MQ $@ -o $@ $(use_pp_cppflags) $(TrigCostMonitorLib_pp_cppflags) $(lib_TrigCostMonitorLib_pp_cppflags) $(TrigNtLvl1Tool_pp_cppflags) $(use_cppflags) $(TrigCostMonitorLib_cppflags) $(lib_TrigCostMonitorLib_cppflags) $(TrigNtLvl1Tool_cppflags) $(TrigNtLvl1Tool_cxx_cppflags)  $(src)TrigNtLvl1Tool.cxx
-endif
-endif
-
-else
-$(bin)TrigCostMonitorLib_dependencies.make : $(TrigNtLvl1Tool_cxx_dependencies)
-
-$(bin)TrigCostMonitorLib_dependencies.make : $(src)TrigNtLvl1Tool.cxx
-
-$(bin)$(binobj)TrigNtLvl1Tool.o : $(TrigNtLvl1Tool_cxx_dependencies)
-	$(cpp_echo) $(src)TrigNtLvl1Tool.cxx
-	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(TrigCostMonitorLib_pp_cppflags) $(lib_TrigCostMonitorLib_pp_cppflags) $(TrigNtLvl1Tool_pp_cppflags) $(use_cppflags) $(TrigCostMonitorLib_cppflags) $(lib_TrigCostMonitorLib_cppflags) $(TrigNtLvl1Tool_cppflags) $(TrigNtLvl1Tool_cxx_cppflags)  $(src)TrigNtLvl1Tool.cxx
-
-endif
-
-#-- end of cpp_library ------------------
-#-- start of cpp_library -----------------
-
-ifneq (-MMD -MP -MF $*.d -MQ $@,)
-
-ifneq ($(MAKECMDGOALS),TrigCostMonitorLibclean)
-ifneq ($(MAKECMDGOALS),uninstall)
--include $(bin)$(binobj)UtilCost.d
-
-$(bin)$(binobj)UtilCost.d :
-
-$(bin)$(binobj)UtilCost.o : $(cmt_final_setup_TrigCostMonitorLib)
-
-$(bin)$(binobj)UtilCost.o : $(src)UtilCost.cxx
-	$(cpp_echo) $(src)UtilCost.cxx
-	$(cpp_silent) $(cppcomp) -MMD -MP -MF $*.d -MQ $@ -o $@ $(use_pp_cppflags) $(TrigCostMonitorLib_pp_cppflags) $(lib_TrigCostMonitorLib_pp_cppflags) $(UtilCost_pp_cppflags) $(use_cppflags) $(TrigCostMonitorLib_cppflags) $(lib_TrigCostMonitorLib_cppflags) $(UtilCost_cppflags) $(UtilCost_cxx_cppflags)  $(src)UtilCost.cxx
-endif
-endif
-
-else
-$(bin)TrigCostMonitorLib_dependencies.make : $(UtilCost_cxx_dependencies)
-
-$(bin)TrigCostMonitorLib_dependencies.make : $(src)UtilCost.cxx
-
-$(bin)$(binobj)UtilCost.o : $(UtilCost_cxx_dependencies)
-	$(cpp_echo) $(src)UtilCost.cxx
-	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(TrigCostMonitorLib_pp_cppflags) $(lib_TrigCostMonitorLib_pp_cppflags) $(UtilCost_pp_cppflags) $(use_cppflags) $(TrigCostMonitorLib_cppflags) $(lib_TrigCostMonitorLib_cppflags) $(UtilCost_cppflags) $(UtilCost_cxx_cppflags)  $(src)UtilCost.cxx
+$(bin)$(binobj)TrigNtEBWeightTool.o : $(TrigNtEBWeightTool_cxx_dependencies)
+	$(cpp_echo) $(src)TrigNtEBWeightTool.cxx
+	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(TrigCostMonitorLib_pp_cppflags) $(lib_TrigCostMonitorLib_pp_cppflags) $(TrigNtEBWeightTool_pp_cppflags) $(use_cppflags) $(TrigCostMonitorLib_cppflags) $(lib_TrigCostMonitorLib_cppflags) $(TrigNtEBWeightTool_cppflags) $(TrigNtEBWeightTool_cxx_cppflags)  $(src)TrigNtEBWeightTool.cxx
 
 endif
 
@@ -615,6 +495,66 @@ ifneq (-MMD -MP -MF $*.d -MQ $@,)
 
 ifneq ($(MAKECMDGOALS),TrigCostMonitorLibclean)
 ifneq ($(MAKECMDGOALS),uninstall)
+-include $(bin)$(binobj)TrigNtHltRTool.d
+
+$(bin)$(binobj)TrigNtHltRTool.d :
+
+$(bin)$(binobj)TrigNtHltRTool.o : $(cmt_final_setup_TrigCostMonitorLib)
+
+$(bin)$(binobj)TrigNtHltRTool.o : $(src)TrigNtHltRTool.cxx
+	$(cpp_echo) $(src)TrigNtHltRTool.cxx
+	$(cpp_silent) $(cppcomp) -MMD -MP -MF $*.d -MQ $@ -o $@ $(use_pp_cppflags) $(TrigCostMonitorLib_pp_cppflags) $(lib_TrigCostMonitorLib_pp_cppflags) $(TrigNtHltRTool_pp_cppflags) $(use_cppflags) $(TrigCostMonitorLib_cppflags) $(lib_TrigCostMonitorLib_cppflags) $(TrigNtHltRTool_cppflags) $(TrigNtHltRTool_cxx_cppflags)  $(src)TrigNtHltRTool.cxx
+endif
+endif
+
+else
+$(bin)TrigCostMonitorLib_dependencies.make : $(TrigNtHltRTool_cxx_dependencies)
+
+$(bin)TrigCostMonitorLib_dependencies.make : $(src)TrigNtHltRTool.cxx
+
+$(bin)$(binobj)TrigNtHltRTool.o : $(TrigNtHltRTool_cxx_dependencies)
+	$(cpp_echo) $(src)TrigNtHltRTool.cxx
+	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(TrigCostMonitorLib_pp_cppflags) $(lib_TrigCostMonitorLib_pp_cppflags) $(TrigNtHltRTool_pp_cppflags) $(use_cppflags) $(TrigCostMonitorLib_cppflags) $(lib_TrigCostMonitorLib_cppflags) $(TrigNtHltRTool_cppflags) $(TrigNtHltRTool_cxx_cppflags)  $(src)TrigNtHltRTool.cxx
+
+endif
+
+#-- end of cpp_library ------------------
+#-- start of cpp_library -----------------
+
+ifneq (-MMD -MP -MF $*.d -MQ $@,)
+
+ifneq ($(MAKECMDGOALS),TrigCostMonitorLibclean)
+ifneq ($(MAKECMDGOALS),uninstall)
+-include $(bin)$(binobj)TrigNtLvl1Tool.d
+
+$(bin)$(binobj)TrigNtLvl1Tool.d :
+
+$(bin)$(binobj)TrigNtLvl1Tool.o : $(cmt_final_setup_TrigCostMonitorLib)
+
+$(bin)$(binobj)TrigNtLvl1Tool.o : $(src)TrigNtLvl1Tool.cxx
+	$(cpp_echo) $(src)TrigNtLvl1Tool.cxx
+	$(cpp_silent) $(cppcomp) -MMD -MP -MF $*.d -MQ $@ -o $@ $(use_pp_cppflags) $(TrigCostMonitorLib_pp_cppflags) $(lib_TrigCostMonitorLib_pp_cppflags) $(TrigNtLvl1Tool_pp_cppflags) $(use_cppflags) $(TrigCostMonitorLib_cppflags) $(lib_TrigCostMonitorLib_cppflags) $(TrigNtLvl1Tool_cppflags) $(TrigNtLvl1Tool_cxx_cppflags)  $(src)TrigNtLvl1Tool.cxx
+endif
+endif
+
+else
+$(bin)TrigCostMonitorLib_dependencies.make : $(TrigNtLvl1Tool_cxx_dependencies)
+
+$(bin)TrigCostMonitorLib_dependencies.make : $(src)TrigNtLvl1Tool.cxx
+
+$(bin)$(binobj)TrigNtLvl1Tool.o : $(TrigNtLvl1Tool_cxx_dependencies)
+	$(cpp_echo) $(src)TrigNtLvl1Tool.cxx
+	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(TrigCostMonitorLib_pp_cppflags) $(lib_TrigCostMonitorLib_pp_cppflags) $(TrigNtLvl1Tool_pp_cppflags) $(use_cppflags) $(TrigCostMonitorLib_cppflags) $(lib_TrigCostMonitorLib_cppflags) $(TrigNtLvl1Tool_cppflags) $(TrigNtLvl1Tool_cxx_cppflags)  $(src)TrigNtLvl1Tool.cxx
+
+endif
+
+#-- end of cpp_library ------------------
+#-- start of cpp_library -----------------
+
+ifneq (-MMD -MP -MF $*.d -MQ $@,)
+
+ifneq ($(MAKECMDGOALS),TrigCostMonitorLibclean)
+ifneq ($(MAKECMDGOALS),uninstall)
 -include $(bin)$(binobj)TrigNtPostTool.d
 
 $(bin)$(binobj)TrigNtPostTool.d :
@@ -645,26 +585,26 @@ ifneq (-MMD -MP -MF $*.d -MQ $@,)
 
 ifneq ($(MAKECMDGOALS),TrigCostMonitorLibclean)
 ifneq ($(MAKECMDGOALS),uninstall)
--include $(bin)$(binobj)TrigNtConfTool.d
+-include $(bin)$(binobj)TrigNtRobsTool.d
 
-$(bin)$(binobj)TrigNtConfTool.d :
+$(bin)$(binobj)TrigNtRobsTool.d :
 
-$(bin)$(binobj)TrigNtConfTool.o : $(cmt_final_setup_TrigCostMonitorLib)
+$(bin)$(binobj)TrigNtRobsTool.o : $(cmt_final_setup_TrigCostMonitorLib)
 
-$(bin)$(binobj)TrigNtConfTool.o : $(src)TrigNtConfTool.cxx
-	$(cpp_echo) $(src)TrigNtConfTool.cxx
-	$(cpp_silent) $(cppcomp) -MMD -MP -MF $*.d -MQ $@ -o $@ $(use_pp_cppflags) $(TrigCostMonitorLib_pp_cppflags) $(lib_TrigCostMonitorLib_pp_cppflags) $(TrigNtConfTool_pp_cppflags) $(use_cppflags) $(TrigCostMonitorLib_cppflags) $(lib_TrigCostMonitorLib_cppflags) $(TrigNtConfTool_cppflags) $(TrigNtConfTool_cxx_cppflags)  $(src)TrigNtConfTool.cxx
+$(bin)$(binobj)TrigNtRobsTool.o : $(src)TrigNtRobsTool.cxx
+	$(cpp_echo) $(src)TrigNtRobsTool.cxx
+	$(cpp_silent) $(cppcomp) -MMD -MP -MF $*.d -MQ $@ -o $@ $(use_pp_cppflags) $(TrigCostMonitorLib_pp_cppflags) $(lib_TrigCostMonitorLib_pp_cppflags) $(TrigNtRobsTool_pp_cppflags) $(use_cppflags) $(TrigCostMonitorLib_cppflags) $(lib_TrigCostMonitorLib_cppflags) $(TrigNtRobsTool_cppflags) $(TrigNtRobsTool_cxx_cppflags)  $(src)TrigNtRobsTool.cxx
 endif
 endif
 
 else
-$(bin)TrigCostMonitorLib_dependencies.make : $(TrigNtConfTool_cxx_dependencies)
+$(bin)TrigCostMonitorLib_dependencies.make : $(TrigNtRobsTool_cxx_dependencies)
 
-$(bin)TrigCostMonitorLib_dependencies.make : $(src)TrigNtConfTool.cxx
+$(bin)TrigCostMonitorLib_dependencies.make : $(src)TrigNtRobsTool.cxx
 
-$(bin)$(binobj)TrigNtConfTool.o : $(TrigNtConfTool_cxx_dependencies)
-	$(cpp_echo) $(src)TrigNtConfTool.cxx
-	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(TrigCostMonitorLib_pp_cppflags) $(lib_TrigCostMonitorLib_pp_cppflags) $(TrigNtConfTool_pp_cppflags) $(use_cppflags) $(TrigCostMonitorLib_cppflags) $(lib_TrigCostMonitorLib_cppflags) $(TrigNtConfTool_cppflags) $(TrigNtConfTool_cxx_cppflags)  $(src)TrigNtConfTool.cxx
+$(bin)$(binobj)TrigNtRobsTool.o : $(TrigNtRobsTool_cxx_dependencies)
+	$(cpp_echo) $(src)TrigNtRobsTool.cxx
+	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(TrigCostMonitorLib_pp_cppflags) $(lib_TrigCostMonitorLib_pp_cppflags) $(TrigNtRobsTool_pp_cppflags) $(use_cppflags) $(TrigCostMonitorLib_cppflags) $(lib_TrigCostMonitorLib_cppflags) $(TrigNtRobsTool_cppflags) $(TrigNtRobsTool_cxx_cppflags)  $(src)TrigNtRobsTool.cxx
 
 endif
 
@@ -675,26 +615,86 @@ ifneq (-MMD -MP -MF $*.d -MQ $@,)
 
 ifneq ($(MAKECMDGOALS),TrigCostMonitorLibclean)
 ifneq ($(MAKECMDGOALS),uninstall)
--include $(bin)$(binobj)ReadLumiBlock.d
+-include $(bin)$(binobj)TrigNtSaveTool.d
 
-$(bin)$(binobj)ReadLumiBlock.d :
+$(bin)$(binobj)TrigNtSaveTool.d :
 
-$(bin)$(binobj)ReadLumiBlock.o : $(cmt_final_setup_TrigCostMonitorLib)
+$(bin)$(binobj)TrigNtSaveTool.o : $(cmt_final_setup_TrigCostMonitorLib)
 
-$(bin)$(binobj)ReadLumiBlock.o : $(src)ReadLumiBlock.cxx
-	$(cpp_echo) $(src)ReadLumiBlock.cxx
-	$(cpp_silent) $(cppcomp) -MMD -MP -MF $*.d -MQ $@ -o $@ $(use_pp_cppflags) $(TrigCostMonitorLib_pp_cppflags) $(lib_TrigCostMonitorLib_pp_cppflags) $(ReadLumiBlock_pp_cppflags) $(use_cppflags) $(TrigCostMonitorLib_cppflags) $(lib_TrigCostMonitorLib_cppflags) $(ReadLumiBlock_cppflags) $(ReadLumiBlock_cxx_cppflags)  $(src)ReadLumiBlock.cxx
+$(bin)$(binobj)TrigNtSaveTool.o : $(src)TrigNtSaveTool.cxx
+	$(cpp_echo) $(src)TrigNtSaveTool.cxx
+	$(cpp_silent) $(cppcomp) -MMD -MP -MF $*.d -MQ $@ -o $@ $(use_pp_cppflags) $(TrigCostMonitorLib_pp_cppflags) $(lib_TrigCostMonitorLib_pp_cppflags) $(TrigNtSaveTool_pp_cppflags) $(use_cppflags) $(TrigCostMonitorLib_cppflags) $(lib_TrigCostMonitorLib_cppflags) $(TrigNtSaveTool_cppflags) $(TrigNtSaveTool_cxx_cppflags)  $(src)TrigNtSaveTool.cxx
 endif
 endif
 
 else
-$(bin)TrigCostMonitorLib_dependencies.make : $(ReadLumiBlock_cxx_dependencies)
+$(bin)TrigCostMonitorLib_dependencies.make : $(TrigNtSaveTool_cxx_dependencies)
 
-$(bin)TrigCostMonitorLib_dependencies.make : $(src)ReadLumiBlock.cxx
+$(bin)TrigCostMonitorLib_dependencies.make : $(src)TrigNtSaveTool.cxx
 
-$(bin)$(binobj)ReadLumiBlock.o : $(ReadLumiBlock_cxx_dependencies)
-	$(cpp_echo) $(src)ReadLumiBlock.cxx
-	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(TrigCostMonitorLib_pp_cppflags) $(lib_TrigCostMonitorLib_pp_cppflags) $(ReadLumiBlock_pp_cppflags) $(use_cppflags) $(TrigCostMonitorLib_cppflags) $(lib_TrigCostMonitorLib_cppflags) $(ReadLumiBlock_cppflags) $(ReadLumiBlock_cxx_cppflags)  $(src)ReadLumiBlock.cxx
+$(bin)$(binobj)TrigNtSaveTool.o : $(TrigNtSaveTool_cxx_dependencies)
+	$(cpp_echo) $(src)TrigNtSaveTool.cxx
+	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(TrigCostMonitorLib_pp_cppflags) $(lib_TrigCostMonitorLib_pp_cppflags) $(TrigNtSaveTool_pp_cppflags) $(use_cppflags) $(TrigCostMonitorLib_cppflags) $(lib_TrigCostMonitorLib_cppflags) $(TrigNtSaveTool_cppflags) $(TrigNtSaveTool_cxx_cppflags)  $(src)TrigNtSaveTool.cxx
+
+endif
+
+#-- end of cpp_library ------------------
+#-- start of cpp_library -----------------
+
+ifneq (-MMD -MP -MF $*.d -MQ $@,)
+
+ifneq ($(MAKECMDGOALS),TrigCostMonitorLibclean)
+ifneq ($(MAKECMDGOALS),uninstall)
+-include $(bin)$(binobj)TrigNtVarsTool.d
+
+$(bin)$(binobj)TrigNtVarsTool.d :
+
+$(bin)$(binobj)TrigNtVarsTool.o : $(cmt_final_setup_TrigCostMonitorLib)
+
+$(bin)$(binobj)TrigNtVarsTool.o : $(src)TrigNtVarsTool.cxx
+	$(cpp_echo) $(src)TrigNtVarsTool.cxx
+	$(cpp_silent) $(cppcomp) -MMD -MP -MF $*.d -MQ $@ -o $@ $(use_pp_cppflags) $(TrigCostMonitorLib_pp_cppflags) $(lib_TrigCostMonitorLib_pp_cppflags) $(TrigNtVarsTool_pp_cppflags) $(use_cppflags) $(TrigCostMonitorLib_cppflags) $(lib_TrigCostMonitorLib_cppflags) $(TrigNtVarsTool_cppflags) $(TrigNtVarsTool_cxx_cppflags)  $(src)TrigNtVarsTool.cxx
+endif
+endif
+
+else
+$(bin)TrigCostMonitorLib_dependencies.make : $(TrigNtVarsTool_cxx_dependencies)
+
+$(bin)TrigCostMonitorLib_dependencies.make : $(src)TrigNtVarsTool.cxx
+
+$(bin)$(binobj)TrigNtVarsTool.o : $(TrigNtVarsTool_cxx_dependencies)
+	$(cpp_echo) $(src)TrigNtVarsTool.cxx
+	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(TrigCostMonitorLib_pp_cppflags) $(lib_TrigCostMonitorLib_pp_cppflags) $(TrigNtVarsTool_pp_cppflags) $(use_cppflags) $(TrigCostMonitorLib_cppflags) $(lib_TrigCostMonitorLib_cppflags) $(TrigNtVarsTool_cppflags) $(TrigNtVarsTool_cxx_cppflags)  $(src)TrigNtVarsTool.cxx
+
+endif
+
+#-- end of cpp_library ------------------
+#-- start of cpp_library -----------------
+
+ifneq (-MMD -MP -MF $*.d -MQ $@,)
+
+ifneq ($(MAKECMDGOALS),TrigCostMonitorLibclean)
+ifneq ($(MAKECMDGOALS),uninstall)
+-include $(bin)$(binobj)UtilCost.d
+
+$(bin)$(binobj)UtilCost.d :
+
+$(bin)$(binobj)UtilCost.o : $(cmt_final_setup_TrigCostMonitorLib)
+
+$(bin)$(binobj)UtilCost.o : $(src)UtilCost.cxx
+	$(cpp_echo) $(src)UtilCost.cxx
+	$(cpp_silent) $(cppcomp) -MMD -MP -MF $*.d -MQ $@ -o $@ $(use_pp_cppflags) $(TrigCostMonitorLib_pp_cppflags) $(lib_TrigCostMonitorLib_pp_cppflags) $(UtilCost_pp_cppflags) $(use_cppflags) $(TrigCostMonitorLib_cppflags) $(lib_TrigCostMonitorLib_cppflags) $(UtilCost_cppflags) $(UtilCost_cxx_cppflags)  $(src)UtilCost.cxx
+endif
+endif
+
+else
+$(bin)TrigCostMonitorLib_dependencies.make : $(UtilCost_cxx_dependencies)
+
+$(bin)TrigCostMonitorLib_dependencies.make : $(src)UtilCost.cxx
+
+$(bin)$(binobj)UtilCost.o : $(UtilCost_cxx_dependencies)
+	$(cpp_echo) $(src)UtilCost.cxx
+	$(cpp_silent) $(cppcomp) -o $@ $(use_pp_cppflags) $(TrigCostMonitorLib_pp_cppflags) $(lib_TrigCostMonitorLib_pp_cppflags) $(UtilCost_pp_cppflags) $(use_cppflags) $(TrigCostMonitorLib_cppflags) $(lib_TrigCostMonitorLib_cppflags) $(UtilCost_cppflags) $(UtilCost_cxx_cppflags)  $(src)UtilCost.cxx
 
 endif
 

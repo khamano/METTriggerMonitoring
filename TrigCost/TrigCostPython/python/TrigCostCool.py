@@ -251,7 +251,7 @@ def GetFolderItrForRun(foldername, run, foldertype='TRIGGER', run_beg_time=-1, r
 
     logging.debug('foldername:'+foldername)
     logging.debug('foldertype:'+foldertype)
-    
+
     print "Getting DB for ",foldername,foldertype
 
     # "PROD" option added -- for bunch groups
@@ -295,12 +295,14 @@ def GetFolderItrForRun(foldername, run, foldertype='TRIGGER', run_beg_time=-1, r
     # should probably change it.  In practice, the preferred channel
     # has been 201 all year, so it hasn't made a difference.
     #
-    log.debug('Folder %s opening' % foldername)
     if foldertype=="COMP":
         InitDB(foldertype)
         CheckFolder(foldername, foldertype)
         folder=dbComp.getFolder(foldername)
+	log.info('Folder %s opening' % foldername)
         return folder.browseObjects(run_beg_time,run_end_time,cool.ChannelSelection(channel))
+
+
 
     InitDB(foldertype)
     logging.info('Initialized DB %s' % foldertype)
@@ -350,7 +352,7 @@ def UnpackFillData(StartTime, EndTime, payload):
     if (beam == 'NO BEAM') : # Cosmics?
         fill    = 0
         ebeam   = 0.
-    else : 
+    else :
         fill    = payload['FillNumber']
         ebeam   = payload['BeamEnergyGeV']
     stable  = payload['StableBeams']
@@ -504,9 +506,9 @@ def GetLumiblocks(runnumber,lb_beg,lb_end,options=[]):
     # in AtlDataSumLumiBCID.py
     #
     maskList = []
-    log.debug('#')
-    log.debug('# %s = %s loading' %('fillparams_foldername', fillparams_foldername))
-    log.debug('#')
+    log.info('#')
+    log.info('# %s = %s loading' %('fillparams_foldername', fillparams_foldername))
+    log.info('#')
     try:
         idx = -1
         itr = GetFolderItrForRun(fillparams_foldername,runnumber,'COMP',run_beg_time,run_end_time)
@@ -525,7 +527,7 @@ def GetLumiblocks(runnumber,lb_beg,lb_end,options=[]):
             blob = payload['BCIDmasks']         # masked data
             beg_ = AtlCoolTool.time.ctime(StartTime/1.0E9)
             end_ = AtlCoolTool.time.ctime(EndTime/1.0E9)
-            log.debug('%s APPEND=%d (%s)--(%s) ncol=%d nb1=%d nb2=%d' %
+            log.info('%s APPEND=%d (%s)--(%s) ncol=%d nb1=%d nb2=%d' %
                       (fillparams_foldername,idx,beg_,end_,ncol,nb1,nb2))
 
             maskList.append( UnpackBCIDData(StartTime, EndTime, payload) )
@@ -556,7 +558,7 @@ def GetLumiblocks(runnumber,lb_beg,lb_end,options=[]):
             if (beam == 'NO BEAM') : # Cosmics?
                 fill    = 0
                 ebeam   = 0.
-            else : 
+            else :
                 fill    = payload['FillNumber']
                 ebeam   = payload['BeamEnergyGeV']
 
@@ -602,12 +604,14 @@ def GetLumiblocks(runnumber,lb_beg,lb_end,options=[]):
     log.debug('#')
     try:
         itr = None
-        if runnumber < 188902:
+        #if runnumber < 188902:
             # Before the technical stop ending Sept 7, 2011
-            itr = GetFolderItrForRun(bunchlumis_foldername, runnumber, 'MONP', run_beg_time, run_end_time)
-        else:
-            # Before the technical stop ending Sept 7, 2011
-            itr = GetFolderItrForRun(bunchlumis_foldername, runnumber, 'COMP', run_beg_time, run_end_time, 201)
+	## https://twiki.cern.ch/twiki/bin/viewauth/AtlasComputing/CoolOnlineData?redirectedfrom=Atlas.CoolOnlineData#Folder_TDAQ_OLC_BUNCHLUMIS
+	## RJW
+        itr = GetFolderItrForRun(bunchlumis_foldername, runnumber, 'MONP', run_beg_time, run_end_time)
+        #else:
+            # After the technical stop ending Sept 7, 2011
+        #    itr = GetFolderItrForRun(bunchlumis_foldername, runnumber, 'COMP', run_beg_time, run_end_time, 201)
 
         while itr.goToNext():
             obj       = itr.currentRef()
@@ -701,9 +705,9 @@ def GetLumiblocks(runnumber,lb_beg,lb_end,options=[]):
     # Read luminosity information
     #
     # db needs time before first block starts
-    log.debug('#')
-    log.debug('# %s = %s loading' %('lumi_foldername', lumi_foldername))
-    log.debug('#')
+    log.info('#')
+    log.info('# %s = %s loading' %('lumi_foldername', lumi_foldername))
+    log.info('#')
     try:
         itr = GetFolderItrForRun(lumi_foldername, runnumber, 'COMP', run_beg_time, run_end_time)
         while itr.goToNext():
@@ -824,7 +828,7 @@ def GetLumiblocks(runnumber,lb_beg,lb_end,options=[]):
             bgStartLBCollection.append( lb )
 
             idx += 1
-            
+
         itr.close()
     except Exception,e:
         log.error('Reading data from '+bgdesc_foldername+' failed: '+str(e))
@@ -877,7 +881,7 @@ def GetLumiblocks(runnumber,lb_beg,lb_end,options=[]):
         lbset.lbs[lb].bgName6 = bgNames[6]
         lbset.lbs[lb].bgName7 = bgNames[7]
 
- 
+
     # save to cache
     LumiblockSetCache=lbset
     LumiblockSetCacheRun=runnumber
@@ -887,10 +891,10 @@ def GetLumiblocks(runnumber,lb_beg,lb_end,options=[]):
 
 # TimM - Import prescale conversion
 maxPrescaleCut = 0xFFFFFF; #2**24 - 1
-   
+
 #@brief calculate cut value for hardware configuration
 #   cut = 2*24/prescale - 1
-#   
+#
 #   prescale =     1 --> C = 2*24-1
 #   prescale =     2 --> C = 2*23-1
 #   prescale =    10 --> C = 1677720
@@ -911,9 +915,9 @@ def getCutFromPrescale(prescale):
 #   cut = 1677720 --> prescale =    10.000002980233305
 #   cut = 2*14-1  --> prescale =  1024
 #   cut = 335543  --> prescale =    50.0000447035
-#   cut = 33553   --> prescale =   500.006407582 
-#   cut = 3354    --> prescale =  5000.66020864  
-#   cut = 334     --> prescale = 50081.238806    
+#   cut = 33553   --> prescale =   500.006407582
+#   cut = 3354    --> prescale =  5000.66020864
+#   cut = 334     --> prescale = 50081.238806
 def getPrescaleFromCut(cut):
     sign = -1 if cut < 0 else 1
     ucut = int(abs(cut))
@@ -943,7 +947,7 @@ def GetConfig(runnumber,options=[]):
     #
     # Read L1 Menu
     #
-    
+
     itr = GetFolderItrForRun(lvl1menu_foldername,runnumber)
     try:
         while itr.goToNext() :
@@ -956,7 +960,7 @@ def GetConfig(runnumber,options=[]):
             config.L1CtpId2ChainName[itemNo]=name
             config.L1ChainName2CtpId[name]=itemNo
 
-            print "L1 Read ", name, " from DB  id=", itemNo
+            #print "L1 Read ", name, " from DB  id=", itemNo
 
     except Exception,e:
         log.error('Reading data from '+lvl1menu_foldername+' failed: '+str(e))
@@ -990,7 +994,7 @@ def GetConfig(runnumber,options=[]):
             if chain.TriggerLevel=='HLT':
                 config.HLTCounter2ChainName[chain.ChainCounter]  = chain.ChainName
                 config.HLTChainName2Counter[chain.ChainName] = chain.ChainCounter
-                print "Read HLT ", chain.ChainName, " from DB, counter=", chain.ChainCounter
+                #print "Read HLT ", chain.ChainName, " from DB, counter=", chain.ChainCounter
 
     except Exception,e:
         log.error('Reading data from '+hltmenu_foldername+' failed: '+str(e))
@@ -1089,7 +1093,7 @@ def GetConfig(runnumber,options=[]):
             prescale     = Prescale()
             prescale.ps  = getPrescaleFromCut(payload['Lvl1Prescale'])
 
-            #try: 
+            #try:
             #    print "GETL1PS: itemNo ", itemNo , " name " ,config.L1CtpId2ChainName[itemNo]," PS ", prescale.ps
             #except:
             #    pass
@@ -1473,7 +1477,8 @@ def GetRates(runnumber,lb_beg,lb_end,options=[]):
         sys.exit(-1)
 
     # Add HLT
-    collection.AddHLT( GetHLTRates(runnumber,config,lbset,lb_beg,lb_end,'HLT',options) )
+    ## RJ
+    ##collection.AddHLT( GetHLTRates(runnumber,config,lbset,lb_beg,lb_end,'HLT',options) )
     collection.SetRun( runnumber )
 
     return collection

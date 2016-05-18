@@ -327,7 +327,7 @@ goodrunList = []
 if len(opts.run)==0 or opts.update:
 #       fillList = ReadFillTxt()
 #       runList  = ReadRunTxt()
-#       fillList = TrigCostCool.GetFillList(opts.window, opts.timebeg, opts.timeend, opts.options>0)
+####    fillList = TrigCostCool.GetFillList(opts.window, opts.timebeg, opts.timeend, opts.options>0)
     runList  = TrigCostCool.GetRunList(opts.window, opts.timebeg, opts.timeend, opts.options>0)
     if len(runList)>0:
         goodrunList = GetGRL(runList, opts.stable, opts.ready, opts.queryXML, opts.queryDir, opts.querySkip)

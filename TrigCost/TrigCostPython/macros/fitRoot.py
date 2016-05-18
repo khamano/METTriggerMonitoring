@@ -92,8 +92,7 @@ p.add_option('-T','--trig-file',   dest='trig_file',   default=None,   help='tri
 p.add_option('-1','--xlegend',     dest='xlegend',     default=None,   help='x-ndc for legend           [default=%default]')
 p.add_option('-2','--ylegend',     dest='ylegend',     default=None,   help='y-ndc for legend           [default=%default]')
 p.add_option(     '--yunits',      dest='yunits',      default='nb',   help='y-axis units: pb, nb, mb   [default:%default]')
-#p.add_option(     '--l1dt-trig',   dest='l1dt_trig',   default='L1_EM18VH',help='Use this trigger for L1 deadtime for HLT [default:%default]')
-p.add_option(     '--l1dt-trig',   dest='l1dt_trig',   default='L1_XE50',help='Use this trigger for L1 deadtime for HLT [default:%default]')
+p.add_option(     '--l1dt-trig',   dest='l1dt_trig',   default='L1_XE10',help='Use this trigger for L1 deadtime for HLT [default:%default]')
 
 
 

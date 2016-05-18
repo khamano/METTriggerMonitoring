@@ -17,3 +17,6 @@ setup:
 	cmt bro gmake
 	cd -
 
+grand read permission:
+
+	fs sa . webserver:afs read
