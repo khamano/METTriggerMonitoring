@@ -62,6 +62,10 @@ def ReadTRP(runnumber, lb_beg, lb_end, options=[], myafspath='', myhttppath='', 
 
             tree.GetEvent(i)
             lb = tree.LumiBlock
+	    if lb==0:
+		print 'lb = ', lb , ' skipping ...'
+		continue;
+	    ##print '>>>>>>>>>>>>>> lb', lb
 
             # Append to collection, if necessary
             if StopLoopOrInstantiate(lb, lb_beg, lb_end, lblast, lvl, collection, options):
@@ -69,7 +73,6 @@ def ReadTRP(runnumber, lb_beg, lb_end, options=[], myafspath='', myhttppath='', 
 
             # Loop over branch names
             for bname in branches:
-                #print ' Branch', bname
                 ProcessBranch(tree, lb, lblast, bname, lvl, count, sfx_in, sfx_ps, sfx_out, collection)
 
             # Increment
@@ -128,6 +131,7 @@ def GetTChains(runnumber, filename):
     try:
         import ROOT                 ; #print '\tLoaded special ROOT package'
         import subprocess
+	import os,sys
         #import mda                  ; #print '\tLoaded mda'
         ROOT.gROOT.SetBatch(True)   ; #print '\tROOT set batch mode'
     except:
@@ -135,7 +139,10 @@ def GetTChains(runnumber, filename):
         print "export PYTHONPATH=$PYTHONPATH:$ROOTSYS/lib"
         sys.exit(-1)
 
+    #print filename
+    print 'getfile.sh '+filename
     subprocess.call(['/bin/sh', 'getfile.sh', filename])
+    #os.system('getfile.sh ' + filename)
 
     # Name change --- See e-mail thread below
     prefix = ''
@@ -385,7 +392,7 @@ def GetChain(tree, bname, lb, count, sfx_out, collection):
     #ch.SetRateErr(math.sqrt(err2))
 
 #	  # Debug
-#	  print 'Old lb=', lb, 'lblast=', lblast, 'count=', count, 'pastrate=', pastrate, 'cum=', cumulative, 'lbrate', lbrate, 'avgrate=', avgrate
+    #print 'Old lb=', lb, 'count=', count, 'pastrate=', pastrate, 'cum=', cumulative, 'lbrate', lbrate, 'avgrate=', avgrate
     return ch
 
 #----------------------------------------------------------------------
@@ -445,7 +452,7 @@ def SetOldChainL1(tree, ch, bname, count):
 
     ch.SetTBPRate(getattr(ch,"cumulativeTBP") / getattr(ch,"ratesCounts"))
     ch.SetTAPRate(getattr(ch,"cumulativeTAP") / getattr(ch,"ratesCounts"))
-    ch.SetTAVRate(getattr(ch,"cumulativeTAV") / getattr(ch,"ratesCounts")) 
+    ch.SetTAVRate(getattr(ch,"cumulativeTAV") / getattr(ch,"ratesCounts"))
 
     #if ch.GetName() == 'L1_EM10VH':
     #    print "DBG OLD L1 " , ch.GetAttrWithDefault("cumulativeTBP",0) , " - " , ch.GetTBPRate()
@@ -453,7 +460,7 @@ def SetOldChainL1(tree, ch, bname, count):
     # Rate errors
     ch.SetTBPRateErr(math.sqrt( (getattr(ch,"cumulativeTBP")/getattr(ch,"ratesCounts")) / (getattr(ch,"ratesCounts")*samplingrate) ))
     ch.SetTAPRateErr(math.sqrt( (getattr(ch,"cumulativeTAP")/getattr(ch,"ratesCounts")) / (getattr(ch,"ratesCounts")*samplingrate) ))
-    ch.SetTAVRateErr(math.sqrt( (getattr(ch,"cumulativeTAV")/getattr(ch,"ratesCounts")) / (getattr(ch,"ratesCounts")*samplingrate) )) 
+    ch.SetTAVRateErr(math.sqrt( (getattr(ch,"cumulativeTAV")/getattr(ch,"ratesCounts")) / (getattr(ch,"ratesCounts")*samplingrate) ))
     return
 
 
@@ -475,12 +482,12 @@ def SetOldChainHLT(tree, ch, bname, count, sfx_in, sfx_ps, sfx_out):
 
     ch.SetTBPRate(getattr(ch,"cumulativeTBP") / getattr(ch,"ratesCounts"))
     ch.SetTAPRate(getattr(ch,"cumulativeTAP") / getattr(ch,"ratesCounts"))
-    ch.SetTAVRate(getattr(ch,"cumulativeTAV") / getattr(ch,"ratesCounts")) 
+    ch.SetTAVRate(getattr(ch,"cumulativeTAV") / getattr(ch,"ratesCounts"))
 
     # Rate errors
     ch.SetTBPRateErr(math.sqrt( (getattr(ch,"cumulativeTBP")/getattr(ch,"ratesCounts")) / (getattr(ch,"ratesCounts")*samplingrate) ))
     ch.SetTAPRateErr(math.sqrt( (getattr(ch,"cumulativeTAP")/getattr(ch,"ratesCounts")) / (getattr(ch,"ratesCounts")*samplingrate) ))
-    ch.SetTAVRateErr(math.sqrt( (getattr(ch,"cumulativeTAV")/getattr(ch,"ratesCounts")) / (getattr(ch,"ratesCounts")*samplingrate) )) 
+    ch.SetTAVRateErr(math.sqrt( (getattr(ch,"cumulativeTAV")/getattr(ch,"ratesCounts")) / (getattr(ch,"ratesCounts")*samplingrate) ))
     return
 
 # tmhong: Not used anywhere, so commenting out

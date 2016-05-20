@@ -866,7 +866,7 @@ def printTriggers(tab = '', xmonParams=None, virtual = ''):
     tab = xhu.Print(tab, '<p class="vert">Selected<br/><span class="sc">trig</span></p>')
     tab = xhu.Print(tab, '</td>')
     tab = xhu.Print(tab, '<td>')
-    tab = xhu.Print(tab, '<select id="trigId" name="trig" width=400 valign=top style="width:400px;" multiple size=5 onDblClick="moveOptions(%s);">' % trig_to_restId)
+    tab = xhu.Print(tab, '<select id="trigId" name="trig" width=400 valign=top style="width:400px;" multiple size=15 onDblClick="moveOptions(%s);">' % trig_to_restId)
     for leaf in varlist:
         if leaf in xmonParams.inputs['varlist']['trig']['name']:
             tab = xhu.Print(tab, '<option value=%s>%s</option>' % (leaf, leaf))
@@ -875,20 +875,23 @@ def printTriggers(tab = '', xmonParams=None, virtual = ''):
     tab = xhu.Print(tab, '</td>')
     tab = xhu.Print(tab, '</tr>')
 
-    # Row
+    # L1 Row
     tab = xhu.Print(tab, '<tr>')
     tab = xhu.Print(tab, '<td>')
-    tab = xhu.Print(tab, '<p class="vert">Rest of the list<br/><span class="sc">trig</span></p>')
+    tab = xhu.Print(tab, '<p class="vert">All<br/><span class="sc">trig</span></p>')
     tab = xhu.Print(tab, '</td>')
     tab = xhu.Print(tab, '<td>')
-    tab = xhu.Print(tab, '<select id="restId" name="rest" width=400 valign=top style="width:400px;" multiple size=10 onDblClick="moveOptions(%s);">' % rest_to_trigId)
+    tab = xhu.Print(tab, '<select id="restId" name="rest" width=400 valign=top style="width:400px;" multiple size=15 onDblClick="moveOptions(%s);">' % rest_to_trigId)
     for leaf in varlist:
         if leaf not in xmonParams.inputs['varlist']['trig']['name']:
-            tab = xhu.Print(tab, '<option value=%s>%s</option>' % (leaf, leaf))
+            #if leaf.startswith('L1_'):
+	    tab = xhu.Print(tab, '<option value=%s>%s</option>' % (leaf, leaf))
 
     tab = xhu.Print(tab, '</select>')
     tab = xhu.Print(tab, '</td>')
     tab = xhu.Print(tab, '</tr>')
+
+
 
     # Button
     tab = xhu.Print(tab, '<tr>')
