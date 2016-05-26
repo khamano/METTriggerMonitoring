@@ -437,6 +437,7 @@ for i, runMap in enumerate(goodrunList):
     if   opts.trp : ratecoll = TrigCostTRP .ReadTRP (run, lbbeg, lbend, options, opts.trppath)
     elif opts.cool: ratecoll = TrigCostCool.GetRates(run, lbbeg, lbend, options)
 
+    print 'debug ...'
     # Make xmon ROOT file
     TrigCostRoot.MakeRoot(rootname, ratecoll, lbset, options, opts.update)
 

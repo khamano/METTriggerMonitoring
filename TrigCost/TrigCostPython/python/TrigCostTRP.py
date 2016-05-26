@@ -56,24 +56,38 @@ def ReadTRP(runnumber, lb_beg, lb_end, options=[], myafspath='', myhttppath='', 
         startpoint    = GetStartpoint(tree, lb_beg, entries)
         lblast        = 0                                 # Last LB number
         count         = 0                                 # Number of lb to average
-        #print  ' tree name', tree.GetName(), ' Nebntries=', entries
+        #print  ' tree name', tree.GetName(), ' Nebntries=', entries , ' startpoint ' , startpoint , ' entries ', entries
         # Average samplings in lumiblock
+
+	## RJ
+	tree.GetEvent(0)
+	lb_0 = tree.LumiBlock
+	if lb_0 > lb_beg:
+	    #print ' lb_0 ', lb_0 , ' ->>>>>>>>>> lb_beg ' , lb_beg
+	    collection.lbbeg = lb_0
+	    lb_beg  = lb_0
+
         for i in xrange(startpoint, entries):
 
             tree.GetEvent(i)
             lb = tree.LumiBlock
 	    if lb==0:
-		print 'lb = ', lb , ' skipping ...'
+		#print 'lb = ', lb , ' skipping ...'
 		continue;
 	    ##print '>>>>>>>>>>>>>> lb', lb
 
             # Append to collection, if necessary
-            if StopLoopOrInstantiate(lb, lb_beg, lb_end, lblast, lvl, collection, options):
+	    #print 'lb ', lb, ' lb_beg ', lb_beg, ' lb_end ', lb_end, ' lblast ', lblast , ' entries ' , entries , '--> ', i
+#            if StopLoopOrInstantiate(lb, lb_beg, lb_end, lblast, lvl, collection, options):
+	    if StopLoopOrInstantiate(lb, lb_beg, lb_end, lblast, lvl, collection, options, i, entries):
                 break
 
             # Loop over branch names
             for bname in branches:
-                ProcessBranch(tree, lb, lblast, bname, lvl, count, sfx_in, sfx_ps, sfx_out, collection)
+		##RJ XE related
+		if ( (bname.startswith('HLT') and bname.endswith('_L1XE50') ) or (bname.startswith('L1_XE')) ):
+		#if bname=='HLT_xe80_tc_lcw_L1XE50':
+                	ProcessBranch(tree, lb, lblast, bname, lvl, count, sfx_in, sfx_ps, sfx_out, collection)
 
             # Increment
             count += 1
@@ -142,6 +156,8 @@ def GetTChains(runnumber, filename):
     #print filename
     print 'getfile.sh '+filename
     subprocess.call(['/bin/sh', 'getfile.sh', filename])
+    user   = os.environ['USER']
+    filename = '/tmp/'+user+'/'+filename
     #os.system('getfile.sh ' + filename)
 
     # Name change --- See e-mail thread below
@@ -267,7 +283,7 @@ def GetBranches(tree, lvl, sfx_out):
 #----------------------------------------------------------------------
 # Return True to break out of event loop
 #
-def StopLoopOrInstantiate(lb, lb_beg, lb_end, lblast, lvl, collection, options):
+def StopLoopOrInstantiate(lb, lb_beg, lb_end, lblast, lvl, collection, options, i, entries):
 
 #	    if lb>20: return True # TODO
 
@@ -282,8 +298,14 @@ def StopLoopOrInstantiate(lb, lb_beg, lb_end, lblast, lvl, collection, options):
         print "Done reading ",lvl
         return True
 
+    # This breaks loop
+    if i==entries-1:
+        print "End entries ",lvl
+        #return True
+
     if not (lblast>0 and lb!=lblast):
         return False
+
 
     # If new LB, then dump previous LB data
     if lvl=='L1':
@@ -291,6 +313,7 @@ def StopLoopOrInstantiate(lb, lb_beg, lb_end, lblast, lvl, collection, options):
 
     print lb,",",
     sys.stdout.flush()
+
 
     return False
 
@@ -307,8 +330,10 @@ def ProcessBranch(tree, lb, lblast, bname, lvl, count, sfx_in, sfx_ps, sfx_out, 
         return
 
     # Set rate, counts, errors
-    if lb!=lblast: ch = SetNewBranch(tree, lb, bname, lvl, count, sfx_in, sfx_ps, sfx_out, cpsval, collection)
-    else:          ch = SetOldBranch(tree, lb, bname, lvl, count, sfx_in, sfx_ps, sfx_out, collection)
+    if lb!=lblast:
+	ch = SetNewBranch(tree, lb, bname, lvl, count, sfx_in, sfx_ps, sfx_out, cpsval, collection)
+    else:
+	ch = SetOldBranch(tree, lb, bname, lvl, count, sfx_in, sfx_ps, sfx_out, collection)
 
     # Print
     #PrintChain(bname, ch)
