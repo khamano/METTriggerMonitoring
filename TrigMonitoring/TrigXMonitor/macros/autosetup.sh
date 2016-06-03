@@ -18,7 +18,6 @@
 rel=AtlasProduction,20.3.5.3	    ## 2016 xmon for MET trigger
 
 AtlasSetup=/afs/cern.ch/atlas/software/dist/AtlasSetup
-#TestArea=/afs/cern.ch/user/$(echo $USER|cut -c1)/$USER/public/cmthome
 TestArea=/afs/cern.ch/user/r/rewang/public/cmthome
 echo "Source $AtlasSetup/scripts/asetup.sh $rel --testarea=$TestArea"
 source $AtlasSetup/scripts/asetup.sh $rel --testarea=$TestArea

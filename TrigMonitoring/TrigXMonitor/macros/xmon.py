@@ -16,6 +16,7 @@ from TrigXMonitor.xmonDataObject import xmonData
 import TrigXMonitor.xmonHtmlUtility as xhu
 import TrigXMonitor.xmonHtmlMaker as xhm
 
+import commands
 
 #==========================================================================
 def chartonly(tab = ''):
@@ -112,7 +113,6 @@ def body(tab = ''):
 #
 #
 
-#site = 'https://cern.ch/x'
 site = '..'
 
 # Parse inputs
@@ -178,5 +178,11 @@ if not (options.includes_html      or \
 
 
 
-
-
+if xmonParams.inputs['autorun']==1:
+	status, xtime = commands.getstatusoutput('date +"%Y_%m_%d_%Hh%Mm%Slocal"')
+	logoutput = open("/afs/cern.ch/work/r/rewang/public/log/autorun_"+xtime+".log",'w')
+	#######
+	script = '/afs/cern.ch/user/r/rewang/public/cmthome/Trigger/TrigMonitoring/TrigXMonitor/macros/autorun.sh'
+    	status, alloutputs = commands.getstatusoutput('sh '+script)
+	logoutput.write(alloutputs)
+	logoutput.close()

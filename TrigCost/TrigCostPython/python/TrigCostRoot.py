@@ -41,7 +41,7 @@ except:
 
 #print '\tDone prelim import for TrigCostRoot.py'
 
-m_logdir='/afs/cern.ch/user/x/xmon/www/log'
+m_logdir='/afs/cern.ch/user/r/rewang/www/xmon/log'
 
 #------------------------------------------------------------
 # Verbosity

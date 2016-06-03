@@ -190,6 +190,7 @@ def printHeader(tab='', site=link['site'], virtual='', xmonParams=None):
     tab = xhu.Print(tab, '<td colspan=3 style="text-align:right; margin-right:4px; padding-right:4px;">')
     tab = printRuns(tab, xmonParams)
     tab = xhu.Print(tab, '</td>')
+    tab = xhu.Print(tab, '<h1>ATLAS MET Trigger Rate/Cross-section Monitor</h1>')
     tab = xhu.Print(tab, '</tr>')
 
     # New row
@@ -216,12 +217,38 @@ def printHeader(tab='', site=link['site'], virtual='', xmonParams=None):
     # New row
     tab = xhu.Print(tab, '<tr>')
     tab = xhu.Print(tab, '<td colspan=3 style="text-align:right; margin-right:4px; padding-right:4px;">')
-    tab = xhu.Print(tab, '<font style="color:white;">&bull;</font>')
-    tab = xhu.Print(tab, '<a style="color:yellow;" class="menuanchorclass" rel="runlist[click]" title="Click to reveal list">Special run list</a>')
-    tab = xhu.Print(tab, '<font style="color:white;">&bull;</font> ')
-    tab = xhu.Print(tab, '<a style="color:yellow;" class="menuanchorclass" rel="availtrigs[click]" title="Click to reveal list">Pre-defined trigger groups</a>')
+#    tab = xhu.Print(tab, '<font style="color:white;">&bull;</font>')
+#    tab = xhu.Print(tab, '<a style="color:yellow;" class="menuanchorclass" rel="runlist[click]" title="Click to reveal list">Special run list</a>')
+#    tab = xhu.Print(tab, '<font style="color:white;">&bull;</font> ')
+#    tab = xhu.Print(tab, '<a style="color:yellow;" class="menuanchorclass" rel="availtrigs[click]" title="Click to reveal list">Pre-defined trigger groups</a>')
+
+    #RJ
+#    tab = xhu.Print(tab, '<font style="color:red;">&bull;</font>')
+#    tab = xhu.Print(tab, '<font face="%s">AUTO RUNS:</font>' % fontface)
+#    tab = xhu.Print(tab, '<form style="display:inline;" name="runForm" method="get" action="%s/cgi-bin/xmon.cgi">' % link['site'])
+#
+    # RJ
+    # Add AUTO RUNS Button
+    tab = xhu.Print(tab, '<font style="color:red;">&bull;</font>')
+    qstring = getQUERY_STRING('autorun')
+    tab = xhu.Print(tab, '<a class="whitelink" href="%s&autorun=1">AUTORUN</a>' % (qstring))
+
+
+    tab = xhu.Print(tab, '</form>')
+
+    #RJ
+    tab = xhu.Print(tab, '<font style="color:red;">&bull;</font>')
+    tab = xhu.Print(tab, '<font face="%s">NUM OF RUNS TO SHOW:</font>' % fontface)
+    tab = xhu.Print(tab, '<form style="display:inline;" name="runForm" method="get" action="%s/cgi-bin/xmon.cgi">' % link['site'])
+    tab = xhu.Print(tab, '<input name="nrun" type="text" size="2" style="color:black;" value="%s" class="cleardefault"></input>' % '3' ) #runstring + 'etc.')
+    tab = xhu.Print(tab, '</form>')
+
+
+
+
     tab = xhu.Print(tab, '</td>')
     tab = xhu.Print(tab, '</tr>')
+
 
     # Close table
     tab = xhu.Print(tab, '</table>')
@@ -452,7 +479,7 @@ def printButtons(tab = '', xmonParams=None):
 
     # Input box
     tab = xhu.Print(tab, '<form style="display:inline;" name="lbForm" method="get" action="%s/cgi-bin/xmon.cgi">' % link['site'])
-    tab = xhu.Print(tab, '<input name="lbsample" type="text" size="1" style="color:black;" value="10" class="cleardefault"></input>')
+    tab = xhu.Print(tab, '<input name="lbsample" type="text" size="3" style="color:black;" value="10" class="cleardefault"></input>')
     tab = xhu.Print(tab, '</form>')
 
     # New row
@@ -487,6 +514,8 @@ def printButtons(tab = '', xmonParams=None):
 
     tab = xhu.Print(tab, '</td>')
     tab = xhu.Print(tab, '</tr>')
+
+
 
     # Close table
     tab = xhu.Print(tab, '</td>')
@@ -550,7 +579,6 @@ def printCuts(tab = '', xmonParams=None):
 
     cutlist = ['lblength', 'lumi', 'bunchlumi', 'mu', 'bunches'] # Basic cuts
     cutlist += ['L1_XE50'] # Add trigger-based cuts
-
 
     for var in cutlist:
         cut = ''

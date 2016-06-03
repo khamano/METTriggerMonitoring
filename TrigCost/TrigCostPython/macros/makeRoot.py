@@ -46,7 +46,7 @@ p.add_option('-f','--fill',         dest='fill',        type='string', default=[
 p.add_option('',  '--lb-beg',       dest='lbbeg',       type='int',    default=1,           help='LB start                           [default=%default]')
 p.add_option('',  '--lb-end',       dest='lbend',       type='int',    default=9999,        help='LB end                             [default=%default]')
 p.add_option('',  '--trp-path',     dest='trppath',     type='string', default='',          help='TRP ntuple path                    [default=%default]')
-p.add_option('-w','--window',       dest='window',      type='int',    default=24,          help='time window wrt now (in hours)     [default=%default]')
+p.add_option('-w','--window',       dest='window',      type='int',    default=48,          help='time window wrt now (in hours)     [default=%default]')
 p.add_option('',  '--time-end',     dest='timeend',     type='string', default='',          help='time end, 2011-02-23:09:09:02      [default=%default]')
 p.add_option('',  '--time-beg',     dest='timebeg',     type='string', default='',          help='time beg, 2011-01-23:09:09:02      [default=%default]')
 p.add_option('',  '--queryXML',     dest='queryXML',    type='string', default=queryXML,    help='do not rerun AtlRunQuery, use      [default=%default]')
@@ -173,7 +173,8 @@ def RunAtlRunQuery(runlist,stable=False,ready=False,queryXML='queryHandler.xml',
     # Command-line arguments
     stablebeams  = 'and lhc stablebeams true' if stable else ''
     readyphysics = '--readyforphysics \"1\"'  if ready  else ''
-    extraargs    = 'verbose nodef nohtml noroot xmlfile'
+    #extraargs    = 'verbose nodef nohtml noroot xmlfile'
+    extraargs    = 'nodef nohtml noroot xmlfile'
     runquery     = ''
     for i, rundata in enumerate(runlist):
         if i>0: runquery += ','
@@ -185,7 +186,7 @@ def RunAtlRunQuery(runlist,stable=False,ready=False,queryXML='queryHandler.xml',
     p = subprocess.Popen(atlCom, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT).stdout
 
     # Check for failures
-    fail = False
+    fail = True
     for line in p.readlines():
         if len(line) == 0: continue
         if opts.options > -1: print line,
@@ -381,7 +382,7 @@ if opts.update: #user in ['xmon','apache']
 
     log.info('--------------------------------------------------------------------------------')
     log.info('Will remake for inventory %s' % dir)
-    log.info('\n'+'\n'.join([('%s'%i) for i in goodrunList[:i+1]]))
+    #log.info('\n'+'\n'.join([('%s'%i) for i in goodrunList[:i+1]]))
     log.info('--------------------------------------------------------------------------------')
 
     if opts.do_not_run:
@@ -434,10 +435,15 @@ for i, runMap in enumerate(goodrunList):
 
     # Get trigger information
     ratecoll = None
-    if   opts.trp : ratecoll = TrigCostTRP .ReadTRP (run, lbbeg, lbend, options, opts.trppath)
+    if   opts.trp :
+		if not TrigCostTRP.CheckFileExist(run):
+			log.info('######################')
+			log.info('# cannot find file for run %d, skipping ...' % run)
+			log.info('######################')
+			continue;
+		ratecoll = TrigCostTRP .ReadTRP (run, lbbeg, lbend, options, opts.trppath)
     elif opts.cool: ratecoll = TrigCostCool.GetRates(run, lbbeg, lbend, options)
 
-    print 'debug ...'
     # Make xmon ROOT file
     TrigCostRoot.MakeRoot(rootname, ratecoll, lbset, options, opts.update)
 

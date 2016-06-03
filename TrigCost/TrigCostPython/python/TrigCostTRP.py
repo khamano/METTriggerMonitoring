@@ -138,6 +138,23 @@ def GetFileName(runnumber, myafspath='', myhttppath=''):
 
     return filename
 
+
+def CheckFileExist(runnumber):
+
+    # Setup
+    import commands
+
+    filename = '/eos/atlas/atlascerngroupdisk/tdaq-mon/coca/2016/TRP-Rates/'
+    filename += "TriggerRates_ATLAS_%d.root" % runnumber
+
+    print 'checking file ', filename , ' if exists or not ...'
+    eosls = '/afs/cern.ch/project/eos/installation/0.3.84-aquamarine/bin/eos.select ls'
+    status, alloutputs = commands.getstatusoutput(eosls+' '+filename)
+    if 'No such file or directory' in alloutputs:
+	print 'No such file: ', filename, ' in database yet, please wait one more hour ....'
+	return False
+    return True
+
 #----------------------------------------------------------------------
 def GetTChains(runnumber, filename):
 
@@ -154,10 +171,10 @@ def GetTChains(runnumber, filename):
         sys.exit(-1)
 
     #print filename
-    print 'getfile.sh '+filename
+    #print 'getfile.sh '+filename
     subprocess.call(['/bin/sh', 'getfile.sh', filename])
     user   = os.environ['USER']
-    filename = '/tmp/'+user+'/'+filename
+    filename = '/tmp/'+filename
     #os.system('getfile.sh ' + filename)
 
     # Name change --- See e-mail thread below

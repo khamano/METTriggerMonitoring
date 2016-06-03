@@ -66,6 +66,16 @@ def defaultLists():
 
     # "trig" default list
     varname['trig'].append('L1_XE50/f')
+    varname['trig'].append('HLT_xe80_tc_lcw_L1XE50/f')
+    varname['trig'].append('HLT_xe90_tc_lcw_L1XE50/f')
+    varname['trig'].append('HLT_xe100_tc_lcw_L1XE50/f')
+    varname['trig'].append('HLT_xe90_mht_L1XE50/f')
+    varname['trig'].append('HLT_xe100_mht_L1XE50/f')
+
+
+
+
+
 #	    varname['trig'].append('L1_4J10/f')
 #	    varname['trig'].append('L1_5J10/f')
 #	    varname['trig'].append('L1_EM3/f')
@@ -163,12 +173,12 @@ def readInput():
     inputs['run']           = QUERY_STRING.getlist('run')
     inputs['lbsample']      =   str(QUERY_STRING.getfirst('lbsample',       'auto'))
     inputs['mode']          =   str(QUERY_STRING.getfirst('mode',           'compare')) # merge compare
-    inputs['ps']            =   str(QUERY_STRING.getfirst('ps',             'bp'))      # bp:"before ps" ap:"after ps" av:"after veto"
+    inputs['ps']            =   str(QUERY_STRING.getfirst('ps',             'av'))      # bp:"before ps" ap:"after ps" av:"after veto"
     inputs['xcut']          =   int(QUERY_STRING.getfirst('xcut',           '1'))       # 1 0
     inputs['logy']          =   int(QUERY_STRING.getfirst('logy',           '0'))       # 1 0
     inputs['grid']          =   str(QUERY_STRING.getfirst('grid',           'xy'))      # none x y xy
     inputs['page']          =   str(QUERY_STRING.getfirst('page',           'full'))    # full chart TODO: js png pdf
-    inputs['ntup']          =   str(QUERY_STRING.getfirst('ntup',           'cool'))    # cool trp
+    inputs['ntup']          =   str(QUERY_STRING.getfirst('ntup',           'trp'))     # defualt: cool trp
 
     # Unadvertised inputs
     inputs['rootdir']       =   str(QUERY_STRING.getfirst('rootdir',        os.getenv('XMONROOTDIR')))
@@ -180,6 +190,14 @@ def readInput():
     inputs['debug']         =   int(QUERY_STRING.getfirst('debug',          '0'))
     inputs['yunits']        =   int(QUERY_STRING.getfirst('yunits',         '1'))       # 1 = nb, Hz, evts
     inputs['xunits']        =   int(QUERY_STRING.getfirst('xunits',         '1'))       # 1 = 1e30
+
+     # RJ
+    inputs['nrun']        =   int(QUERY_STRING.getfirst('nrun',             '1'))
+    inputs['autorun']     =   int(QUERY_STRING.getfirst('autorun',       '0'))
+
+    if inputs['autorun']==1:
+	print '<font color="red">AUTORUN is enabled, please wait ... </font></a><br>'
+
 
 #    if not inputs['yunits'] in [1, 1e3, 1e6]: inputs['yunits'] = 1
 #    if not inputs['xunits'] in [1, 1e3, 1e6]: inputs['xunits'] = 1
@@ -197,6 +215,16 @@ def readInput():
     inputs['bunchesmax']    = float(QUERY_STRING.getfirst('bunchesmax',     '-1'))
     inputs['L1_XE50min']    = float(QUERY_STRING.getfirst('L1_XE50min',   '10000'))
     inputs['L1_XE50max']    = float(QUERY_STRING.getfirst('L1_XE50max',   '-1'))
+    inputs['HLT_xe80_tc_lcw_L1XE50min']    = float(QUERY_STRING.getfirst('HLT_xe80_tc_lcw_L1XE50min',   '10000'))
+    inputs['HLT_xe80_tc_lcw_L1XE50max']    = float(QUERY_STRING.getfirst('HLT_xe80_tc_lcw_L1XE50max',   '-1'))
+    inputs['HLT_xe90_tc_lcw_L1XE50min']    = float(QUERY_STRING.getfirst('HLT_xe90_tc_lcw_L1XE50min',   '10000'))
+    inputs['HLT_xe90_tc_lcw_L1XE50max']    = float(QUERY_STRING.getfirst('HLT_xe90_tc_lcw_L1XE50max',   '-1'))
+    inputs['HLT_xe100_tc_lcw_L1XE50min']    = float(QUERY_STRING.getfirst('HLT_xe100_tc_lcw_L1XE50min',   '10000'))
+    inputs['HLT_xe100_tc_lcw_L1XE50max']    = float(QUERY_STRING.getfirst('HLT_xe100_tc_lcw_L1XE50max',   '-1'))
+    inputs['HLT_xe90_mht_L1XE50min']    = float(QUERY_STRING.getfirst('HLT_xe90_mht_L1XE50min',   '10000'))
+    inputs['HLT_xe90_mht_L1XE50max']    = float(QUERY_STRING.getfirst('HLT_xe90_mht_L1XE50max',   '-1'))
+    inputs['HLT_xe100_mht_L1XE50min']    = float(QUERY_STRING.getfirst('HLT_xe100_mht_L1XE50min',   '10000'))
+    inputs['HLT_xe100_mht_L1XE50max']    = float(QUERY_STRING.getfirst('HLT_xe100_mht_L1XE50max',   '-1'))
 
 
     # Default plotted variables
@@ -233,7 +261,7 @@ def readInput():
     # Read-in recent runs
     #
     if len(inputs['run']) == 0:
-        inputs['run'].extend( xlu.readLastRun()[:3] )
+        inputs['run'].extend( xlu.readLastRun()[:inputs['nrun']] )
 #	        inputs['run'].append('178109')
 
     # If not, put some by hand
@@ -244,8 +272,8 @@ def readInput():
 #	        inputs['run'].append('177682')
 #	        inputs['run'].append('167680')
 
-    inputs['lastrunlist'] = 10
-    inputs['lastrunshow'] = 3
+    inputs['lastrunlist'] = 20
+    inputs['lastrunshow'] = 5
 
     return inputs
 

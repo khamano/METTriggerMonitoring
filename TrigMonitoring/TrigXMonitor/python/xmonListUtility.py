@@ -202,7 +202,8 @@ def readLastRunTRP():   return readLast('run_trp.txt',  m_lastdir)
 def readLastRun(ntup=''):
     if   ntup=='cool' : return readLastRunCOOL()
     elif ntup=='trp'  : return readLastRunTRP()
-    return readLastRunCOOL()
+    #return readLastRunCOOL()
+    return readLastRunTRP()
 
 #==========================================================================
 # Uses none
