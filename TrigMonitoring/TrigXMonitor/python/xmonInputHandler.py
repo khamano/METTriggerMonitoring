@@ -65,12 +65,12 @@ def defaultLists():
     varname['evt'].append('mu/f')          # 11
 
     # "trig" default list
-    varname['trig'].append('L1_XE50/f')
+    #varname['trig'].append('L1_XE50/f')
     varname['trig'].append('HLT_xe80_tc_lcw_L1XE50/f')
-    varname['trig'].append('HLT_xe90_tc_lcw_L1XE50/f')
-    varname['trig'].append('HLT_xe100_tc_lcw_L1XE50/f')
-    varname['trig'].append('HLT_xe90_mht_L1XE50/f')
-    varname['trig'].append('HLT_xe100_mht_L1XE50/f')
+    #varname['trig'].append('HLT_xe90_tc_lcw_L1XE50/f')
+    #varname['trig'].append('HLT_xe100_tc_lcw_L1XE50/f')
+    #varname['trig'].append('HLT_xe90_mht_L1XE50/f')
+    #varname['trig'].append('HLT_xe100_mht_L1XE50/f')
 
 
 
@@ -192,11 +192,11 @@ def readInput():
     inputs['xunits']        =   int(QUERY_STRING.getfirst('xunits',         '1'))       # 1 = 1e30
 
      # RJ
-    inputs['nrun']        =   int(QUERY_STRING.getfirst('nrun',             '1'))
-    inputs['autorun']     =   int(QUERY_STRING.getfirst('autorun',       '0'))
+    inputs['nrun']        =   int(QUERY_STRING.getfirst('nrun',             '3'))
+#    inputs['autorun']     =   int(QUERY_STRING.getfirst('autorun',       '0'))
 
-    if inputs['autorun']==1:
-	print '<font color="red">AUTORUN is enabled, please wait ... </font></a><br>'
+#    if inputs['autorun']==1:
+#	print '<font color="red">AUTORUN is enabled, please wait ... </font></a><br>'
 
 
 #    if not inputs['yunits'] in [1, 1e3, 1e6]: inputs['yunits'] = 1

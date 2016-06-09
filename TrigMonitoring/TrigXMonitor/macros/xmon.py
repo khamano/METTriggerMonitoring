@@ -178,11 +178,11 @@ if not (options.includes_html      or \
 
 
 
-if xmonParams.inputs['autorun']==1:
-	status, xtime = commands.getstatusoutput('date +"%Y_%m_%d_%Hh%Mm%Slocal"')
-	logoutput = open("/afs/cern.ch/work/r/rewang/public/log/autorun_"+xtime+".log",'w')
+#if xmonParams.inputs['autorun']==1:
+#	status, xtime = commands.getstatusoutput('date +"%Y_%m_%d_%Hh%Mm%Slocal"')
+#	logoutput = open("/afs/cern.ch/work/r/rewang/public/log/autorun_"+xtime+".log",'w')
 	#######
-	script = '/afs/cern.ch/user/r/rewang/public/cmthome/Trigger/TrigMonitoring/TrigXMonitor/macros/autorun.sh'
-    	status, alloutputs = commands.getstatusoutput('sh '+script)
-	logoutput.write(alloutputs)
-	logoutput.close()
+#	script = '/afs/cern.ch/user/r/rewang/public/cmthome/Trigger/TrigMonitoring/TrigXMonitor/macros/autorun.sh'
+#    	status, alloutputs = commands.getstatusoutput('sh '+script)
+#	logoutput.write(alloutputs)
+#	logoutput.close()

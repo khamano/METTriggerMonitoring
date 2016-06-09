@@ -79,7 +79,7 @@ def sigfig(x, off=4):
     return str( int(math.fabs(d)) ) if x != 0 else '0'
 
 # TimM
-# Remove . and - 
+# Remove . and -
 def TRPNameStrip(inputStr):
     outputStr = inputStr.replace("-", "_")
     outputStr = outputStr.replace(".", "_")
@@ -759,9 +759,14 @@ class LumiBlockSet:
     def GetMeanPileUp(self,lb=-1):
         # inelastic xsec: 71.5 mb
         # frequency of protons bunch going around the LHC: 11.24558 Hz
-        # mu = 71.5 / 11.24558*bunchLumi = 6.358*bunchLumi
+        # mu = 71.5 / 11.24558*bunchLumi = 6.358*bunchLumi, this is for 7TeV
+	# mu = 80/11.24558*bunchLumi = 7.114*bunchLumi, 13TeV, RJ
         lumiPerBunch=self.GetAvgInstantaneousBunchLumi(lb)
-        self.lbs[lb].mu=lumiPerBunch * 6.358/1.0e30
+	print 'lumiPerBunch: ', lumiPerBunch
+        #self.lbs[lb].mu=lumiPerBunch * 6.358/1.0e30
+        self.lbs[lb].mu=lumiPerBunch * 7.114/1.0e30
+
+
         return self.lbs[lb].mu
 
     def __init__(self):

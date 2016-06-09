@@ -278,7 +278,9 @@ def GetFolderItrForRun(foldername, run, foldertype='TRIGGER', run_beg_time=-1, r
         CheckFolder(foldername, foldertype)
         folder=dbMonp.getFolder(foldername)
         log.info('Folder %s opening' % foldername)
-        return folder.browseObjects(run_beg_time,run_end_time,cool.ChannelSelection(102))
+	return folder.browseObjects(run_beg_time,run_end_time,cool.ChannelSelection(102))
+
+
 
     # "COMP" option added
     #
@@ -534,7 +536,8 @@ def GetLumiblocks(runnumber,lb_beg,lb_end,options=[]):
 
         itr.close()
     except Exception,e:
-        log.error('Reading data from '+fillparams_foldername+' failed: '+str(e))
+	 log.info('Reading data from '+fillparams_foldername+' failed: '+str(e))
+    #    log.error('Reading data from '+fillparams_foldername+' failed: '+str(e))
 
     #
     # Read LHC fill number -- timestamped, so save later
@@ -599,9 +602,9 @@ def GetLumiblocks(runnumber,lb_beg,lb_end,options=[]):
     #
     # Load bunch luminosity information
     #
-    log.debug('#')
-    log.debug('# %s = %s loading' %('bunchlumis_foldername', bunchlumis_foldername))
-    log.debug('#')
+    log.info('#')
+    log.info('# %s = %s loading' %('bunchlumis_foldername', bunchlumis_foldername))
+    log.info('#')
     try:
         itr = None
         #if runnumber < 188902:
@@ -609,6 +612,8 @@ def GetLumiblocks(runnumber,lb_beg,lb_end,options=[]):
 	## https://twiki.cern.ch/twiki/bin/viewauth/AtlasComputing/CoolOnlineData?redirectedfrom=Atlas.CoolOnlineData#Folder_TDAQ_OLC_BUNCHLUMIS
 	## RJW
         itr = GetFolderItrForRun(bunchlumis_foldername, runnumber, 'MONP', run_beg_time, run_end_time)
+
+	#itr = GetFolderItrForRun(bunchlumis_foldername, runnumber, 'COMP', run_beg_time, run_end_time,201)
         #else:
             # After the technical stop ending Sept 7, 2011
         #    itr = GetFolderItrForRun(bunchlumis_foldername, runnumber, 'COMP', run_beg_time, run_end_time, 201)
@@ -629,17 +634,28 @@ def GetLumiblocks(runnumber,lb_beg,lb_end,options=[]):
             # Find lb in our timestamp list
             idx = -1
             for bcidIdx, bcidData in enumerate(maskList):
+		print '++++++++++++++++++++++++++++++'
+		print bcidIdx
+		print bcidData
+		print '++++++++++++++++++++++++++++++'
                 if bcidData == None:
                     log.debug('%s SKIPPING %d'%(bunchlumis_foldername,bcidIdx))
                     continue
 
                 bcidStart = bcidData['StartTime']
                 bcidEnd   = bcidData['EndTime']
-                if bcidStart <= StartTime and EndTime <= bcidEnd:
-                    if idx != -1:
-                        log.error('Got %d. Already found idx=%d. What is going on?',bcidIdx,idx)
 
-                    idx = bcidIdx
+
+                #if bcidStart <= StartTime: #and EndTime <= bcidEnd:
+                #    if idx != -1:
+                #        log.error('Got %d. Already found idx=%d. What is going on?',bcidIdx,idx)
+
+                    #idx = bcidIdx
+		#elif bcidStart > StartTime: print ' bcidStart > StartTime '
+		#elif EndTime   > bcidEnd:   print ' EndTime   > bcidEnd'
+
+		idx = bcidIdx
+
 
             if idx > -1:
                 thisData = maskList[idx]

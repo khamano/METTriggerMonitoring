@@ -329,6 +329,7 @@ if len(opts.run)==0 or opts.update:
 #       fillList = ReadFillTxt()
 #       runList  = ReadRunTxt()
 ####    fillList = TrigCostCool.GetFillList(opts.window, opts.timebeg, opts.timeend, opts.options>0)
+    print ' Retrieve run list from queryXML for --update '
     runList  = TrigCostCool.GetRunList(opts.window, opts.timebeg, opts.timeend, opts.options>0)
     if len(runList)>0:
         goodrunList = GetGRL(runList, opts.stable, opts.ready, opts.queryXML, opts.queryDir, opts.querySkip)
@@ -344,6 +345,8 @@ else:
                 goodrunList.append( run )
                 myList.pop()
 
+
+print 'goodrunList: ', goodrunList
 # For xmon, special saving location
 user = os.environ['USER']
 if opts.update: #user in ['xmon','apache']

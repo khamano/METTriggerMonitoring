@@ -60,7 +60,8 @@ link['acrontablist']    = 'https://svnweb.cern.ch/trac/atlasoff/browser/Trigger/
 link['COOL']            = 'https://twiki.cern.ch/twiki/bin/viewauth/Atlas/CoolOnlineData'
 link['TRP']             = 'https://twiki.cern.ch/twiki/bin/view/Atlas/TRPInfo'
 link['DataSummary']     = 'https://atlas.web.cern.ch/Atlas/GROUPS/DATAPREPARATION/DataSummary'
-link['DB']              = 'https://cern.ch/x/root/?C=M;O=D'
+#link['DB']              = 'https://cern.ch/x/root/?C=M;O=D'
+link['DB']              = 'https://rewang.web.cern.ch/rewang/xmon/root/?C=M;O=D'
 trig_to_restId = "document.getElementById('trigId'),document.getElementById('restId')"
 rest_to_trigId = "document.getElementById('restId'),document.getElementById('trigId')"
 
@@ -229,9 +230,9 @@ def printHeader(tab='', site=link['site'], virtual='', xmonParams=None):
 #
     # RJ
     # Add AUTO RUNS Button
-    tab = xhu.Print(tab, '<font style="color:red;">&bull;</font>')
-    qstring = getQUERY_STRING('autorun')
-    tab = xhu.Print(tab, '<a class="whitelink" href="%s&autorun=1">AUTORUN</a>' % (qstring))
+#    tab = xhu.Print(tab, '<font style="color:red;">&bull;</font>')
+#    qstring = getQUERY_STRING('autorun')
+#    tab = xhu.Print(tab, '<a class="whitelink" href="%s&autorun=1">AUTORUN</a>' % (qstring))
 
 
     tab = xhu.Print(tab, '</form>')
@@ -719,6 +720,7 @@ def printChartOnly(tab='', site=link['site'], xmonParams=None):
     tab = xhu.Print(tab, '<tr>')
     tab = xhu.Print(tab, '<td><div id="xmonChart%d" style="%s"></div></td>' % ( 11, plotstyle ))
     tab = xhu.Print(tab, '<td><div id="xmonChart%d" style="%s"></div></td>' % ( 21, plotstyle ))
+    tab = xhu.Print(tab, '<td><div id="xmonChart%d" style="%s"></div></td>' % ( 31, plotstyle )) #RJ
     tab = xhu.Print(tab, '</tr>')
     tab = xhu.Print(tab, '<tr>')
     tab = xhu.Print(tab, '<td><div id="xmonChart%d" style="%s"></div></td>' % ( 12, plotstyle ))
