@@ -182,10 +182,10 @@ def readInput():
 
     # Unadvertised inputs
     inputs['rootdir']       =   str(QUERY_STRING.getfirst('rootdir',        os.getenv('XMONROOTDIR')))
-    inputs['width']         =   int(QUERY_STRING.getfirst('width',          '600'))
+    inputs['width']         =   int(QUERY_STRING.getfirst('width',          '650'))
     inputs['height']        =   int(QUERY_STRING.getfirst('height',         '450'))
     inputs['nevt']          =   int(QUERY_STRING.getfirst('nevt',           '-1'))
-    inputs['ymin']          =       QUERY_STRING.getfirst('ymin',           'null')
+    inputs['ymin']          =       QUERY_STRING.getfirst('ymin',           '0')
     inputs['ymax']          =       QUERY_STRING.getfirst('ymax',           'null')
     inputs['debug']         =   int(QUERY_STRING.getfirst('debug',          '0'))
     inputs['yunits']        =   int(QUERY_STRING.getfirst('yunits',         '1'))       # 1 = nb, Hz, evts
@@ -338,7 +338,7 @@ class xmonParams:
         self.niceLabelUnit  = {}
 
         # User input
-        self.xVarList = [ 'time', 'lumi', ]     # xAxisChartIdx
+        self.xVarList = [ 'time', 'lumi', 'mu', ]     # xAxisChartIdx
         self.yVarList = [ 'x', 'r', ]           # yAxisChartIdx
 
         # User input
@@ -377,6 +377,7 @@ class xmonParams:
         self.niceLabel['tav']          = 'Trigger count using output values'
         self.niceLabel['psv']          = 'Trigger prescale value'
         self.niceLabel['vto']          = 'Trigger veto value'
+	self.niceLabel['mu']           = 'Pileup'
 
         # Nice abbreviated strings
         self.niceLabelAbbr['bunchlumi']= 'L per bunch'
@@ -410,6 +411,7 @@ class xmonParams:
         self.niceLabel['tab_rate']     = 'trigger rates'
         self.niceLabel['tab_cnts']     = 'trigger counts'
         self.niceLabel['tab_x']        = self.niceLabel['tab_xsec']
+        self.niceLabel['tab_mu']       = 'vs. &mu;'
         self.niceLabel['tab_r']        = self.niceLabel['tab_rate']
         self.niceLabel['tab_t']        = self.niceLabel['tab_cnts']
         self.niceLabel['tab_bp']       = 'before prescaling'

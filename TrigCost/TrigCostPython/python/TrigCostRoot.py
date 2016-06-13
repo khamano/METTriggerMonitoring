@@ -302,7 +302,10 @@ class CostRoot:
         #   Units for below: mb (1e-27 cm-2), 1e30 cm-2s-1, Hz
 
         bunchlumi = lbset.GetAvgInstantaneousBunchLumiE30(lb)
-        mu = 71.5 * bunchlumi / 11.24558
+        #mu = 71.5 * bunchlumi / 11.24558
+        mu = 80 * bunchlumi / 11.24558
+
+
 
         # Set branch value
         tvar = self.tvars[chname]

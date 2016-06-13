@@ -130,15 +130,24 @@ def printIncludes(tab='', site=link['site'], virtual=''):
     #
 
     # Jquery
-    tab = xhu.Print(tab, '<script src="%s/css/jquery.min.js" type="text/javascript"></script>' % site)
+    #tab = xhu.Print(tab, '<script src="%s/css/jquery.min.js" type="text/javascript"></script>' % site)
+    tab = xhu.Print(tab, '<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>')
 
     # Highcharts
-    tab = xhu.Print(tab, '<script src="%s/css/highcharts/js/highcharts.js" type="text/javascript"></script>' % site)
-    tab = xhu.Print(tab, '<script src="%s/css/highcharts/js/modules/exporting.src.js" type="text/javascript"></script>' % site)
+    #tab = xhu.Print(tab, '<script src="%s/css/highcharts/js/highcharts.js" type="text/javascript"></script>' % site)
+    #tab = xhu.Print(tab, '<script src="%s/css/highcharts/js/modules/exporting.src.js" type="text/javascript"></script>' % site)
+    tab = xhu.Print(tab, '<script src="%s/css/Highcharts-4.2.5/js/highcharts.js" type="text/javascript"></script>' % site)
+    tab = xhu.Print(tab, '<script src="%s/css/Highcharts-4.2.5/js/modules/exporting.src.js" type="text/javascript"></script>' % site)
+
 
     # Highslide
-    tab = xhu.Print(tab, '<script src="%s/css/highslide/highslide-with-gallery.js" type="text/javascript"></script>' % site)
-    tab = xhu.Print(tab, '<link  href="%s/css/highslide/highslide.css" type="text/css" rel="stylesheet"/>' % site)
+    #tab = xhu.Print(tab, '<script src="%s/css/highslide/highslide-with-gallery.js" type="text/javascript"></script>' % site)
+    #tab = xhu.Print(tab, '<link  href="%s/css/highslide/highslide.css" type="text/css" rel="stylesheet"/>' % site)
+
+    tab = xhu.Print(tab, '<script src="%s/css/highslide-5.0.0/highslide/highslide-with-gallery.js" type="text/javascript"></script>' % site)
+    tab = xhu.Print(tab, '<link  href="%s/css/highslide-5.0.0/highslide/highslide.css" type="text/css" rel="stylesheet"/>' % site)
+
+
 
     # Tabber
     tab = xhu.Print(tab, '<script src="%s/css/tabber.js" type="text/javascript"></script>' % site)
@@ -407,8 +416,8 @@ def printButtons(tab = '', xmonParams=None):
             if   i=='png': tab = xhu.Print(tab, '%s' % (pagedict[i]))
             elif i=='pdf': tab = xhu.Print(tab, '%s' % (pagedict[i]))
             else:
-                qstring = getQUERY_STRING('page')
-                tab = xhu.Print(tab, '<a class="whitelink" href="%s&page=%s">%s</a>' % (qstring, i, pagedict[i]))
+            	qstring = getQUERY_STRING('page')
+            	tab = xhu.Print(tab, '<a class="whitelink" href="%s&page=%s">%s</a>' % (qstring, i, pagedict[i]))
 
     # Input box
     tab = xhu.Print(tab, '<font style="color:yellow;">&bull;</font>')
@@ -703,8 +712,12 @@ def printChartOnly(tab='', site=link['site'], xmonParams=None):
 
     tab = xhu.Print(tab, '<head>')
     tab = xhu.Print(tab, '<script src="%s/css/jquery.min.js" type="text/javascript"></script>' % site)
-    tab = xhu.Print(tab, '<script src="%s/css/highcharts/js/highcharts.js" type="text/javascript"></script>' % site)
-    tab = xhu.Print(tab, '<script src="%s/css/highcharts/js/modules/exporting.src.js" type="text/javascript"></script>' % site)
+#    tab = xhu.Print(tab, '<script src="%s/css/highcharts/js/highcharts.js" type="text/javascript"></script>' % site)
+#    tab = xhu.Print(tab, '<script src="%s/css/highcharts/js/modules/exporting.src.js" type="text/javascript"></script>' % site)
+    tab = xhu.Print(tab, '<script src="%s/css/Highcharts-4.2.5/js/highcharts.js" type="text/javascript"></script>' % site)
+    tab = xhu.Print(tab, '<script src="%s/css/Highcharts-4.2.5/js/modules/exporting.src.js" type="text/javascript"></script>' % site)
+
+
     tab = xhu.Print(tab, '<script src="%s/css/rgbcolor.js" type="text/javascript" ></script>' % site)
 #	    tab = xhu.Print(tab, '<script src="%s/css/canvg.js" type="text/javascript" ></script>' % site)
 #	    tab = xhu.Print(tab, '<script src="%s/css/base64.js" type="text/javascript"></script>' % site)
@@ -725,6 +738,7 @@ def printChartOnly(tab='', site=link['site'], xmonParams=None):
     tab = xhu.Print(tab, '<tr>')
     tab = xhu.Print(tab, '<td><div id="xmonChart%d" style="%s"></div></td>' % ( 12, plotstyle ))
     tab = xhu.Print(tab, '<td><div id="xmonChart%d" style="%s"></div></td>' % ( 22, plotstyle ))
+    tab = xhu.Print(tab, '<td><div id="xmonChart%d" style="%s"></div></td>' % ( 32, plotstyle )) #RJ
     tab = xhu.Print(tab, '</tr>')
     tab = xhu.Print(tab, '</table>')
     tab = xhu.Print(tab, '</body>')

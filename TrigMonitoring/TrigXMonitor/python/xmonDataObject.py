@@ -250,6 +250,8 @@ class xmonData:
 
         # Get the correct variable
         xChartIdx = self.getChartIdx( chartIdx, 'xAxis' )
+	#print chartIdx
+	#print 'xChartIdx ', xChartIdx
 
         # Reset every time
         tchain.SetBranchStatus('*',0)
@@ -388,6 +390,8 @@ class xmonData:
             # Dump
             varx = self.xP.inputs['varlist']['evt']['name'][ xChartIdx ]
             vary = self.xP.inputs['varlist']['trig']['name'][ trigIdx ]
+	    if varx=='fill': varx='mu'
+	    #print 'varx ' , varx, ' vary ', vary
             tab = self.dumpEvt( varx, vary, tbranch, chartIdx, idx, ',',  tab)
 
             # Debug
@@ -401,6 +405,7 @@ class xmonData:
         tchain.GetEntry( self.lastDataPoint['jentry'] )         # Load all info in event
         varx = self.xP.inputs['varlist']['evt']['name'][ xChartIdx ]
         vary = self.xP.inputs['varlist']['trig']['name'][ trigIdx ]
+	if varx=='fill': varx='mu'
         tab = self.dumpEvt( varx, vary, tbranch, chartIdx, idx, '', tab )
 
         return tab
@@ -514,6 +519,7 @@ class xmonData:
 
         # Get values
         valx = tbranch[varx]['evt'][idx]
+	#print 'varx ', varx, ' idx ', idx , ' valx ', valx
         valy = tbranch[vary][yChartName][idx]
         yunits = 1. #self.xP.inputs[ 'yunits' ]
         xunits = 1. #self.xP.inputs[ 'xunits' ]
@@ -656,7 +662,7 @@ class xmonData:
 
         # Chart options
         tab = self.chartOption(chartIdx, tab)
-        tab = self.legendOption(tab)
+        #tab = self.legendOption(tab)
         tab = self.creditsOption(tab)
         tab = self.titleOption(chartIdx, tab)
         tab = self.plotOptionsOption(chartIdx, tab)
@@ -717,7 +723,7 @@ class xmonData:
         tab = xhu.Print(tab, 'zoomType: "xy",')
         tab = xhu.Print(tab, 'showAxes: true,')
         tab = xhu.Print(tab, 'plotBorderWidth: 1,')
-        tab = xhu.Print(tab, 'marginRight: 200,')
+        #tab = xhu.Print(tab, 'marginRight: 250,')
         tab = xhu.Print(tab, 'events: { selection: function() { } }')
         tab = xhu.Print(tab, '}%s' % endOfListChar)
         return tab
@@ -736,7 +742,7 @@ class xmonData:
         tab = xhu.Print(tab, 'align: "right",')
         tab = xhu.Print(tab, 'verticalAlign: "top",')
         tab = xhu.Print(tab, 'borderWidth: 0,')
-        tab = xhu.Print(tab, 'itemWidth: 200,')
+        tab = xhu.Print(tab, 'itemWidth: 250,')
         tab = xhu.Print(tab, 'x: 0,')
         tab = xhu.Print(tab, 'y: 50')
         tab = xhu.Print(tab, '}%s' % endOfListChar)
@@ -752,8 +758,9 @@ class xmonData:
 
         tab = xhu.Print(tab, 'credits:')
         tab = xhu.Print(tab, '{')
-        tab = xhu.Print(tab, 'text: "ATLAS <b>XMON</b> at %s",' % 'https://cern.ch/x')
-        tab = xhu.Print(tab, 'href: "%s"'                       % 'https://cern.ch/x')
+	tab = xhu.Print(tab, 'text: "ATLAS MET Trigger Rate/Cross-section Monitor",')
+        #tab = xhu.Print(tab, 'text: "ATLAS <b>XMON</b> at %s",' % 'https://cern.ch/x')
+        tab = xhu.Print(tab, 'href: "%s"'                       % 'https://rewang.web.cern.ch/rewang/xmon/cgi-bin/xmon.cgi')
         tab = xhu.Print(tab, '}%s' % endOfListChar)
         return tab
 
@@ -990,7 +997,8 @@ class xmonData:
         if self.xP.inputs['logy'] != 0:
             tab = xhu.Print(tab, 'min: 0,')
             #if self.xP.inputs['ymin']:
-            #    tab = xhu.Print(tab, 'min: %s,' % ( self.xP.inputs['ymin'] ))
+        else:
+	    tab = xhu.Print(tab, 'min: %s,' % ( self.xP.inputs['ymin'] ))
 
         tab = xhu.Print(tab, 'allowDecmials: false,')
 #	        tab = xhu.Print(tab, 'tickInterval: 1,')
@@ -1124,7 +1132,9 @@ class xmonData:
         tab = xhu.Print(tab, '+"<br/><b>No. bunches colliding </b> "+this.bunches')
         tab = xhu.Print(tab, '+"<br/><b>No. in <font color=blue>CW</font> beam1</b> "+this.nbunch1')
         tab = xhu.Print(tab, '+"<br/><b>No. in <font color=red>CCW</font> beam2</b> "+this.nbunch2')
-        tab = xhu.Print(tab, '+"<br/><b>No. minbias &quot;mu&quot;</b> "+(this.bunchlumi*6.358).toPrecision(3)') # = (1e30cm-2s-1) * 71.5 (mb) / 11.24558 (Hz)
+#        tab = xhu.Print(tab, '+"<br/><b>No. minbias &quot;mu&quot;</b> "+(this.bunchlumi*6.358).toPrecision(3)') # = (1e30cm-2s-1) * 71.5 (mb) / 11.24558 (Hz)
+        tab = xhu.Print(tab, '+"<br/><b>No. minbias &quot;mu&quot;</b> "+(this.bunchlumi*7.114).toPrecision(3)') # = (1e30cm-2s-1) * 80 (mb) / 11.24558 (Hz)
+
         tab = self.tooltipPrintRow(tab, 'bunchlumi',  self.xP.niceLabelAbbr, self.xP.niceLabelUnit)
         tab = self.tooltipPrintRow(tab, 'lumi',       self.xP.niceLabelAbbr, self.xP.niceLabelUnit)
         tab = self.tooltipPrintRow(tab, 'lblumi',     self.xP.niceLabelAbbr, self.xP.niceLabelUnit)
