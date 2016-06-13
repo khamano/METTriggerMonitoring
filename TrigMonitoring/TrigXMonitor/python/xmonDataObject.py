@@ -595,6 +595,14 @@ class xmonData:
         # Dump data in pairs only if positive
         s = '{'
         s += 'x:%(x)d,' if 'time' in varx else 'x:%(x).'+sigfig(valx)+'f,'
+	##RJ
+	if self.xP.inputs['logy'] == 1:
+		#print 'logy is used'
+		#print valy
+		if valy>0: valy = math.log10(valy)
+		else:	   valy = -100
+		#print valy
+	flatup['y'] = valy
         s += 'y:%(y).'+sigfig(valy,4)+'f,'
         s += 'fill:%(fill)d,'
         s += 'run:%(run)d,'
@@ -962,7 +970,7 @@ class xmonData:
         # Title
         tab = xhu.Print(tab, 'title: // Open yAxis-title')
         tab = xhu.Print(tab, '{')
-        prefix      = 'log of ' if self.xP.inputs['logy'] == '1' else ''
+        prefix      = 'log of ' if self.xP.inputs['logy'] == 1 else ''
         yChartIdx   = self.getChartIdx( chartIdx, 'yAxis' )
         yVarName    = self.xP.yVarList[ yChartIdx ]
         psName      = self.xP.inputs['ps']
@@ -981,8 +989,8 @@ class xmonData:
         tab = xhu.Print(tab, 'max: %s,' % ( self.xP.inputs['ymax'] ))
         if self.xP.inputs['logy'] != 0:
             tab = xhu.Print(tab, 'min: 0,')
-            if self.xP.inputs['ymin']:
-                tab = xhu.Print(tab, 'min: %s,' % ( self.xP.inputs['ymin'] ))
+            #if self.xP.inputs['ymin']:
+            #    tab = xhu.Print(tab, 'min: %s,' % ( self.xP.inputs['ymin'] ))
 
         tab = xhu.Print(tab, 'allowDecmials: false,')
 #	        tab = xhu.Print(tab, 'tickInterval: 1,')

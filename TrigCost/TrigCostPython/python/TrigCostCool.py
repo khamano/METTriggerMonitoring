@@ -51,6 +51,9 @@ from struct import unpack_from, unpack                  ;# print '\tLoaded speci
 from TrigCostAnalysis import *                          ;# print '\tLoaded special TrigCostAnalysis.* package'
 #print '\tDone prelim import for TrigCostCool'
 
+
+from CoolLumiUtilities.LumiBlobConversion import unpackBCIDMask, unpackBCIDValues
+
 #------------------------------------------------------------
 #
 # Folder names
@@ -329,9 +332,13 @@ def UnpackBCIDData(StartTime, EndTime, payload):
     nb2  = payload['Beam2Bunches']      # length
     blob = payload['BCIDmasks']
 
-    colBCID = bSet(blob, ncol)  # colliding bunches data
-    b1BCID  = bSet(blob, nb1)   # beam1 bunches data
-    b2BCID  = bSet(blob, nb2)   # beam2 bunches data
+    # Use the utility function to get lists of BCIDs
+    beam1,beam2,beamsand=unpackBCIDMask(blob,nb1,nb2,ncol)
+
+    b1BCID=set(beam1)
+    b2BCID=set(beam2)
+    colBCID=set(beamsand)
+
 
     bcidData = dict()
     bcidData['StartTime']   = StartTime
@@ -532,12 +539,14 @@ def GetLumiblocks(runnumber,lb_beg,lb_end,options=[]):
             log.info('%s APPEND=%d (%s)--(%s) ncol=%d nb1=%d nb2=%d' %
                       (fillparams_foldername,idx,beg_,end_,ncol,nb1,nb2))
 
-            maskList.append( UnpackBCIDData(StartTime, EndTime, payload) )
+
+
+	    alist = UnpackBCIDData(StartTime, EndTime, payload)
+	    maskList.append(alist);
 
         itr.close()
     except Exception,e:
-	 log.info('Reading data from '+fillparams_foldername+' failed: '+str(e))
-    #    log.error('Reading data from '+fillparams_foldername+' failed: '+str(e))
+        log.error('Reading data from '+fillparams_foldername+' failed: '+str(e))
 
     #
     # Read LHC fill number -- timestamped, so save later
@@ -606,17 +615,8 @@ def GetLumiblocks(runnumber,lb_beg,lb_end,options=[]):
     log.info('# %s = %s loading' %('bunchlumis_foldername', bunchlumis_foldername))
     log.info('#')
     try:
-        itr = None
-        #if runnumber < 188902:
-            # Before the technical stop ending Sept 7, 2011
 	## https://twiki.cern.ch/twiki/bin/viewauth/AtlasComputing/CoolOnlineData?redirectedfrom=Atlas.CoolOnlineData#Folder_TDAQ_OLC_BUNCHLUMIS
-	## RJW
         itr = GetFolderItrForRun(bunchlumis_foldername, runnumber, 'MONP', run_beg_time, run_end_time)
-
-	#itr = GetFolderItrForRun(bunchlumis_foldername, runnumber, 'COMP', run_beg_time, run_end_time,201)
-        #else:
-            # After the technical stop ending Sept 7, 2011
-        #    itr = GetFolderItrForRun(bunchlumis_foldername, runnumber, 'COMP', run_beg_time, run_end_time, 201)
 
         while itr.goToNext():
             obj       = itr.currentRef()
@@ -634,10 +634,6 @@ def GetLumiblocks(runnumber,lb_beg,lb_end,options=[]):
             # Find lb in our timestamp list
             idx = -1
             for bcidIdx, bcidData in enumerate(maskList):
-		print '++++++++++++++++++++++++++++++'
-		print bcidIdx
-		print bcidData
-		print '++++++++++++++++++++++++++++++'
                 if bcidData == None:
                     log.debug('%s SKIPPING %d'%(bunchlumis_foldername,bcidIdx))
                     continue
@@ -646,15 +642,11 @@ def GetLumiblocks(runnumber,lb_beg,lb_end,options=[]):
                 bcidEnd   = bcidData['EndTime']
 
 
-                #if bcidStart <= StartTime: #and EndTime <= bcidEnd:
-                #    if idx != -1:
-                #        log.error('Got %d. Already found idx=%d. What is going on?',bcidIdx,idx)
+                if bcidStart <= StartTime and EndTime <= bcidEnd:
+                    if idx != -1:
+                        log.error('Got %d. Already found idx=%d. What is going on?',bcidIdx,idx)
 
-                    #idx = bcidIdx
-		#elif bcidStart > StartTime: print ' bcidStart > StartTime '
-		#elif EndTime   > bcidEnd:   print ' EndTime   > bcidEnd'
-
-		idx = bcidIdx
+                    idx = bcidIdx
 
 
             if idx > -1:

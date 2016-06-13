@@ -91,7 +91,7 @@ def ReadTRP(runnumber, lb_beg, lb_end, options=[], myafspath='', myhttppath='', 
             # Loop over branch names
             for bname in branches:
 		##RJ XE related
-		if ( (bname.startswith('HLT') and bname.endswith('_L1XE50') ) or (bname.startswith('L1_XE')) or bname.startswith('HLT_2j40_0eta490_invm400') or bname.startswith('L1_MJJ-400') ):
+		if ( (bname.startswith('HLT') and bname.endswith('_L1XE50') ) or (bname.startswith('L1_XE')) or bname.startswith('HLT_2j40_0eta490_invm400') or bname.startswith('L1_MJJ') ):
 		#if bname=='HLT_xe80_tc_lcw_L1XE50':
                 	ProcessBranch(tree, lb, lblast, bname, lvl, count, sfx_in, sfx_ps, sfx_out, collection)
 
