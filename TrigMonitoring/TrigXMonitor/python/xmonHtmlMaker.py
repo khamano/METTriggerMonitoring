@@ -122,8 +122,8 @@ def printIncludes(tab='', site=link['site'], virtual=''):
 
     begintab = tab
     tab = xhu.Print(tab, '<!-- BEGIN Includes (tab=%d) -->' % len(begintab) )
-    tab = xhu.Print(tab, '<title>ATLAS XMonitor</title>')
-    tab = xhu.Print(tab, '<meta name="ATLAS_XMonitor" content="ATLAS XMonitor"/> ')
+    tab = xhu.Print(tab, '<title>ATLAS MET XMonitor</title>')
+    tab = xhu.Print(tab, '<meta name="ATLAS_XMonitor" content="ATLAS MET XMonitor"/> ')
     tab = xhu.Print(tab, '<meta http-equiv="pragma" content="no-cache;text/html;charset=ISO-8859-1"/>')
 #	    tab = xhu.Print(tab, '<meta http-equiv="refresh" content="600"/>')
 
@@ -375,8 +375,8 @@ def printButtons(tab = '', xmonParams=None):
     pagekeys = []
     xhu.AppendEntry(pagedict, pagekeys, 'full',     'default')
     xhu.AppendEntry(pagedict, pagekeys, 'chart',    'onepage')
-    xhu.AppendEntry(pagedict, pagekeys, 'png',      'png')
-    xhu.AppendEntry(pagedict, pagekeys, 'pdf',      'pdf')
+    #xhu.AppendEntry(pagedict, pagekeys, 'png',      'png')
+    #xhu.AppendEntry(pagedict, pagekeys, 'pdf',      'pdf')
     modedict = {}
     modekeys = []
     xhu.AppendEntry(modedict, modekeys, 'compare',  'runs &amp; trig')
