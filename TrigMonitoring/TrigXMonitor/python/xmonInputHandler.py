@@ -377,7 +377,7 @@ class xmonParams:
         self.niceLabel['tav']          = 'Trigger count using output values'
         self.niceLabel['psv']          = 'Trigger prescale value'
         self.niceLabel['vto']          = 'Trigger veto value'
-	self.niceLabel['mu']           = 'Pileup'
+	self.niceLabel['mu']           = 'Average number of processes per crossing'
 
         # Nice abbreviated strings
         self.niceLabelAbbr['bunchlumi']= 'L per bunch'

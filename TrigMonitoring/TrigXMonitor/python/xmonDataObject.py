@@ -662,7 +662,7 @@ class xmonData:
 
         # Chart options
         tab = self.chartOption(chartIdx, tab)
-        #tab = self.legendOption(tab)
+        tab = self.legendOption(tab)
         tab = self.creditsOption(tab)
         tab = self.titleOption(chartIdx, tab)
         tab = self.plotOptionsOption(chartIdx, tab)
@@ -738,13 +738,35 @@ class xmonData:
 
         tab = xhu.Print(tab, 'legend:')
         tab = xhu.Print(tab, '{')
-        tab = xhu.Print(tab, 'layout: "vertical",')
-        tab = xhu.Print(tab, 'align: "right",')
-        tab = xhu.Print(tab, 'verticalAlign: "top",')
-        tab = xhu.Print(tab, 'borderWidth: 0,')
-        tab = xhu.Print(tab, 'itemWidth: 250,')
-        tab = xhu.Print(tab, 'x: 0,')
-        tab = xhu.Print(tab, 'y: 50')
+        tab = xhu.Print(tab, 'layout: "horizontal",')
+        tab = xhu.Print(tab, 'align: "center",')
+	tab = xhu.Print(tab, 'shadow: "true",')
+        tab = xhu.Print(tab, 'verticalAlign: "bottom",')
+
+#
+#	tab = xhu.Print(tab, 'navigation: {')
+#	tab = xhu.Print(tab, '    activeColor: \'#3E576F\',')
+#	tab = xhu.Print(tab, '    animation: true,')
+#	tab = xhu.Print(tab, '    arrowSize: 12,')
+#	tab = xhu.Print(tab, '    inactiveColor: \'#CCC\',')
+#	tab = xhu.Print(tab, '    style: {')
+#	tab = xhu.Print(tab, '        fontWeight: \'bold\',')
+#	tab = xhu.Print(tab, '        color: \'#333\',')
+#	tab = xhu.Print(tab, '        fontSize: \'12px\'')
+#	tab = xhu.Print(tab, '    }')
+#
+
+
+#	tab = xhu.Print(tab, 'navigation: {')
+#	tab = xhu.Print(tab, 'arrowSize: 3,')
+#	tab = xhu.Print(tab, 'animation: true,')
+#	tab = xhu.Print(tab, '}')
+
+        #tab = xhu.Print(tab, 'borderWidth: 0,')
+        #tab = xhu.Print(tab, 'itemWidth: 250,')
+        #tab = xhu.Print(tab, 'x: 0,')
+        #tab = xhu.Print(tab, 'y: 5')
+	tab = xhu.Print(tab, 'maxHeight: 70')
         tab = xhu.Print(tab, '}%s' % endOfListChar)
         return tab
 

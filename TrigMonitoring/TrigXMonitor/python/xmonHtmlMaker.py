@@ -99,7 +99,9 @@ def linkDataSummary(run):
 
 #==========================================================================
 def linkRunQuery(run):
-    return 'http://atlas-runquery.cern.ch/query.py?q=find+run+%d+and+ready+%%2F+show+all' % run
+    return 'https://atlas-runquery.cern.ch/query.py?q=find+run+%d+and+ready+%%2F+show+all' % run
+
+
 
 
 #==========================================================================
@@ -251,6 +253,7 @@ def printHeader(tab='', site=link['site'], virtual='', xmonParams=None):
     tab = xhu.Print(tab, '<font face="%s">NUM OF RUNS TO SHOW:</font>' % fontface)
     tab = xhu.Print(tab, '<form style="display:inline;" name="runForm" method="get" action="%s/cgi-bin/xmon.cgi">' % link['site'])
     tab = xhu.Print(tab, '<input name="nrun" type="text" size="2" style="color:black;" value="%s" class="cleardefault"></input>' % '3' ) #runstring + 'etc.')
+    tab = xhu.Print(tab, ' < 30')
     tab = xhu.Print(tab, '</form>')
 
 
@@ -276,7 +279,7 @@ def printRuns(tab = '', xmonParams=None):
 
     # Recent run list
     tab = xhu.Print(tab, '<font style="color:yellow;">&bull;</font>')
-    tab = xhu.Print(tab, '<font face="%s">RECENT+LONG RUNS:</font>' %fontface) # % xlu.readLastNrun()[0])
+    tab = xhu.Print(tab, '<font face="%s">RECENT RUNS:</font>' %fontface) # % xlu.readLastNrun()[0])
     lastrun = xlu.readLastRun(xmonParams.inputs['ntup'])
     tab = xhu.OpenMenu(tab, 'menu')
     for i in lastrun[:xmonParams.inputs['lastrunlist']]:
@@ -674,7 +677,7 @@ def printAllcharts(tab = '', xmonParams=None, xmonData=None, page=''):
 
         # Open tab -- put buttons between the two tab groups
         tab = xhu.Print(tab, '<div class="tabbertab" title="%s" style="width:%dpx;">' % ( yLabel.capitalize(), chartbasewidth+75 ))
-        tab = printDownload(tab, xmonParams)
+        #tab = printDownload(tab, xmonParams)
         tab = xhu.Print(tab, '<div class="tabber">')
 
         # X-axis variable = 'time', 'lumi'
@@ -1497,15 +1500,15 @@ def printFooter(tab='', site=link['site'], virtual='', xmonParams=None):
     tab = xhu.Print(tab, '<a class="menuanchorclass" rel="sites">Useful</a>')
     tab = xhu.Print(tab, '<font style="color:yellow;">&bull;</font> ')
     tab = xhu.Print(tab, '<a class="menuanchorclass" rel="wikis">T<font style="font-variant:small-caps;">w</font>ikis</a>')
-    tab = xhu.Print(tab, '<font style="color:yellow;">&bull;</font> ')
-    tab = xhu.Print(tab, '<a class="menuanchorclass" rel="download">Download</a>')
-    tab = xhu.Print(tab, '<font style="color:yellow;">&bull;</font> ')
-    tab = xhu.Print(tab, '<a class="menuanchorclass" rel="help" style="color:yellow;">Help / FAQ</a>')
+    #tab = xhu.Print(tab, '<font style="color:yellow;">&bull;</font> ')
+    #tab = xhu.Print(tab, '<a class="menuanchorclass" rel="download">Download</a>')
+    #tab = xhu.Print(tab, '<font style="color:yellow;">&bull;</font> ')
+    #tab = xhu.Print(tab, '<a class="menuanchorclass" rel="help" style="color:yellow;">Help / FAQ</a>')
     tab = xhu.Print(tab, '</td>')
 
     # Item
     tab = xhu.Print(tab, '<td style="text-align:right">')
-    tab = xhu.Print(tab, '<font style="color:yellow;">&bull;</font> ')
+    #tab = xhu.Print(tab, '<font style="color:yellow;">&bull;</font> ')
     lastlb = ''
     lastrun = ''
     try:
@@ -1513,8 +1516,8 @@ def printFooter(tab='', site=link['site'], virtual='', xmonParams=None):
         lastrun = str(lastlb.split('/')[0])
     except:
         pass
-    tab = xhu.Print(tab, 'Auto-updates ~%d min' % updatefreq)
-    tab = xhu.Print(tab, '&amp; latest run/LB is <a href="%s/cgi-bin/xmon.cgi?run=%s">%s</a>' % (site, lastrun, lastlb))
+    #tab = xhu.Print(tab, 'Auto-updates ~%d min' % updatefreq)
+    #tab = xhu.Print(tab, '&amp; latest run/LB is <a href="%s/cgi-bin/xmon.cgi?run=%s">%s</a>' % (site, lastrun, lastlb))
     tab = xhu.Print(tab, '</td>')
 
     # New row
@@ -1528,14 +1531,14 @@ def printFooter(tab='', site=link['site'], virtual='', xmonParams=None):
 #    tab = xhu.Print(tab, '</td>')
 #
     # Item
-    tab = xhu.Print(tab, '<td style="text-align:right">')
-    tab = xhu.Print(tab, '<font style="color:yellow;">&bull;</font>')
-    tab = xhu.Print(tab, 'Using')
-    tab = xhu.Print(tab, '<a class="menuanchorclass" rel="codelist">code</a> ')
+##    tab = xhu.Print(tab, '<td style="text-align:right">')
+##    tab = xhu.Print(tab, '<font style="color:yellow;">&bull;</font>')
+##    tab = xhu.Print(tab, 'Using')
+##    tab = xhu.Print(tab, '<a class="menuanchorclass" rel="codelist">code</a> ')
 #	    tab = xhu.Print(tab, '<a class="whitelink" href="%s">TrigCostPython</a>' % link['TrigCostPython'])
 #	    tab = xhu.Print(tab, '<a class="whitelink" href="%s">TrigXMonitor</a>' % link['TrigXMonitor'])
-    tab = xhu.Print(tab, '&rarr; <a href="%s">DB</a> on %s' % (link['DB'], lasttime[0])) # 'Mon, 21 Mar 2011, 10:14 UTC')
-    tab = xhu.Print(tab, '</td>')
+##    tab = xhu.Print(tab, '&rarr; <a href="%s">DB</a> on %s' % (link['DB'], lasttime[0])) # 'Mon, 21 Mar 2011, 10:14 UTC')
+##    tab = xhu.Print(tab, '</td>')
 
     # Close row
     tab = xhu.Print(tab, '</tr>')
