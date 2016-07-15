@@ -91,7 +91,11 @@ def ReadTRP(runnumber, lb_beg, lb_end, options=[], myafspath='', myhttppath='', 
             # Loop over branch names
             for bname in branches:
 		##RJ XE related
-		if ( (bname.startswith('HLT') and bname.endswith('_L1XE50') ) or (bname.startswith('L1_XE')) or bname.startswith('HLT_2j40_0eta490_invm400') or bname.startswith('L1_MJJ') ):
+		if ( 	(bname.startswith('HLT') and bname.endswith('_L1XE50') )
+			or bname.startswith('L1_XE')
+			or bname.startswith('HLT_xe70')
+			#or bname.startswith('HLT_2j40_0eta490_invm400') or bname.startswith('L1_MJJ')
+		):
 		#if bname=='HLT_xe80_tc_lcw_L1XE50':
                 	ProcessBranch(tree, lb, lblast, bname, lvl, count, sfx_in, sfx_ps, sfx_out, collection)
 
@@ -150,7 +154,9 @@ def CheckFileExist(runnumber):
     # Setup
     import commands
 
-    filename = '/eos/atlas/atlascerngroupdisk/tdaq-mon/coca/2016/TRP-Rates/'
+    year='2016'
+    if runnumber<289377 : year='2015'
+    filename = '/eos/atlas/atlascerngroupdisk/tdaq-mon/coca/'+year+'/TRP-Rates/'
     filename += "TriggerRates_ATLAS_%d.root" % runnumber
 
     print 'checking file ', filename , ' if exists or not ...'
@@ -506,9 +512,10 @@ def SetOldChainL1(tree, ch, bname, count):
     #    print "DBG OLD L1 " , ch.GetAttrWithDefault("cumulativeTBP",0) , " - " , ch.GetTBPRate()
 
     # Rate errors
-    ch.SetTBPRateErr(math.sqrt( (getattr(ch,"cumulativeTBP")/getattr(ch,"ratesCounts")) / (getattr(ch,"ratesCounts")*samplingrate) ))
-    ch.SetTAPRateErr(math.sqrt( (getattr(ch,"cumulativeTAP")/getattr(ch,"ratesCounts")) / (getattr(ch,"ratesCounts")*samplingrate) ))
-    ch.SetTAVRateErr(math.sqrt( (getattr(ch,"cumulativeTAV")/getattr(ch,"ratesCounts")) / (getattr(ch,"ratesCounts")*samplingrate) ))
+    if (getattr(ch,"ratesCounts") > 0 and samplingrate > 0):
+    	if(getattr(ch,"cumulativeTBP")>0): ch.SetTBPRateErr(math.sqrt( (getattr(ch,"cumulativeTBP")/getattr(ch,"ratesCounts")) / (getattr(ch,"ratesCounts")*samplingrate) ))
+    	if(getattr(ch,"cumulativeTAP")>0): ch.SetTAPRateErr(math.sqrt( (getattr(ch,"cumulativeTAP")/getattr(ch,"ratesCounts")) / (getattr(ch,"ratesCounts")*samplingrate) ))
+    	if(getattr(ch,"cumulativeTAV")>0): ch.SetTAVRateErr(math.sqrt( (getattr(ch,"cumulativeTAV")/getattr(ch,"ratesCounts")) / (getattr(ch,"ratesCounts")*samplingrate) ))
     return
 
 
