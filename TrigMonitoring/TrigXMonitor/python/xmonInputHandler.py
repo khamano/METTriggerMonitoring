@@ -67,7 +67,7 @@ def defaultLists():
     # "trig" default list
     #varname['trig'].append('L1_XE50/f')
     #varname['trig'].append('HLT_xe80_tc_lcw_L1XE50/f')
-    varname['trig'].append('HLT_xe90_mht_L1XE50/f')
+    varname['trig'].append('HLT_xe110_mht_L1XE50/f')
     #varname['trig'].append('HLT_xe100_tc_lcw_L1XE50/f')
     #varname['trig'].append('HLT_xe90_mht_L1XE50/f')
     #varname['trig'].append('HLT_xe100_mht_L1XE50/f')

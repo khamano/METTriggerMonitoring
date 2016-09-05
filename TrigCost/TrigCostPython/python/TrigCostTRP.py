@@ -94,6 +94,9 @@ def ReadTRP(runnumber, lb_beg, lb_end, options=[], myafspath='', myhttppath='', 
 		if ( 	(bname.startswith('HLT') and bname.endswith('_L1XE50') )
 			or bname.startswith('L1_XE')
 			or bname.startswith('HLT_xe70')
+			or bname.startswith('L1_EM22VHI')
+			or bname.startswith('L1_2MU10')
+			or bname.startswith('L1_MU20')
 			#or bname.startswith('HLT_2j40_0eta490_invm400') or bname.startswith('L1_MJJ')
 		):
 		#if bname=='HLT_xe80_tc_lcw_L1XE50':
